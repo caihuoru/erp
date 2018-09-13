@@ -1,0 +1,42 @@
+.form-group {
+    width: 30%;
+    float: left;
+    margin-top: 30px;
+    line-height: 18px;
+}
+.widget-box{
+    padding: 0;
+    box-shadow: none;
+    margin: 0px 0;
+    border: 1px solid #CCC;
+    overflow: hidden;
+    *zoom: 1;
+}
+.widget-main{
+    padding-top: 10px;
+}
+.both{
+    clear: both;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.form-group select{
+    height: 33px;
+    line-height: 33px;
+}
+.form-group input{
+    height: 33px;
+    line-height: 33px;
+}
+.btn_body{
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+.margin_lr{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.required{
+    border-color: #ffa8a8 !important;
+}

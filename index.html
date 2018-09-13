@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>7搜装企ERP</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+		<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+
+		<!-- page specific plugin styles -->
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+		<div id="navbar" class="navbar navbar-default          ace-save-state">
+			<div class="navbar-container ace-save-state" id="navbar-container">
+				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+					<span class="sr-only"><!-- Toggle sidebar--></span> 
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+
+					<span class="icon-bar"></span>
+				</button>
+
+				<div class="navbar-header pull-left">
+					<a href="index.html" class="navbar-brand">
+						<small>
+							<i class="fa fa-leaf"></i>
+							7搜装企云管家
+						</small>
+					</a>
+				</div>
+
+				<div class="navbar-buttons navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="grey dropdown-modal">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="ace-icon fa fa-tasks"></i>
+								<span class="badge badge-grey">4</span>
+							</a>
+
+							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="ace-icon fa fa-check"></i>
+									4 项任务
+								</li>
+
+								<li class="dropdown-content">
+									<ul class="dropdown-menu dropdown-navbar">
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">进度</span>
+													<span class="pull-right">65%</span>
+												</div>
+
+												<div class="progress progress-mini">
+													<div style="width:65%" class="progress-bar"></div>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">进度</span>
+													<span class="pull-right">35%</span>
+												</div>
+
+												<div class="progress progress-mini">
+													<div style="width:35%" class="progress-bar progress-bar-danger"></div>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">进度</span>
+													<span class="pull-right">15%</span>
+												</div>
+
+												<div class="progress progress-mini">
+													<div style="width:15%" class="progress-bar progress-bar-warning"></div>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">进度</span>
+													<span class="pull-right">90%</span>
+												</div>
+
+												<div class="progress progress-mini progress-striped active">
+													<div style="width:90%" class="progress-bar progress-bar-success"></div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="dropdown-footer">
+									<a href="#">
+										更多
+										<i class="ace-icon fa fa-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="purple dropdown-modal">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="ace-icon fa fa-exclamation-triangle"></i>
+									通告
+								</li>
+
+								<li class="dropdown-content">
+									<ul class="dropdown-menu dropdown-navbar navbar-pink">
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+														最新公司通告
+													</span>
+													<span class="pull-right badge badge-info">+12</span>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<i class="btn btn-xs btn-primary fa fa-user"></i>
+												最新部门通告
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+														最新奖惩通告
+													</span>
+													<span class="pull-right badge badge-success">+8</span>
+												</div>
+											</a>
+										</li>
+
+										<li>
+											<a href="#">
+												<div class="clearfix">
+													<span class="pull-left">
+														<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+														最新曝光台
+													</span>
+													<span class="pull-right badge badge-info">+11</span>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li class="dropdown-footer">
+									<a href="#">
+										更多
+										<i class="ace-icon fa fa-arrow-right"></i>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+					
+						<li class="light-blue dropdown-modal">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎,</small>
+									何大
+								</span>
+
+								<i class="ace-icon fa fa-caret-down"></i>
+							</a>
+
+							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="profile.html">
+										<i class="ace-icon fa fa-user"></i>
+										个人中心
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="ace-icon fa fa-power-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div><!-- /.navbar-container -->
+		</div>
+
+		<div class="main-container ace-save-state" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.loadState('main-container')}catch(e){}
+			</script>
+
+			<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+				<script type="text/javascript">
+					try{ace.settings.loadState('sidebar')}catch(e){}
+				</script>
+
+				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+						<button class="btn btn-success">
+							<i class="ace-icon fa fa-signal"></i>
+						</button>
+
+						<button class="btn btn-info">
+							<i class="ace-icon fa fa-pencil"></i>
+						</button>
+
+						<button class="btn btn-warning">
+							<i class="ace-icon fa fa-users"></i>
+						</button>
+
+						<button class="btn btn-danger">
+							<i class="ace-icon fa fa-cogs"></i>
+						</button>
+					</div>
+
+					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+
+						<span class="btn btn-info"></span>
+
+						<span class="btn btn-warning"></span>
+
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!-- /.sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+					<li class="active">
+						<a href="index.html">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> 首页 </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/marketing.png') no-repeat 15% center"></i>
+							<span class="menu-text">
+								市场营销
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									业务登记	
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											部门业务
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+
+							<li class="">
+									<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									我的业务
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+									<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									废单申请列表
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+									<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									市场业绩
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									废单池
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+									<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									废单跟踪审核列表
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+									<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									我的已转部业务
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/work_oa.png') no-repeat 15% center"></i>
+							<span class="menu-text"> OA办公 </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									通知公告管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											公告的管理
+										</a>
+
+										<b class="arrow"></b>
+									</li>	
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												部门公告管理
+											</a>
+	
+											<b class="arrow"></b>
+										</li>	
+								</ul>
+							</li>
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									请假申报
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											请假申请
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												假条列表
+											</a>
+	
+											<b class="arrow"></b>
+									</li>		
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我的假条
+											</a>
+	
+											<b class="arrow"></b>
+									</li>		
+								</ul>
+							</li>
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									工作计划
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												创建计划
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												个人计划
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												所有计划
+											</a>
+	
+											<b class="arrow"></b>
+									</li>
+									
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												部门计划
+											</a>
+	
+											<b class="arrow"></b>
+									</li>
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									高层信箱
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											总经理信箱
+										</a>
+
+										<b class="arrow"></b>
+									</li>	
+								
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												董事长信箱
+											</a>
+	
+											<b class="arrow"></b>
+										</li>	
+									</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									维修投诉
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											维修投诉录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												维修投诉单管理
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我添加的维修投诉单
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+
+
+									
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我的维修单
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									通讯录
+									
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									考勤管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											我的签到
+										</a>
+
+										<b class="arrow"></b>
+									</li>	
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												签到记录
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												当月出勤
+											</a>
+	
+											<b class="arrow"></b>
+									</li>	
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									通知公告发布
+									
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									用车申请
+									
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									办公用品领用
+									
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+						</ul>
+					</li>
+
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/ceo.png') no-repeat 15% center"></i>
+							<span class="menu-text"> CEO管理 </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									员工权限分配
+									
+								</a>
+
+								<b class="arrow"></b>
+
+							
+							</li>
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									费率项管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											家装费率项
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												默认利润及损耗值设置
+											</a>
+	
+											<b class="arrow"></b>
+									</li>
+
+									<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												工装费率项
+											</a>
+	
+											<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											套餐费率项
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+			
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									预算库管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											预算书页面设置
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											家装定额
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											工装定额
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											套餐定额
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											合同模板管理
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									预算空间管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											预算模板类型
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											预算空间模板
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									权限角色
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											角色权限列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									指标下达
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											市场部指标
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											客服部指标
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									集团管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											用户录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											用户列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											集团设置
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											集团部门
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											集团职位
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											集团业务
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											待权限分配人员列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									数据汇总
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											市场汇总
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											在设计汇总
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											客服汇总
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											资金汇总
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									高层信箱
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											我的信箱
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									退款审核
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											项目退款
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									公司业绩
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											市场部业绩
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											客服部业绩
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											设计部业绩
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/xz.png') no-repeat 15% center"></i>
+							<span class="menu-text"> 行政人事 </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									公司部门
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											部门管理
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											职位管理
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									办公审核
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											审核假条
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											计划审核
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											专线审阅
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											用车审核
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											办公用品领取审核
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									用户管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											员工增加
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											密码重置
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											用户微信列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											人事档案
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									客服前台
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											客户录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											我的录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											部门业务
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											废单审核
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											客服业绩
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											我的已转部录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											废单池
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											废单跟踪审核列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									办公用品管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											办公用品录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											办公用品列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									车辆管理
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											车辆录入
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									<li class="">
+										<a href="#">
+											<i class="menu-icon fa fa-caret-right"></i>
+											车辆列表
+										</a>
+
+										<b class="arrow"></b>
+									</li>
+
+									
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/material.png') no-repeat 15% center"></i>
+							<span class="menu-text"> 材料管理 </span>
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+						<b class="arrow"></b>
+							<ul class="submenu">
+								<li class="">
+									<a href="#" class="dropdown-toggle">
+										<i class="menu-icon fa fa-caret-right"></i>
+	
+										供应商管理
+										<b class="arrow fa fa-angle-down"></b>
+									</a>
+	
+									<b class="arrow"></b>
+	
+									<ul class="submenu">
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												添加供应商
+											</a>
+			
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												供应商列表
+											</a>
+			
+											<b class="arrow"></b>
+										</li>
+									</ul>
+								</li>
+
+								<li class="">
+									<a href="#" class="dropdown-toggle">
+										<i class="menu-icon fa fa-caret-right"></i>
+		
+										主辅材管理
+										<b class="arrow fa fa-angle-down"></b>
+									</a>
+		
+									<b class="arrow"></b>
+		
+									<ul class="submenu">
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												材料类别列表
+											</a>
+				
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												主辅材录入
+											</a>
+				
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												主材列表
+											</a>
+				
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												辅材列表
+											</a>
+				
+											<b class="arrow"></b>
+										</li>
+									</ul>
+								</li>
+
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+			
+											材料采购
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+			
+										<b class="arrow"></b>
+			
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													项目用料选购
+												</a>
+					
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													材料采购申请
+												</a>
+					
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													材料采购审核
+												</a>
+					
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													材料验收
+												</a>
+					
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+							</ul>
+						
+
+						
+					</li>
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/budget.png') no-repeat 15% center"></i>
+							<span class="menu-text">
+								预算报价
+							</span>
+								<b class="arrow fa fa-angle-down"></b>
+							
+						</a>
+
+						<b class="arrow"></b>
+						<ul class="submenu">
+								<li class="">
+									<a href="#" class="dropdown-toggle">
+										<i class="menu-icon fa fa-caret-right"></i>
+				
+										项目跟单
+										<b class="arrow fa fa-angle-down"></b>
+									</a>
+				
+									<b class="arrow"></b>
+				
+									<ul class="submenu">
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我的项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我的待签合同项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												我的合同项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												公司已签合同项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												项目设计表(部门)
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												设计部待签合同项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												公司待签合同项目
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+									</ul>
+								</li>
+
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											项目审核
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													业务转设计审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													打印审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													预算修改审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													设计进度验收
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													合同签订申请审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											个人优秀作品
+											
+										</a>
+					
+										<b class="arrow"></b>
+					
+										
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											部门业绩
+											
+										</a>
+					
+										<b class="arrow"></b>
+					
+										
+								</li>
+
+									
+						</ul>
+					</li>
+
+					<li class="">
+							<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/caiwu.png') no-repeat 15% center"></i>
+									<span class="menu-text"> 财务管理 </span>
+		
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+		
+								<b class="arrow"></b>
+							<ul class="submenu">
+								<li class="">
+									<a href="#" class="dropdown-toggle">
+										<i class="menu-icon fa fa-caret-right"></i>
+				
+										收款管理
+										<b class="arrow fa fa-angle-down"></b>
+									</a>
+				
+									<b class="arrow"></b>
+				
+									<ul class="submenu">
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												收款方式管理
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												定金款审核管理
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												款项类型管理
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+										<li class="">
+											<a href="#">
+												<i class="menu-icon fa fa-caret-right"></i>
+												已签合同收付款
+											</a>
+						
+											<b class="arrow"></b>
+										</li>
+									</ul>
+								</li>
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											账户管理
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													资金账户管理
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													已签合同收支明细
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											收款计划
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													收款计划编辑
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											项目监控
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													领款核对
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											财务审核
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													已收款撤销审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													付款审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+							</ul>
+					</li>
+
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/build.png') no-repeat 15% center"></i>
+							<span class="menu-text"> 工程管理 </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											工程审核
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													项目选材审核
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													阶段验收
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													竣工验收
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											在建项目
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													在建项目
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													项目请款
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											完工项目
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													完工项目
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											待建工程
+											<b class="arrow fa fa-angle-down"></b>
+										</a>
+					
+										<b class="arrow"></b>
+					
+										<ul class="submenu">
+											<li class="">
+												<a href="#">
+													<i class="menu-icon fa fa-caret-right"></i>
+													待建工程
+												</a>
+							
+												<b class="arrow"></b>
+											</li>
+										</ul>
+								</li>
+
+								<li class="">
+										<a href="#" class="dropdown-toggle">
+											<i class="menu-icon fa fa-caret-right"></i>
+					
+											我的施工项目
+											
+										</a>
+					
+										<b class="arrow"></b>
+					
+										
+								</li>
+						</ul>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/xt.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								系统管理
+
+								<span class="badge badge-primary">3</span>
+								
+							</span>
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+						<b class="arrow"></b>
+							<ul class="submenu">
+
+									<li class="">
+											<a href="#" class="dropdown-toggle">
+												<i class="menu-icon fa fa-caret-right"></i>
+						
+												系统参数管理
+												<b class="arrow fa fa-angle-down"></b>
+											</a>
+						
+											<b class="arrow"></b>
+						
+											<ul class="submenu">
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														角色管理
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														菜单管理
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														跟进状态管理
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														手机菜单管理
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+											</ul>
+									</li>
+
+									<li class="">
+											<a href="#" class="dropdown-toggle">
+												<i class="menu-icon fa fa-caret-right"></i>
+						
+												日志记录管理
+												<b class="arrow fa fa-angle-down"></b>
+											</a>
+						
+											<b class="arrow"></b>
+						
+											<ul class="submenu">
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														用户登录情况
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+											</ul>
+									</li>
+
+									<li class="">
+											<a href="#" class="dropdown-toggle">
+												<i class="menu-icon fa fa-caret-right"></i>
+						
+												微信管理
+												<b class="arrow fa fa-angle-down"></b>
+											</a>
+						
+											<b class="arrow"></b>
+						
+											<ul class="submenu">
+												<li class="">
+													<a href="#">
+														<i class="menu-icon fa fa-caret-right"></i>
+														微信菜单
+													</a>
+								
+													<b class="arrow"></b>
+												</li>
+											</ul>
+									</li>
+							</ul>
+					
+					</li>
+
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/mark.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								主材商城
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/shop.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								辅材商城
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+					
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-coffee"></i>
+
+							<span class="menu-text">
+								材料供应商
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/case.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								精美案例
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/team.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								优秀团队
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa" style="background:url('http://wechat.yzferp.com/static/erp/images/update.png') no-repeat 15% center"></i>
+
+							<span class="menu-text">
+								版本检测
+
+								<!-- <span class="badge badge-primary">5</span> -->
+							</span>
+
+							
+						</a>
+
+						<b class="arrow"></b>
+
+						
+					</li>
+
+
+				</ul><!-- /.nav-list -->
+
+				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+			</div>
+
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">首页</a>
+							</li>
+							
+						</ul><!-- /.breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="搜索 ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- /.nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="ace-settings-container" id="ace-settings-container">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+								<i class="ace-icon fa fa-cog bigger-130"></i>
+							</div>
+
+							<div class="ace-settings-box clearfix" id="ace-settings-box">
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<div class="pull-left">
+											<select id="skin-colorpicker" class="hide">
+												<option data-skin="no-skin" value="#438EB9">#438EB9</option>
+												<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+												<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+												<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+											</select>
+										</div>
+										<span>&nbsp; Choose Skin</span>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
+										<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
+										<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
+										<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
+										<label class="lbl" for="ace-settings-add-container">
+											Inside
+											<b>.container</b>
+										</label>
+									</div>
+								</div><!-- /.pull-left -->
+
+								<div class="pull-left width-50">
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
+										<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
+										<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+									</div>
+
+									<div class="ace-settings-item">
+										<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+										<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+									</div>
+								</div><!-- /.pull-left -->
+							</div><!-- /.ace-settings-box -->
+						</div><!-- /.ace-settings-container -->
+
+						<div class="page-header">
+							<h1>
+								首页
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									统计
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="alert alert-block alert-success">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
+
+									<i class="ace-icon fa fa-check green"></i>
+
+									欢迎使用
+									<strong class="green">
+										
+										7搜装企云管家
+									</strong>,
+									
+								</div>
+
+								<div class="row">
+									<div class="space-6"></div>
+
+									<div class="col-sm-7 infobox-container">
+										<div class="infobox infobox-green">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-comments"></i>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number">32</span>
+												<div class="infobox-content">comments + 2 reviews</div>
+											</div>
+
+											<div class="stat stat-success">8%</div>
+										</div>
+
+										<div class="infobox infobox-blue">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-twitter"></i>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number">11</span>
+												<div class="infobox-content">new followers</div>
+											</div>
+
+											<div class="badge badge-success">
+												+32%
+												<i class="ace-icon fa fa-arrow-up"></i>
+											</div>
+										</div>
+
+										<div class="infobox infobox-pink">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-shopping-cart"></i>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number">8</span>
+												<div class="infobox-content">new orders</div>
+											</div>
+											<div class="stat stat-important">4%</div>
+										</div>
+
+										<div class="infobox infobox-red">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-flask"></i>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number">7</span>
+												<div class="infobox-content">experiments</div>
+											</div>
+										</div>
+
+										<div class="infobox infobox-orange2">
+											<div class="infobox-chart">
+												<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-data-number">6,251</span>
+												<div class="infobox-content">pageviews</div>
+											</div>
+
+											<div class="badge badge-success">
+												7.2%
+												<i class="ace-icon fa fa-arrow-up"></i>
+											</div>
+										</div>
+
+										<div class="infobox infobox-blue2">
+											<div class="infobox-progress">
+												<div class="easy-pie-chart percentage" data-percent="42" data-size="46">
+													<span class="percent">42</span>%
+												</div>
+											</div>
+
+											<div class="infobox-data">
+												<span class="infobox-text">traffic used</span>
+
+												<div class="infobox-content">
+													<span class="bigger-110">~</span>
+													58GB remaining
+												</div>
+											</div>
+										</div>
+
+										<div class="space-6"></div>
+
+										<div class="infobox infobox-green infobox-small infobox-dark">
+											<div class="infobox-progress">
+												<div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+													<span class="percent">61</span>%
+												</div>
+											</div>
+
+											<div class="infobox-data">
+												<div class="infobox-content">Task</div>
+												<div class="infobox-content">Completion</div>
+											</div>
+										</div>
+
+										<div class="infobox infobox-blue infobox-small infobox-dark">
+											<div class="infobox-chart">
+												<span class="sparkline" data-values="3,4,2,3,4,4,2,2"></span>
+											</div>
+
+											<div class="infobox-data">
+												<div class="infobox-content">Earnings</div>
+												<div class="infobox-content">$32,000</div>
+											</div>
+										</div>
+
+										<div class="infobox infobox-grey infobox-small infobox-dark">
+											<div class="infobox-icon">
+												<i class="ace-icon fa fa-download"></i>
+											</div>
+
+											<div class="infobox-data">
+												<div class="infobox-content">Downloads</div>
+												<div class="infobox-content">1,205</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="vspace-12-sm"></div>
+
+									<div class="col-sm-5">
+										<div class="widget-box">
+											<div class="widget-header widget-header-flat widget-header-small">
+												<h5 class="widget-title">
+													<i class="ace-icon fa fa-signal"></i>
+													统计
+												</h5>
+
+												<div class="widget-toolbar no-border">
+													<div class="inline dropdown-hover">
+														<button class="btn btn-minier btn-primary">
+															这一周
+															<i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
+														</button>
+
+														<ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
+															<li class="active">
+																<a href="#" class="blue">
+																	<i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
+																	这一周
+																</a>
+															</li>
+
+															<li>
+																<a href="#">
+																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+																	上一周
+																</a>
+															</li>
+
+															<li>
+																<a href="#">
+																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+																	这个月
+																</a>
+															</li>
+
+															<li>
+																<a href="#">
+																	<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+																	上个月
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main">
+													<div id="piechart-placeholder"></div>
+
+													<div class="hr hr8 hr-double"></div>
+
+													<div class="clearfix">
+														<div class="grid3">
+															<span class="grey">
+																<i class="ace-icon fa fa-facebook-square fa-2x blue"></i>
+																&nbsp; likes
+															</span>
+															<h4 class="bigger pull-right">1,255</h4>
+														</div>
+
+														<div class="grid3">
+															<span class="grey">
+																<i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
+																&nbsp; tweets
+															</span>
+															<h4 class="bigger pull-right">941</h4>
+														</div>
+
+														<div class="grid3">
+															<span class="grey">
+																<i class="ace-icon fa fa-pinterest-square fa-2x red"></i>
+																&nbsp; pins
+															</span>
+															<h4 class="bigger pull-right">1,050</h4>
+														</div>
+													</div>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<div class="hr hr32 hr-dotted"></div>
+
+								
+
+								<div class="hr hr32 hr-dotted"></div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="widget-box transparent" id="recent-box">
+											<div class="widget-header">
+												<h4 class="widget-title lighter smaller">
+													<i class="ace-icon fa fa-rss orange"></i>最近
+												</h4>
+
+												<div class="widget-toolbar no-border">
+													<ul class="nav nav-tabs" id="recent-tab">
+														<li class="active">
+															<a data-toggle="tab" href="#member-tab" >会员</a>
+														</li>
+
+														<li>
+															<a data-toggle="tab" href="#comment-tab">评论</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main padding-4">
+													<div class="tab-content padding-8">
+														<div id="member-tab" class="tab-pane active">
+															<div class="clearfix">
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Bob Doe's avatar" src="assets/images/avatars/user.jpg" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Bob Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">20 分钟前</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-warning label-sm">有待</span>
+
+																			<div class="inline position-relative">
+																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
+																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
+																				</button>
+
+																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																					<li>
+																						<a href="#" class="tooltip-success" data-rel="tooltip" title="批准"">
+																							<span class="green">
+																								<i class="ace-icon fa fa-check bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="拒绝">
+																							<span class="orange">
+																								<i class="ace-icon fa fa-times bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
+																							<span class="red">
+																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Joe Doe's avatar" src="assets/images/avatars/avatar2.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Joe Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">1 小时</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-warning label-sm">有待</span>
+
+																			<div class="inline position-relative">
+																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
+																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
+																				</button>
+
+																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																					<li>
+																						<a href="#" class="tooltip-success" data-rel="tooltip" title="批准"">
+																							<span class="green">
+																								<i class="ace-icon fa fa-check bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="拒绝">
+																							<span class="orange">
+																								<i class="ace-icon fa fa-times bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
+																							<span class="red">
+																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Jim Doe's avatar" src="assets/images/avatars/avatar.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Jim Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">2 小时前</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-warning label-sm">有待</span>
+
+																			<div class="inline position-relative">
+																				<button class="btn btn-minier btn-yellow btn-no-border dropdown-toggle" data-toggle="dropdown" data-position="auto">
+																					<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
+																				</button>
+
+																				<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																					<li>
+																						<a href="#" class="tooltip-success" data-rel="tooltip" title="批准"">
+																							<span class="green">
+																								<i class="ace-icon fa fa-check bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-warning" data-rel="tooltip" title="拒绝">
+																							<span class="orange">
+																								<i class="ace-icon fa fa-times bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+	
+																					<li>
+																						<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
+																							<span class="red">
+																								<i class="ace-icon fa fa-trash-o bigger-110"></i>
+																							</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Alex Doe's avatar" src="assets/images/avatars/avatar5.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Alex Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">3 小时前</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-danger label-sm">受阻</span>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Bob Doe's avatar" src="assets/images/avatars/avatar2.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Bob Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">6 小时</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-success label-sm arrowed-in">批准</span>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Susan's avatar" src="assets/images/avatars/avatar3.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Susan</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">昨天</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-success label-sm arrowed-in">批准</span>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Phil Doe's avatar" src="assets/images/avatars/avatar4.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Phil Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">2 天前</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-info label-sm arrowed-in arrowed-in-right">在线</span>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Alexa Doe's avatar" src="assets/images/avatars/avatar1.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Alexa Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">3 天前</span>
+																		</div>
+
+																		<div>
+																			<span class="label label-success label-sm arrowed-in">批准</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="space-4"></div>
+
+															<div class="center">
+																<i class="ace-icon fa fa-users fa-2x green middle"></i>
+
+																&nbsp;
+																<a href="#" class="btn btn-sm btn-white btn-info">
+																	查看所有成员 &nbsp;
+																	<i class="ace-icon fa fa-arrow-right"></i>
+																</a>
+															</div>
+
+															<div class="hr hr-double hr8"></div>
+														</div><!-- /.#member-tab -->
+
+														<div id="comment-tab" class="tab-pane">
+															<div class="comments">
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Bob Doe's Avatar" src="assets/images/avatars/avatar.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Bob Doe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="green">6 分钟前</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="ace-icon fa fa-quote-left"></i>
+																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="inline position-relative">
+																			<button class="btn btn-minier bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+																				<i class="ace-icon fa fa-angle-down icon-only bigger-120"></i>
+																			</button>
+
+																			<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																				<li>
+																					<a href="#" class="tooltip-success" data-rel="tooltip" title="批准"">
+																						<span class="green">
+																							<i class="ace-icon fa fa-check bigger-110"></i>
+																						</span>
+																					</a>
+																				</li>
+
+																				<li>
+																					<a href="#" class="tooltip-warning" data-rel="tooltip" title="拒绝">
+																						<span class="orange">
+																							<i class="ace-icon fa fa-times bigger-110"></i>
+																						</span>
+																					</a>
+																				</li>
+
+																				<li>
+																					<a href="#" class="tooltip-error" data-rel="tooltip" title="删除">
+																						<span class="red">
+																							<i class="ace-icon fa fa-trash-o bigger-110"></i>
+																						</span>
+																					</a>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Jennifer's Avatar" src="assets/images/avatars/avatar1.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Jennifer</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="blue">15 分钟前</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="ace-icon fa fa-quote-left"></i>
+																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#">
+																				<i class="ace-icon fa fa-pencil blue"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-trash-o red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Joe's Avatar" src="assets/images/avatars/avatar2.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Joe</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="orange">22 分钟前</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="ace-icon fa fa-quote-left"></i>
+																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#">
+																				<i class="ace-icon fa fa-pencil blue"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-trash-o red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="itemdiv commentdiv">
+																	<div class="user">
+																		<img alt="Rita's Avatar" src="assets/images/avatars/avatar3.png" />
+																	</div>
+
+																	<div class="body">
+																		<div class="name">
+																			<a href="#">Rita</a>
+																		</div>
+
+																		<div class="time">
+																			<i class="ace-icon fa fa-clock-o"></i>
+																			<span class="red">50 分钟前</span>
+																		</div>
+
+																		<div class="text">
+																			<i class="ace-icon fa fa-quote-left"></i>
+																			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis &hellip;
+																		</div>
+																	</div>
+
+																	<div class="tools">
+																		<div class="action-buttons bigger-125">
+																			<a href="#">
+																				<i class="ace-icon fa fa-pencil blue"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-trash-o red"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="hr hr8"></div>
+
+															<div class="center">
+																<i class="ace-icon fa fa-comments-o fa-2x green middle"></i>
+
+																&nbsp;
+																<a href="#" class="btn btn-sm btn-white btn-info">
+																	查看所有评论 &nbsp;
+																	<i class="ace-icon fa fa-arrow-right"></i>
+																</a>
+															</div>
+
+															<div class="hr hr-double hr8"></div>
+														</div>
+													</div>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+									</div><!-- /.col -->
+
+									<div class="col-sm-6">
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="widget-title lighter smaller">
+													<i class="ace-icon fa fa-comment blue"></i>
+													会话
+												</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<div class="dialogs">
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Alexa's Avatar" src="assets/images/avatars/avatar1.png" />
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="ace-icon fa fa-clock-o"></i>
+																	<span class="green">4 秒前</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Alexa</a>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="John's Avatar" src="assets/images/avatars/avatar.png" />
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="ace-icon fa fa-clock-o"></i>
+																	<span class="blue">38 秒前</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">John</a>
+																</div>
+																<div class="text">Raw denim you probably haven&#39;t heard of them jean shorts Austin.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Bob's Avatar" src="assets/images/avatars/user.jpg" />
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="ace-icon fa fa-clock-o"></i>
+																	<span class="orange">2 分钟前</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Bob</a>
+																	<span class="label label-info arrowed arrowed-in-right">admin</span>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Jim's Avatar" src="assets/images/avatars/avatar4.png" />
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="ace-icon fa fa-clock-o"></i>
+																	<span class="grey">3 分钟前</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Jim</a>
+																</div>
+																<div class="text">Raw denim you probably haven&#39;t heard of them jean shorts Austin.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+
+														<div class="itemdiv dialogdiv">
+															<div class="user">
+																<img alt="Alexa's Avatar" src="assets/images/avatars/avatar1.png" />
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<i class="ace-icon fa fa-clock-o"></i>
+																	<span class="green">4 分钟前</span>
+																</div>
+
+																<div class="name">
+																	<a href="#">Alexa</a>
+																</div>
+																<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<form>
+														<div class="form-actions">
+															<div class="input-group">
+																<input placeholder="Type your message here ..." type="text" class="form-control" name="message" />
+																<span class="input-group-btn">
+																	<button class="btn btn-sm btn-info no-radius" type="button">
+																		<i class="ace-icon fa fa-share"></i>
+																		发送
+																	</button>
+																</span>
+															</div>
+														</div>
+													</form>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div><!-- /.widget-box -->
+									</div><!-- /.col -->
+								</div><!-- /.row -->
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="footer-content">
+						<span class="bigger-120">
+							当前版本  <span class="blue bolder">v2.0.0</span>
+							©7搜网络版权所有
+						</span>
+
+						&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="assets/js/jquery-ui.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/jquery.easypiechart.min.js"></script>
+		<script src="assets/js/jquery.sparkline.index.min.js"></script>
+		<script src="assets/js/jquery.flot.min.js"></script>
+		<script src="assets/js/jquery.flot.pie.min.js"></script>
+		<script src="assets/js/jquery.flot.resize.min.js"></script>
+
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script src="assets/js/index.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

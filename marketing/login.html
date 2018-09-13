@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页</title>
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <script src="../assets/js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <div class="head">
+        <div class="head-img">
+            <img src="../img/login/qietu-02.png"/>  <span>装企ERP管理系统登录平台</span>
+        </div>
+        <div class="qs">
+            申请使用
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="main">
+
+        <div class="content">
+            <img class="img" src="../img/login/qietu-01.png"/>
+
+
+            <div class="login_view">
+                <div class="right">
+                    <div class="click" style="display:inline-block;">
+                        <button>扫码登录更安全</button>
+                        <img class="c_ewm" src="../img/login/qietu-03.png"/>
+                    </div>
+                </div>
+                <!-- 密码登录 -->
+                <div class="txt" id="password_login">
+                        <span class="d">用户登录</span>
+                        <div class="username">
+                            <img src="../img/login/ico1.png"/><input type="text" placeholder="用户名" id="user"/>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="username password">
+                                <img src="../img/login/ico2.png"/><input type="password" placeholder="请输入密码" id="password"/>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="other">
+                            <span style="color:#A3A3A3;"><input type="checkbox" name="password" value="password" checked="checked" /> 记住密码
+                            </span>
+                            <span style="color: #000000; margin-left:20px;">客户端下载</span>
+                            <a style="color: #666666; margin-left:6px;" href="#">忘记密码？</a>
+                            <a style="color: #42ADE5; margin-left:20px;" href="#">用户申请</a>
+                        </div>
+
+                        <div class="btn_">
+                            <button><span>登</span><span style="margin-left:10px;">录</span></button>
+                        </div>
+                </div>
+                <!-- 二维码登录 -->
+                <div class="txt" id="code_login" style="display:none;">
+                            <span class="d">手机扫码，安全登陆</span>
+                        
+                            <div class="tow_code">
+                                <img src="../img/login/erweima.png"/>
+                            </div>
+                            <div class="late_time">
+                                <img src="../img//login/qietu-04.png"/>
+                            </div>
+                            <div class="other_" style="text-align:right;">
+                                    <a style="color: #1A1A1A; margin-left:6px;" href="#">忘记密码？</a>
+                                    <a style="color: #1A1A1A; margin-left:10px;" href="#">用户申请</a>
+                            </div>
+                        
+                </div>
+
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="foot">
+        <table>
+            <tr>
+                <td>
+                    <div class="pa_1"><a href="#">关于我们</a><a href="#" style="margin-left:20px;">法律声明</a><a href="#" style="margin-left:20px;">服务条款</a></div>
+                    <div class="pa_1">客服电话：0755-36852777</div>
+                    <div class="pa_2">
+                            <p>地址：广东省深圳市龙岗区爱南路256号  邮编：518000  </p> 
+                            <p>Copyright  ©   2016-2099 深圳云紫峰网络科技股份有限公司  版权所有</p>
+                    </div>
+                    <div class="pa_3">建议使用IE8及以上版本的浏览器 <span style="margin-left:20px; color: #0076EF;"">粤ICP备16072931号</span></div>
+                </td>
+                <td style="text-align: center;">
+                    <img src="../img/login/erweima.png"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="tip">
+        
+    </div>
+    <div class="tip_txt">
+        <div class="tip_">
+                <div class="error">错误:</div>
+                <div class="message">用户名不能为空!</div>
+                <div class="close">
+                    <button>关闭</button>
+                </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var index=1;
+            // 二维码点击
+            $(".click").click(function(){
+                index++;
+                if(index%2==0){
+                    $("#password_login").fadeOut();
+                    setTimeout(function(){
+                        $("#code_login").fadeIn();
+                        $(".click button").html("密码登录在这里");
+                        $(".c_ewm").attr("src","../img/login/qietu-05.png")
+                    },400);
+                }else{
+                    setTimeout(function(){
+                    $("#password_login").fadeIn();
+                    $(".click button").html("扫码登录更安全");
+                    },400);
+                    $("#code_login").fadeOut();
+                    $(".c_ewm").attr("src","../img/login/qietu-03.png")
+                }
+                
+            })
+            // 登录点击
+            $(".btn_ button").click(function(){
+                $(".login_view .txt .username input").css({"border-color":"#999999"})
+                var user=$("#user").val();
+                var password=$("#password").val();
+                if(!user){
+                    $(".login_view .txt .username input[type='text']").css({"border-color":"#D15B47"});
+                    $(".message").html("用户名不能为空!");
+                    $(".tip").fadeIn();
+                    $(".tip_txt").fadeIn();
+                    return false;
+                }
+                else if(!password){
+                    $(".login_view .txt .username input[type='password']").css({"border-color":"#D15B47"})
+                    $(".message").html("密码不能为空!");
+                    $(".tip").fadeIn();
+                    $(".tip_txt").fadeIn();
+                    return false;
+                }
+
+            })
+        })
+        $(".close button").click(function(){
+            $(".tip").fadeOut();
+            $(".tip_txt").fadeOut();
+        })
+    </script>
+</body>
+</html>
