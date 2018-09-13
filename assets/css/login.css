@@ -277,20 +277,20 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     .login_view {
         float: none !important;
         margin: 0px auto !important;
-        height: 470px !important;
-        width: 484px !important;
+        height: 770px !important;
+        width: 80% !important;
         background-color: #fff !important;
         border-radius: 12px !important;
         box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6) !important;
         position: relative;
-        top: 100px;
+        top: 70px;
     }
     .login_view .txt {
-        width: 375px;
+        width: 90%;
         margin: 0 auto;
     }
-    .login_view .txt .username input {
-        width: 304px;
+    .foot{
+        padding-bottom: 30px;
     }
     .foot table img{
         display: none
@@ -298,8 +298,81 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     .foot table tr td{
         width: 100% !important;
     }
-    .foot table tr td .pa_1,.pa_2,.pa_3{
+    .foot table tr td .pa_1,.pa_2>p,.pa_3{
         text-align: center;
-        font-size: 24px !important;
+        font-size: 35px !important;
+    }
+    .login_view .txt .username img {
+        width: 80px;
+        height: 80px;
+    }
+    .login_view .txt .d {
+        display: block;
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+    .login_view .txt .username input{
+        font-size: 35px;
+        width: 85%;
+        border: 1px solid #999999;
+        height: 80px;
+    }
+    .c_ewm {
+        width: 65px;
+        height: 65px;
+    }
+    .right button{
+        height: 55px;
+        width: 160px;
+        font-size: 20px;
+    }
+    .login_view .other {
+        font-size: 35px;
+    }
+    .login_view .other input{
+        width: 20px;
+        height: 20px;
+    }
+    .login_view .other span:first-child{
+        margin-left: 0px !important;
+    }
+    .login_view .other a,.login_view .other span{
+        margin-top: 20px;
+        display: inline-block;
+        margin-left: 90px !important;
+    }
+    .login_view .other a:last-child{
+       display: block;
+       margin-left: 25px !important;
+       margin-top: 30px;
+    }
+    .tow_code img{
+        width: 175px;
+        height: 175px;
+    }
+    .qs{
+        font-size: 26px;
+        width: 200px;
+        height: 40px;
+        margin-right: 50px;
+        margin-top: 30px;
+    }
+    .main{
+        height: 900px;
+    }
+    .btn_ button{
+        width: 80%;
+        height: 90px;
+        font-size: 35px;
+    }
+    .head-img{
+        margin-left: 50px;
+    }
+    .head-img img {
+        width: 267px;
+        height: 65px;
+    }
+    .head-img span {
+        font-size: 30px;
     }
 }
