@@ -270,3 +270,36 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     margin-top: 30px;
     cursor: pointer;
 }
+@media screen and (max-width: 1200px) {
+    .content .img {
+        display: none;
+    }
+    .login_view {
+        float: none !important;
+        margin: 0px auto !important;
+        height: 470px !important;
+        width: 484px !important;
+        background-color: #fff !important;
+        border-radius: 12px !important;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6) !important;
+        position: relative;
+        top: 100px;
+    }
+    .login_view .txt {
+        width: 375px;
+        margin: 0 auto;
+    }
+    .login_view .txt .username input {
+        width: 304px;
+    }
+    .foot table img{
+        display: none
+    }
+    .foot table tr td{
+        width: 100% !important;
+    }
+    .foot table tr td .pa_1,.pa_2,.pa_3{
+        text-align: center;
+        font-size: 24px !important;
+    }
+}
