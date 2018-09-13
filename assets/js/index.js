@@ -1,4 +1,132 @@
 jQuery(function($) {
+
+    let navigatorDom = "", breadcrumbs = {}, level = 0
+    // 初始加载menu
+    $.getJSON('/erp/Index/getMenuJson', function (nodes) {
+        let dom = parseMenuNode(nodes)
+        $("ul.nav.nav-list").append(dom)
+    })
+
+    getUserOnline()
+
+    // 递归处理多级导航
+    function parseMenuNode(nodes = {}) {
+        if (!nodes) return navigatorDom
+        $.each(nodes, function (index, node) {
+            let hasChild = (node.menus && node.menus.length > 0) ? true : false
+            navigatorDom += `
+                      <li class="">
+                        <a ` + (hasChild ? 'class="dropdown-toggle"' : '') + `  href=` + (node.url ? node.url : "javascript:void(0)") + `>
+                            <i class="menu-icon fa ` + (node.pid != 0 ? "fa-caret-right" : "") + `" ` + (node.icon ? 'style="background:url(' + node.icon + ') no-repeat center center; height:100%;"' : '') + `></i>
+                            <span class="menu-text"> ` + node.menu_name + ` </span>
+
+                            <b class="arrow ` + (hasChild ? "fa fa-angle-down" : "") + `"></b>
+                        </a>
+
+                        <b class="arrow"></b>`
+            if (hasChild) {
+                navigatorDom += `<ul class="submenu">`
+                parseMenuNode(node.menus)
+                navigatorDom += '</ul>'
+            } else {
+                navigatorDom += '</li>'
+            }
+        })
+        return navigatorDom;
+    }
+
+    // 获取在线用户
+    function getUserOnline() {
+        $.post("{:url('index/getUserOnline')}", {}, function(msg) {
+            console.log(msg)
+        })
+    }
+
+    // 获取用户
+
+    $(document).on('click', '.pc_modify_pwd', function (e) {
+        e.preventDefault();
+        $("#dialog-confirm").removeClass('hide').dialog({
+            resizable: false,
+            width: '320',
+            modal: true,
+            title: "修改密码",
+            title_html: true,
+            buttons: [
+                {
+                    html: "<i class='ace-icon fa fa-trash-o bigger-110'></i>&nbsp; 确认修改",
+                    "class": "btn btn-danger btn-minier",
+                    click: function (e) {
+                        let _self = $(this)
+                        let newPWD = $("input#pc_modify_pwd").val()
+                        if (!newPWD) {
+                            $.jnotify('新密码不能为空!', 'error', {timeout: 3, type: 'error', css: 'error'})
+                        } else if (newPWD.length < 4) {
+                            $.jnotify('新密码长度小于4位，存在安全隐患，请重新输入!', 'info', {timeout: 3, type: 'notify', css: 'info'})
+                        } else {
+                            $.ajax({
+                                url: "/erp/system/setPersonnelPassword",
+                                type: "POST",
+                                dataType: 'json',
+                                data: {password: newPWD},
+                                success: function (msg) {
+                                    console.log(msg)
+                                    if (msg.code == "1001") {
+                                        $.jnotify(msg.msg + '下次登录请用新密码!', 'success', {
+                                            timeout: 3,
+                                            type: 'success',
+                                            css: 'success'
+                                        })
+                                        _self.dialog("close");
+                                    }
+
+                                }
+                            })
+                        }
+
+                        //
+                    }
+                },
+                {
+                    html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; 取消",
+                    "class": "btn btn-minier",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+    })
+    $(document).on('click', '.pc_logout', function (e) {
+        e.preventDefault();
+        $("#dialog-message").removeClass("hide").dialog({
+            modal: true,
+            title: "信息",
+            title_html: true,
+            buttons: [
+                {
+                    text: "确认",
+                    "class": "btn btn-primary btn-minier",
+                    click: function () {
+                        $.post("{:url('api/system/logout')}", {}, function (msg) {
+                            if (msg.code == '1001') {
+                                window.location.href = "{:url('erp/Login/login')}"
+                            }
+                        })
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "继续",
+                    "class": "btn btn-minier",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        })
+    })
+
     $('.easy-pie-chart.percentage').each(function(){
         var $box = $(this).closest('.infobox');
         var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
