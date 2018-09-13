@@ -2,12 +2,12 @@ jQuery(function($) {
 
     let navigatorDom = "", breadcrumbs = {}, level = 0
     // 初始加载menu
-    $.getJSON('/erp/Index/getMenuJson', function (nodes) {
+    $.getJSON('get.json', function (nodes) {
         let dom = parseMenuNode(nodes)
         $("ul.nav.nav-list").append(dom)
     })
 
-    getUserOnline()
+    // getUserOnline()
 
     // 递归处理多级导航
     function parseMenuNode(nodes = {}) {
@@ -36,11 +36,11 @@ jQuery(function($) {
     }
 
     // 获取在线用户
-    function getUserOnline() {
-        $.post("{:url('index/getUserOnline')}", {}, function(msg) {
-            console.log(msg)
-        })
-    }
+    // function getUserOnline() {
+    //     $.post("{:url('index/getUserOnline')}", {}, function(msg) {
+    //         console.log(msg)
+    //     })
+    // }
 
     // 获取用户
 
