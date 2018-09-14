@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
@@ -8,13 +9,15 @@
     <title>登录页</title>
     <link rel="stylesheet" href="../assets/css/login.css" />
     <script src="../assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://wechat.yzferp.com/static/layer/layer.js"></script>
 </head>
+
 <body>
     <div class="head">
         <div class="head-img">
-            <img src="../img/login/qietu-02.png"/>  <span>装企ERP管理系统登录平台</span>
+            <img src="../img/login/qietu-02.png" /> <span>装企ERP管理系统登录平台</span>
         </div>
-        <div class="qs">
+        <div class="qs" onclick="ApplyForUse()">
             申请使用
         </div>
     </div>
@@ -23,140 +26,414 @@
     <div class="main">
 
         <div class="content">
-            <img class="img" src="../img/login/qietu-01.png"/>
+            <img class="img" src="../img/login/qietu-01.png" />
 
 
             <div class="login_view">
                 <div class="right">
                     <div class="click" style="display:inline-block;">
                         <button>扫码登录更安全</button>
-                        <img class="c_ewm" src="../img/login/qietu-03.png"/>
+                        <img class="c_ewm" src="../img/login/qietu-03.png" />
                     </div>
                 </div>
                 <!-- 密码登录 -->
                 <div class="txt" id="password_login">
-                        <span class="d">用户登录</span>
-                        <div class="username">
-                            <img src="../img/login/ico1.png"/><input type="text" placeholder="用户名" id="user"/>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="username password">
-                                <img src="../img/login/ico2.png"/><input type="password" placeholder="请输入密码" id="password"/>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="other">
-                            <span style="color:#A3A3A3;"><input type="checkbox" name="password" value="password" checked="checked" /> 记住密码
+                    <span class="d">用户登录</span>
+                    <div class="username">
+                        <img src="../img/login/ico1.png" /><input type="text" placeholder="用户名" id="username" name="username" />
+                    </div>
+                    <div class="clear"></div>
+                    <div class="username password">
+                        <img src="../img/login/ico2.png" /><input type="password" placeholder="请输入密码" id="password" name="password" />
+                    </div>
+                    <div class="clear"></div>
+                    <div class="other">
+                        <span style="color:#A3A3A3;"><input type="checkbox" name="password" value="password" checked="checked" /> 记住帐号
                             </span>
-                            <span style="color: #000000; margin-left:20px;">客户端下载</span>
-                            <a style="color: #666666; margin-left:6px;" href="#">忘记密码？</a>
-                            <a style="color: #42ADE5; margin-left:20px;" href="#">用户申请</a>
-                        </div>
+                        <a style="color: #000000; margin-left:20px;" href="javascript:;clientDown()">客户端下载</span>
+                            <a style="color: #666666; margin-left:6px;" href="javascript:showDiv();">忘记密码？</a>
+                        <a style="color: #42ADE5; margin-left:20px;" href="javascript:;" onclick="ApplyForUse()">用户申请</a>
+                    </div>
 
-                        <div class="btn_">
-                            <button><span>登</span><span style="margin-left:10px;">录</span></button>
-                        </div>
+                    <div class="btn_">
+                        <button><span>登</span><span style="margin-left:10px;">录</span></button>
+                    </div>
                 </div>
                 <!-- 二维码登录 -->
                 <div class="txt" id="code_login" style="display:none;">
-                            <span class="d">手机扫码，安全登陆</span>
-                        
-                            <div class="tow_code">
-                                <img src="../img/login/erweima.png"/>
-                            </div>
-                            <div class="late_time">
-                                <img src="../img//login/qietu-04.png"/>
-                            </div>
-                            <div class="other_" style="text-align:right;">
-                                    <a style="color: #1A1A1A; margin-left:6px;" href="#">忘记密码？</a>
-                                    <a style="color: #1A1A1A; margin-left:10px;" href="#">用户申请</a>
-                            </div>
-                        
+                    <span class="d">手机扫码，安全登陆</span>
+
+                    <div class="tow_code">
+                        <img src="../img/login/erweima.png" id="srcCode" />
+                    </div>
+                    <div class="late_time">
+                        <img src="../img/login/qietu-04.png" id="refurbish" class="refurbish" onclick="refurbish()" />
+                    </div>
+                    <div class="other_" style="text-align:right;" />
+                    <a style="color: #1A1A1A; margin-left:6px;" href="javascript:;" onclick="showDiv()">忘记密码？</a>
+                    <a style="color: #1A1A1A; margin-left:10px;" href="javascript:;" onclick="ApplyForUse()">用户申请</a>
                 </div>
 
             </div>
+
         </div>
-       
     </div>
 
-    <div class="foot">
+    </div>
+
+    <div class=" foot ">
         <table>
             <tr>
                 <td>
-                    <div class="pa_1"><a href="#">关于我们</a><a href="#" style="margin-left:20px;">法律声明</a><a href="#" style="margin-left:20px;">服务条款</a></div>
-                    <div class="pa_1">客服电话：0755-36852777</div>
-                    <div class="pa_2">
-                            <p>地址：广东省深圳市龙岗区爱南路256号  邮编：518000  </p> 
-                            <p>Copyright  ©   2016-2099 深圳云紫峰网络科技股份有限公司  版权所有</p>
+                    <div class="pa_1 "><a href="http://www.yzferp.com/erp/public_view/aboutus">关于我们</a><a href="http://www.yzferp.com/erp/public_view/statement" style="margin-left:20px; ">法律声明</a><a href="http://www.yzferp.com/erp/public_view/service" style="margin-left:20px; ">服务条款</a></div>
+                    <div class="pa_1 ">客服电话：0755-36852777</div>
+                    <div class="pa_2 ">
+                        <p>地址：广东省深圳市龙岗区爱南路256号 邮编：518000 </p>
+                        <p>Copyright © 2016-2099 深圳云紫峰网络科技股份有限公司 版权所有</p>
                     </div>
-                    <div class="pa_3">建议使用IE8及以上版本的浏览器 <span style="margin-left:20px; color: #0076EF;"">粤ICP备16072931号</span></div>
+                    <div class="pa_3 ">建议使用IE8及以上版本的浏览器 <span style="margin-left:20px; color: #0076EF; ">粤ICP备16072931号</span></div>
                 </td>
-                <td style="text-align: center;">
-                    <img src="../img/login/erweima.png"/>
+                <td style="text-align: center; ">
+                    <img src="../img/login/erweima.png " />
                 </td>
             </tr>
         </table>
     </div>
-    <div class="tip">
-        
-    </div>
-    <div class="tip_txt">
-        <div class="tip_">
-                <div class="error">错误:</div>
-                <div class="message">用户名不能为空!</div>
-                <div class="close">
-                    <button>关闭</button>
-                </div>
-        </div>
-    </div>
     <script>
-        $(function(){
-            var index=1;
+        $(function() {
+            var index = 1;
             // 二维码点击
-            $(".click").click(function(){
-                index++;
-                if(index%2==0){
-                    $("#password_login").fadeOut();
-                    setTimeout(function(){
-                        $("#code_login").fadeIn();
-                        $(".click button").html("密码登录在这里");
-                        $(".c_ewm").attr("src","../img/login/qietu-05.png")
-                    },400);
-                }else{
-                    setTimeout(function(){
-                    $("#password_login").fadeIn();
-                    $(".click button").html("扫码登录更安全");
-                    },400);
-                    $("#code_login").fadeOut();
-                    $(".c_ewm").attr("src","../img/login/qietu-03.png")
-                }
-                
-            })
-            // 登录点击
-            $(".btn_ button").click(function(){
-                $(".login_view .txt .username input").css({"border-color":"#999999"})
-                var user=$("#user").val();
-                var password=$("#password").val();
-                if(!user){
-                    $(".login_view .txt .username input[type='text']").css({"border-color":"#D15B47"});
-                    $(".message").html("用户名不能为空!");
-                    $(".tip").fadeIn();
-                    $(".tip_txt").fadeIn();
+            $(".click").click(function() {
+                    index++;
+                    if (index % 2 == 0) {
+                        $("#password_login").fadeOut();
+                        setTimeout(function() {
+                            $("#code_login").fadeIn();
+                            $(".click button").html("密码登录在这里");
+                            $(".login_view .txt .d").html("手机扫码，安全登陆");
+                            $(".c_ewm").attr("src","../img/login/qietu-05.png")
+                            var url = "json/getCode.json";
+                            $.ajax({
+                                type: "get",
+                                url: url,
+                                success: function(data) {
+                                    if (data.code == "1001") {
+                                        // console.log(data)
+                                        sid = parseInt(data.sid);
+                                        // $("#head_title").html('手机扫码，安全登陆');
+                                        //						$('.enter p span').parents('form').hide();
+                                        //						$('.alert').hide();
+
+                                        $('.show').show();
+                                        $("#srcCode").attr("src", data.img);
+                                        code_loop = setInterval("loginWe() ", 2000);
+                                    } else {
+                                        console.log(data)
+                                    }
+                                }
+                            })
+                        }, 400);
+                    } else {
+                        setTimeout(function() {
+                            $("#password_login").fadeIn();
+                            $(".click button").html("扫码登录更安全");
+                            $(".login_view .txt .d").html("用户登录");
+                        }, 400);
+                        $("#code_login").fadeOut();
+                        $(".c_ewm").attr("src", "../img/login/qietu-03.png")
+                    }
+
+                })
+                // 登录点击
+            $(".btn_ button").click(function() {
+                $(".login_view .txt .username input").css({
+                    "border-color": "#999999 "
+                })
+                var user = $("#username").val();
+                var password = $("#password").val();
+                if (!user) {
+                    $(".login_view .txt .username input[type='text']").css({
+                        "border-color": "#D15B47"
+                    });
+                    layer.msg("用户名不能为空!", {
+                        icon: 2
+                    });
                     return false;
-                }
-                else if(!password){
-                    $(".login_view .txt .username input[type='password']").css({"border-color":"#D15B47"})
-                    $(".message").html("密码不能为空!");
-                    $(".tip").fadeIn();
-                    $(".tip_txt").fadeIn();
+                } else if (!password) {
+                    $(".login_view .txt .username input[type='password']").css({
+                        "border-color": "#D15B47"
+                    })
+                    layer.msg("密码不能为空!", {
+                        icon: 2
+                    });
                     return false;
+                } else {
+                    var url = "json/success.json";
+                    if ($("input[type='checkbox' ]").is(':checked')) {
+                        localStorage.username = $("#username").val();
+                    }
+                    $.ajax({
+                        type: "get",
+                        url: url,
+                        data: {
+                            username: $("#username").val(),
+                            password: $("#password").val()
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            if (data.code == "1001") {
+                                layer.msg("登录成功,请稍候... ", {
+                                    icon: 1
+                                });
+                                setTimeout(function() {
+                                    location.href = "http://www.yzferp.com/erp/index/index ";
+                                }, 1500);
+
+
+                            } else {
+                                //							$(".warn").css("opacity ","1");
+                                layer.msg("帐号或密码错误!", {
+                                    icon: 1
+                                });
+                            }
+                        }
+                    })
                 }
 
             })
         })
-        $(".close button").click(function(){
-            $(".tip").fadeOut();
-            $(".tip_txt").fadeOut();
-        })
+    
+
+
+
+
+
+
+
+        var code_loop;
+        var sid;
+        $(function() {
+            if (location.href.indexOf('http://yzferp.com') == 1) {
+                window.location = 'http://www.yzferp.com';
+            }
+            if (localStorage.username) {
+                $("#username").val(localStorage.getItem('username'));
+                $("input[type='checkbox']").attr("checked", "checked");
+            }
+            $(document).keyup(function(event) {
+                if (event.keyCode == 13) {
+                    login();
+                }
+            });
+
+            myBrowser();
+        });
+        //客户端下载
+        function clientDown() {
+            var url = "http://wechat.yzferp.com/center/Client/Download ";
+            window.open(url);
+        }
+        
+        // 浏览器检测
+        function myBrowser() { //检测浏览器
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+            var isFF = userAgent.indexOf("Firefox") > -1; //判断是否Firefox浏览器
+            var isSafari = userAgent.indexOf("Safari") > -1; //判断是否Safari浏览器
+            if (isIE) {
+                var IE5 = IE55 = IE6 = IE7 = IE8 = false;
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1 "]);
+                IE55 = fIEVersion == 5.5;
+                IE6 = fIEVersion == 6.0;
+                IE7 = fIEVersion == 7.0;
+                IE8 = fIEVersion == 8.0;
+                if (IE55) {
+                    alert('建议使用高版本浏览器打开本系统！');
+                    return "IE55 ";
+                }
+                if (IE6) {
+                    alert('建议使用高版本浏览器打开本系统！');
+                    return "IE6 ";
+                }
+                if (IE7) {
+                    alert('建议使用高版本浏览器打开本系统！');
+                    return "IE7 ";
+                }
+                if (IE8) {
+                    alert('建议使用高版本浏览器打开本系统！');
+                    return "IE8 ";
+                }
+            } //isIE end
+            if (isFF) {
+                return "FF ";
+            }
+            if (isOpera) {
+                return "Opera ";
+            }
+        } //myBrowser() end
+        //以下是调用上面的函数
+
+        //忘记密码
+        function showDiv() {
+            $("#refurbish").css("display", "none");
+            setTimeout(function() {
+                $("#code_login").fadeIn();
+                $(".login_view .txt .d").html("找回密码");
+                $("#srcCode").attr("src", "../img/login/forgetPassword.png");
+            }, 400);
+
+            $("#password_login").fadeOut();
+
+        }
+
+        //用户申请
+        function ApplyForUse() {
+            var url = 'json/apply.json';
+            $.get(url, function(data) {
+                if (data.code == "1001") {
+                    $("#password_login").fadeOut();
+                    setTimeout(function() {
+                        $("#code_login").fadeIn();
+                        $(".login_view .txt .d").html("申请使用 打开微信扫一扫");
+                    }, 400);
+                    $("#srcCode").attr("src", data.url);
+                    code_loop = setInterval("loginWe()", 2000);
+                }
+            }, 'json');
+        }
+
+
+        // function apply() {
+        //     var form_data = $("#apply_form").serialize();
+        //     var url = "http://wechat.yzferp.com/center/we_action/apply ";
+        //     if (!$("#company").val()) {
+        //         layer.msg("请填写公司名称 ", {
+        //             icon: 2
+        //         });
+        //         return false;
+        //     }
+        //     if (!$("#contacts").val()) {
+        //         layer.msg("请填写联系人 ", {
+        //             icon: 2
+        //         });
+        //         return false;
+        //     }
+        //     if (!$("#mobile").val()) {
+        //         layer.msg("请填写联系手机 ", {
+        //             icon: 2
+        //         });
+        //         return false;
+        //     }
+        //     if (!$("#tencent_code").val()) {
+        //         layer.msg("请填写微信/QQ ", {
+        //             icon: 2
+        //         });
+        //         return false;
+        //     }
+        //     $.post(url, form_data, function(data) {
+        //         if (data.code == "1001") {
+        //             layer.msg('申请成功,等待审核', {
+        //                 icon: 1
+        //             });
+        //             $("#apply_form").form("clean");
+        //         } else {
+        //             layer.msg(data.msg ? data.msg : '申请失败，请联系客服', {
+        //                 icon: 2
+        //             });
+        //         }
+        //     }, 'json');
+
+        // }
+
+
+
+        function stopLoop() {
+            if (code_loop != null) {
+                clearTimeout(code_loop);
+                code_loop = null;
+            }
+        }
+        
+        //微信扫码登录
+        function loginWe() {
+            var url = "json/loginWe.json";
+            $.ajax({
+                type: "get",
+                url: url,
+                data: {
+                    sid: sid
+                },
+                success: function(data) {
+                    data.code = "1031"
+                    if (data.code == "1001") {
+                        console.log(1);
+                        stopLoop();
+                        setTimeout(function() {
+                            layer.msg("登录成功,请稍候... ", {
+                                    icon: 1
+                            });
+                            location.href = "http://wechat.yzferp.com/erp/index/index ";
+                        }, 800);
+
+                    } else if (data.code == "1031") {
+                        clearTimeout(code_loop);
+                        console.log("超时!");
+                        // 超时
+                        $("#refurbish").css("display", "inline-block");
+                    } else {
+
+                    }
+                }
+
+            });
+        }
+        
+        // 微信超时点击
+        function refurbish() {
+            // var url = "http://www.yzferp.com/api/system/getQrCode?new ";
+            // $.ajax({
+            //     type: "get ",
+            //     url: url,
+            //     data: " ",
+            //     success: function(data) {
+            //         if (data.code == "1001") {
+            //             sid = parseInt(data.sid);
+            //             $(".show_text").css("display ", "block");
+            //             $("#refurbish").css("display ", "none");
+            //             $("#srcCode").attr("src ", data.img);
+            //             code_loop = setInterval("loginWe() ", 2000);
+            //         }
+            //     }
+            // })
+                        setTimeout(function() {
+                            var url = "json/getCode.json";
+                            $.ajax({
+                                type: "get",
+                                url: url,
+                                success: function(data) {
+                                    if (data.code == "1001") {
+                                        // console.log(data)
+                                        sid = parseInt(data.sid);
+                                        // $("#head_title").html('手机扫码，安全登陆');
+                                        //						$('.enter p span').parents('form').hide();
+                                        //						$('.alert').hide();
+
+                                        $("#refurbish").css("display", "none");
+                                        $("#srcCode").attr("src", data.img);
+                                        code_loop = setInterval("loginWe() ", 2000);
+                                    } else {
+                                        console.log(data)
+                                    }
+                                }
+                            })
+                        }, 400);
+        }
+
+        
     </script>
 </body>
+
 </html>
