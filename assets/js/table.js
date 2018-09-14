@@ -45,8 +45,8 @@ jQuery(function($) {
     }
 
 
-    $('[data-rel=tooltip]').tooltip({container:'body'});
-    $('[data-rel=popover]').popover({container:'body'});
+    // $('[data-rel=tooltip]').tooltip({container:'body'});
+    // $('[data-rel=popover]').popover({container:'body'});
 
     autosize($('textarea[class*=autosize]'));
     
