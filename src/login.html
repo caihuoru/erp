@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no" />
     <title>登录页</title>
@@ -38,7 +38,6 @@
                 </div>
                 <!-- 密码登录 -->
                 <div class="txt" id="password_login">
-                    <form id="form_login">
                         <span class="d">用户登录</span>
                         <div class="username">
                             <img src="../img/login/ico1.png" /><input type="text" placeholder="用户名" id="username" name="username" />
@@ -59,7 +58,6 @@
                         <div class="btn_">
                             <button><span>登</span><span style="margin-left:10px;">录</span></button>
                         </div>
-                    </form>
                 </div>
                 <!-- 二维码登录 -->
                 <div class="txt" id="code_login" style="display:none;">
@@ -181,7 +179,7 @@
                             username: $("#username").val(),
                             password: $("#password").val()
                         },
-                        success: function(data) {
+                        success:function(data) {
                             console.log(data);
                             if (data.code == "1001") {
                                 layer.msg("登录成功,请稍候... ", {

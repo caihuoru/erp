@@ -394,4 +394,17 @@ html {
     .head-img span {
         font-size: 30px;
     }
+    .layui-layer-msg{
+        width: 50% !important;
+        height: 150px !important;
+        
+    }
+    .layui-layer-content{
+        font-size: 36px !important;
+        text-align: center !important;
+        line-height: 150px !important;
+    }
+    .layui-layer-ico{
+       display: none !important;
+    }
 }
