@@ -38,26 +38,28 @@
                 </div>
                 <!-- 密码登录 -->
                 <div class="txt" id="password_login">
-                    <span class="d">用户登录</span>
-                    <div class="username">
-                        <img src="../img/login/ico1.png" /><input type="text" placeholder="用户名" id="username" name="username" />
-                    </div>
-                    <div class="clear"></div>
-                    <div class="username password">
-                        <img src="../img/login/ico2.png" /><input type="password" placeholder="请输入密码" id="password" name="password" />
-                    </div>
-                    <div class="clear"></div>
-                    <div class="other">
-                        <span style="color:#A3A3A3;"><input type="checkbox" name="password" value="password" checked="checked" /> 记住帐号
-                            </span>
-                        <a style="color: #000000; margin-left:20px;" href="javascript:;clientDown()">客户端下载</span>
-                            <a style="color: #666666; margin-left:6px;" href="javascript:showDiv();">忘记密码？</a>
-                        <a style="color: #42ADE5; margin-left:20px;" href="javascript:;" onclick="ApplyForUse()">用户申请</a>
-                    </div>
+                    <form id="form_login">
+                        <span class="d">用户登录</span>
+                        <div class="username">
+                            <img src="../img/login/ico1.png" /><input type="text" placeholder="用户名" id="username" name="username" />
+                        </div>
+                        <div class="clear"></div>
+                        <div class="username password">
+                            <img src="../img/login/ico2.png" /><input type="password" placeholder="请输入密码" id="password" name="password" />
+                        </div>
+                        <div class="clear"></div>
+                        <div class="other">
+                            <span style="color:#A3A3A3;"><input type="checkbox" name="password" value="password" checked="checked" /> 记住帐号
+                                </span>
+                            <a style="color: #000000; margin-left:20px;" href="javascript:;clientDown()">客户端下载</span>
+                                <a style="color: #666666; margin-left:6px;" href="javascript:showDiv();">忘记密码？</a>
+                            <a style="color: #42ADE5; margin-left:20px;" href="javascript:;" onclick="ApplyForUse()">用户申请</a>
+                        </div>
 
-                    <div class="btn_">
-                        <button><span>登</span><span style="margin-left:10px;">录</span></button>
-                    </div>
+                        <div class="btn_">
+                            <button><span>登</span><span style="margin-left:10px;">录</span></button>
+                        </div>
+                    </form>
                 </div>
                 <!-- 二维码登录 -->
                 <div class="txt" id="code_login" style="display:none;">
@@ -222,7 +224,7 @@
             }
             $(document).keyup(function(event) {
                 if (event.keyCode == 13) {
-                    login();
+                    $(".btn_ button").trigger("click");
                 }
             });
 
@@ -291,6 +293,7 @@
 
         //用户申请
         function ApplyForUse() {
+            $("#refurbish").css("display", "none");
             var url = 'json/apply.json';
             $.get(url, function(data) {
                 if (data.code == "1001") {
@@ -300,53 +303,52 @@
                         $(".login_view .txt .d").html("申请使用 打开微信扫一扫");
                     }, 400);
                     $("#srcCode").attr("src", data.url);
-                    code_loop = setInterval("loginWe()", 2000);
                 }
             }, 'json');
         }
 
 
-        // function apply() {
-        //     var form_data = $("#apply_form").serialize();
-        //     var url = "http://wechat.yzferp.com/center/we_action/apply ";
-        //     if (!$("#company").val()) {
-        //         layer.msg("请填写公司名称 ", {
-        //             icon: 2
-        //         });
-        //         return false;
-        //     }
-        //     if (!$("#contacts").val()) {
-        //         layer.msg("请填写联系人 ", {
-        //             icon: 2
-        //         });
-        //         return false;
-        //     }
-        //     if (!$("#mobile").val()) {
-        //         layer.msg("请填写联系手机 ", {
-        //             icon: 2
-        //         });
-        //         return false;
-        //     }
-        //     if (!$("#tencent_code").val()) {
-        //         layer.msg("请填写微信/QQ ", {
-        //             icon: 2
-        //         });
-        //         return false;
-        //     }
-        //     $.post(url, form_data, function(data) {
-        //         if (data.code == "1001") {
-        //             layer.msg('申请成功,等待审核', {
-        //                 icon: 1
-        //             });
-        //             $("#apply_form").form("clean");
-        //         } else {
-        //             layer.msg(data.msg ? data.msg : '申请失败，请联系客服', {
-        //                 icon: 2
-        //             });
-        //         }
-        //     }, 'json');
+        function apply() {
+            var form_data = $("#apply_form").serialize();
+            var url = "http://wechat.yzferp.com/center/we_action/apply ";
+            if (!$("#company").val()) {
+                layer.msg("请填写公司名称 ", {
+                    icon: 2
+                });
+                return false;
+            }
+            if (!$("#contacts").val()) {
+                layer.msg("请填写联系人 ", {
+                    icon: 2
+                });
+                return false;
+            }
+            if (!$("#mobile").val()) {
+                layer.msg("请填写联系手机 ", {
+                    icon: 2
+                });
+                return false;
+            }
+            if (!$("#tencent_code").val()) {
+                layer.msg("请填写微信/QQ ", {
+                    icon: 2
+                });
+                return false;
+            }
+            $.post(url, form_data, function(data) {
+                if (data.code == "1001") {
+                    layer.msg('申请成功,等待审核', {
+                        icon: 1
+                    });
+                    $("#apply_form").form("clean");
+                } else {
+                    layer.msg(data.msg ? data.msg : '申请失败，请联系客服', {
+                        icon: 2
+                    });
+                }
+            }, 'json');
 
-        // }
+        }
 
 
 
@@ -431,6 +433,11 @@
                             })
                         }, 400);
         }
+        
+        //手机登录
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+
+        } 
 
         
     </script>

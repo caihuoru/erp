@@ -1,46 +1,75 @@
-a{text-decoration:none}
-em{font-style:normal}
-li{list-style:none}
-table{border-collapse:collapse;border-spacing:0}
-*{
+a {
+    text-decoration: none
+}
+
+em {
+    font-style: normal
+}
+
+li {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+* {
     padding: 0;
     margin: 0;
 }
-body{ margin: 0;padding: 0;font-family: "微软雅黑";}
-body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
 
-.head{
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+body,
+html {
+    -webkit-text-size-adjust: none;
+    width: 100%;
+    height: 100%;
+}
+
+.head {
     margin: 0 auto;
     width: 1200px;
     overflow: hidden;
     *zoom: 1;
 }
-.head-img{
+
+.head-img {
     margin-top: 22px;
     float: left;
 }
-.head-img img{
+
+.head-img img {
     width: 207px;
     height: 45px;
-    vertical-align:middle;
+    vertical-align: middle;
     position: relative;
     top: -5px;
 }
-.head-img span{
+
+.head-img span {
     font-family: "Microsoft YaHei";
-    font-size:26px;
+    font-size: 26px;
     font-weight: 400;
     margin-left: 35px;
 }
-.clear{
+
+.clear {
     clear: both;
     height: 13px;
 }
-.qs{
+
+.qs {
     color: #FF5D37;
-    width:110px;
-    height:36px;
-    font-size:16px;
+    width: 110px;
+    height: 36px;
+    font-size: 16px;
     border: 1px solid #FF5D37;
     font-weight: bold;
     float: right;
@@ -51,40 +80,51 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     font-family: "Microsoft YaHei";
     cursor: pointer;
 }
-.main{
+
+.main {
     width: 100%;
     height: 740px;
     background-color: #438EB9;
 }
-.content{
+
+.content {
     width: 1200px;
     margin: 0 auto;
 }
-.content .img{
+
+.content .img {
     margin-top: 150px;
     margin-left: 90px;
     float: left;
     width: 526px;
     height: 410px;
 }
-.login_view{
+
+.login_view {
     float: right;
     height: 470px;
     width: 384px;
     background-color: #fff;
-    border-radius:12px;
-    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.6);
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
     margin-top: 110px;
     margin-right: 1px;
 }
-.c_ewm{
+
+.c_ewm {
     width: 41px;
     height: 41px;
 }
-.right{
+
+.right {
     text-align: right;
 }
-.right button{
+
+#refurbish {
+    display: none;
+}
+
+.right button {
     border: 1px solid #54ACD5;
     background-color: #fff;
     height: 23px;
@@ -98,32 +138,38 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     margin-right: -5px;
     cursor: pointer;
 }
-.login_view .right .c_ewm{
-   margin-top: 20px;
-   margin-right: 20px;
-   
+
+.login_view .right .c_ewm {
+    margin-top: 20px;
+    margin-right: 20px;
 }
-.login_view .right .click{
+
+.login_view .right .click {
     cursor: pointer;
 }
-.login_view .txt{
+
+.login_view .txt {
     width: 317px;
     margin: 0 auto;
 }
-.login_view .txt .d{
-    font-size:18px;
+
+.login_view .txt .d {
+    font-size: 18px;
     font-weight: 400;
     font-family: "Microsoft YaHei";
 }
-.login_view .username{
+
+.login_view .username {
     margin-top: 20px;
 }
-.login_view .txt .username img{
+
+.login_view .txt .username img {
     width: 50px;
     height: 50px;
     float: left;
 }
-.login_view .txt .username input{
+
+.login_view .txt .username input {
     width: 246px;
     height: 48px;
     line-height: 48px;
@@ -135,22 +181,27 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     border-bottom: 1px solid #999999;
     font-size: 16px;
 }
-.login_view .other{
+
+.login_view .other {
     font-size: 13px;
     margin-top: 6px;
 }
-.login_view .other input{
+
+.login_view .other input {
     position: relative;
     top: 2px;
 }
-.login_view .other span{
+
+.login_view .other span {
     font-family: "Microsoft YaHei";
 }
-.btn_{
+
+.btn_ {
     text-align: center;
     margin-top: 60px;
 }
-.btn_ button{
+
+.btn_ button {
     height: 48px;
     width: 100%;
     line-height: 48px;
@@ -160,116 +211,81 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     font-size: 18px;
     border-radius: 5px;
 }
-.foot{
+
+.foot {
     width: 1200px;
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 100px;
 }
-.foot .pa_1{
+
+.foot .pa_1 {
     color: #1A1A1A;
     font-size: 20px;
     font-family: "Microsoft YaHei";
     margin-top: 20px;
 }
-.foot .pa_1 a{
+
+.foot .pa_1 a {
     color: #1A1A1A;
     font-family: "Microsoft YaHei";
 }
-.pa_2{
+
+.pa_2 {
     color: #999999;
 }
-.pa_2 p{
+
+.pa_2 p {
     margin-top: 10px;
     font-size: 15px;
 }
-.pa_3{
+
+.pa_3 {
     font-size: 12px;
     color: #999999;
     margin-top: 20px;
     margin-bottom: 30px;
 }
-.foot table{
+
+.foot table {
     width: 100%;
 }
-.foot table tr td{
+
+.foot table tr td {
     width: 50%;
 }
-.foot table tr td img{
-    width: 200px;
-    height: 200px;
+
+.foot table tr td img {
+    width: 150px;
+    height: 150px;
 }
-.tow_code{
+
+.tow_code {
     text-align: center;
 }
-.tow_code img{
+
+.tow_code img {
     margin-top: 50px;
-    width: 132px;
-    height: 132px;
+    width: 160px;
+    height: 160px;
 }
-.late_time{
+
+.late_time {
     text-align: center;
     cursor: pointer;
 }
-.late_time img{
+
+.late_time img {
     margin-top: 30px;
 }
-.other_{
-    margin-top: 60px;
+
+.other_ {
+    margin-top: 35px;
     font-size: 14px;
 }
-.tip{
-    position: fixed;
-    width: 100%;
-    height: 800%;
-    background-color: #1A1A1A;
-    opacity: 0.3;
-    top: 0;
-    display: none;
-}
-.tip_txt{
-    width: 100%;
-    position: fixed;
-    height: 100%;
-    top: 20%;
-    border-radius: 5px;
-    display: none;
-}
-.tip_{
-    width: 400px;
-    height: 200px;
-    background-color: #fff;
-    margin: 0 auto;
-    font-family: "Microsoft YaHei";
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-.error{
-    text-align: center;
-    padding-top: 20px;
-}
-.message{
-    text-align: center;
-    margin-top: 30px;
-    color: #FF5D37;
-}
-.close{
-    text-align: center;
-    font-size: 14px;
-}
-.close button{
-    height: 48px;
-    width: 40%;
-    line-height: 48px;
-    color: #fff;
-    background-color: #FF5D37;
-    border: 0;
-    font-size: 18px;
-    border-radius: 5px;
-    margin-top: 30px;
-    cursor: pointer;
-}
+
+
+
 @media screen and (max-width: 1200px) {
     .content .img {
         display: none;
@@ -281,7 +297,7 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
         width: 80% !important;
         background-color: #fff !important;
         border-radius: 12px !important;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6) !important;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6) !important;
         position: relative;
         top: 70px;
     }
@@ -289,16 +305,18 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
         width: 90%;
         margin: 0 auto;
     }
-    .foot{
+    .foot {
         padding-bottom: 30px;
     }
-    .foot table img{
+    .foot table img {
         display: none
     }
-    .foot table tr td{
+    .foot table tr td {
         width: 100% !important;
     }
-    .foot table tr td .pa_1,.pa_2>p,.pa_3{
+    .foot table tr td .pa_1,
+    .pa_2>p,
+    .pa_3 {
         text-align: center;
         font-size: 35px !important;
     }
@@ -311,7 +329,7 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
         font-size: 30px;
         margin-bottom: 40px;
     }
-    .login_view .txt .username input{
+    .login_view .txt .username input {
         font-size: 35px;
         width: 85%;
         border: 1px solid #999999;
@@ -321,7 +339,7 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
         width: 65px;
         height: 65px;
     }
-    .right button{
+    .right button {
         height: 55px;
         width: 160px;
         font-size: 20px;
@@ -329,43 +347,44 @@ body,html{-webkit-text-size-adjust: none;width: 100%;height: 100%;}
     .login_view .other {
         font-size: 35px;
     }
-    .login_view .other input{
+    .login_view .other input {
         width: 20px;
         height: 20px;
     }
-    .login_view .other span:first-child{
+    .login_view .other span:first-child {
         margin-left: 0px !important;
     }
-    .login_view .other a,.login_view .other span{
+    .login_view .other a,
+    .login_view .other span {
         margin-top: 20px;
         display: inline-block;
         margin-left: 90px !important;
     }
-    .login_view .other a:last-child{
-       display: block;
-       margin-left: 25px !important;
-       margin-top: 30px;
+    .login_view .other a:last-child {
+        display: block;
+        margin-left: 25px !important;
+        margin-top: 30px;
     }
-    .tow_code img{
+    .tow_code img {
         width: 175px;
         height: 175px;
     }
-    .qs{
+    .qs {
         font-size: 26px;
         width: 200px;
         height: 40px;
         margin-right: 50px;
         margin-top: 30px;
     }
-    .main{
+    .main {
         height: 900px;
     }
-    .btn_ button{
+    .btn_ button {
         width: 80%;
         height: 90px;
         font-size: 35px;
     }
-    .head-img{
+    .head-img {
         margin-left: 50px;
     }
     .head-img img {
