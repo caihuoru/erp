@@ -30,3 +30,17 @@
 .nav-list>li a>.arrow{
     top:25px;
 }
+.list_top{
+    font-size: 18px;
+    line-height: 40px;
+}
+.con{
+    height: 448px;
+    background-color: #F2F2F2;
+}
+.con .line{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #CCCCCC;
+    height: 1px;
+}
