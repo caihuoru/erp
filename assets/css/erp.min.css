@@ -19,10 +19,14 @@
     line-height: 35px !important;
 
 }
-.nav-list>li a>.arrow{
-    top: 20px !important;
+.open>.dropdown-toggle>.arrow {
+   position: relative;
+   top:20px !important;
 }
 .badge-primary, .badge.badge-primary, .label-primary, .label.label-primary {
     background-color: #fff;
     color: #337ab7;
+}
+.nav-list>li a>.arrow{
+    top:25px;
 }

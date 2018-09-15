@@ -3,6 +3,7 @@ jQuery(function($) {
     let navigatorDom = "", breadcrumbs = {}, level = 0
     // 初始加载menu
     $.getJSON('json/get.json', function (nodes) {
+        console.log(nodes);
         let dom = parseMenuNode(nodes)
         $("ul.nav.nav-list").append(dom)
     })
