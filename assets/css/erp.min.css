@@ -64,7 +64,13 @@
     padding:10px;
     margin-top:40px;
 }
-.con .line{
+.con_alert{
+    width: 96%;
+    height: 448px;
+    border-radius: 8px;
+    padding:10px;
+}
+.con .line,.con_alert .line{
     width: 95%;
     margin: 20px auto;
     background-color: #CCCCCC;
@@ -190,17 +196,19 @@
     clear: both;
     padding-top: 10px;
 }
-.con .population{
+.con .population,.con_alert .population{
     float: right;
     font-size:16px;
     font-family: "Microsoft YaHei";
     font-weight:400;
     color:rgba(67,142,185,1);
+    cursor: pointer;
 }
 .separate{
     padding-bottom:20px;
 }
-.function .separate div:first-child{
+ 
+/* .function*/ .separate div:first-child{
     width: 110px;
     border-radius: 50%;
     height: 110px;
@@ -316,6 +324,30 @@
 .date .red{
     border:1px solid #D86969;
     color: #D86969;
+}
+.full{
+    position: fixed;
+    width: 100%;
+    height: 300%;
+    top:0;
+    background-color: #000;
+    opacity: 0.3;
+}
+.editor-alert{
+    position: fixed;
+    width: 100%;
+    top:0;
+    display: none;
+    z-index: 999;
+    height:0;
+}
+.editor-alert .editor{
+    width:720px;
+    height:510px;
+    background-color: #fff;
+    margin: 100px auto;
+    border-radius:10px;
+    border: 1px solid #CCCCCC;
 }
 /* 首页媒体查询 */
 @media screen and (min-width: 1820px) {

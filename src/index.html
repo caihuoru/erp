@@ -612,6 +612,50 @@
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
 		</div>
+
+
+		<!-- 編輯弹窗 -->
+		<div class="editor-alert">
+			<div class="editor">
+				<div class="con_alert special_">
+					<div class="list_top index_font">+ 添加<span class="population index_font close-off">X</span></div>
+					<div class="line"></div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-1"></div>
+						<div class="index_font2">业务登记</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-2"></div>
+						<div class="index_font2">请假申请</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-3"></div>
+						<div class="index_font2">我的签到</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-4"></div>
+						<div class="index_font2">用车申请</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-5"></div>
+						<div class="index_font2">材料采购</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-6"></div>
+						<div class="index_font2">在建项目</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-7"></div>
+						<div class="index_font2">资金账户管理</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 separate">
+						<div class="classification-8"></div>
+						<div class="index_font2">创建计划</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 		
        <!-- basic scripts -->
 
@@ -649,7 +693,32 @@
 		<script src="../assets/js/index.js"></script>
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			// $("#page1").load("c_s.html");
+		// 点击编辑
+			$(".population").click(function(){
+				// 创建遮罩层
+				var full=document.createElement("div");
+				full.className="full";
+				$("body").append(full);
+				$(".editor-alert").fadeIn();
+			})
+
+
+			// 点击遮罩层
+			function Mask(is){
+				$("body").on("click",is, function(){  
+					$(".full").remove();
+					$(".editor-alert").fadeOut();
+				})
+			}
+			Mask(".full");
+			Mask(".close-off");
+			
+
+			$(".editor-alert .separate").click(function(){
+				$(".separate").css({"background":"transparent"});
+				$(this).css({"background":"#D9D9D9"})
+
+			})
 		</script>
 		
 </body>
