@@ -2,6 +2,10 @@
 /* 追加 */
 
 
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-left: 5px;
+}
+
 /* 首页修改 */
 .menu-icon{
     height: 23px !important;
@@ -34,9 +38,6 @@
 .nav-list>li a>.arrow{
     top:25px;
 }
-.list{
-    
-}
 .list_top{
     font-size: 24px;
     line-height: 30px;
@@ -56,11 +57,11 @@
     background-color: #F2F2F2;
     border-radius: 8px;
     padding:10px;
-    margin:40px auto 40px auto;
+    margin-top:40px;
 }
 .con .line{
     width: 95%;
-    margin: 10px auto;
+    margin: 20px auto;
     background-color: #CCCCCC;
     height: 1px;
 }
@@ -68,6 +69,15 @@
 /* 月度冠军 */
 .mouth{
     text-align: center;
+}
+.mouth-{
+    width:40% !important;
+}
+.serve{
+    width:35% !important;
+}
+.online-{
+    width:25% !important;
 }
 .mouth p{
     width:100%;
@@ -137,6 +147,14 @@
     font-weight:400;
     color:rgba(67,142,185,1);
 }
+.index_font2{
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    color: rgba(26,26,26,1);
+    font-size: 17px;
+    width:100%;
+    text-align: center;
+}
 .online_head{
     font-size:15px;
     font-family: "Microsoft YaHei";
@@ -157,6 +175,12 @@
     margin-right: 10px;
     margin-top: 0px;
 }
+.special_{
+    height:unset !important;
+    overflow: hidden;
+    *zoom: 1;
+    padding-bottom:15px;
+}
 .cut{
     clear: both;
     padding-top: 10px;
@@ -168,12 +192,148 @@
     font-weight:400;
     color:rgba(67,142,185,1);
 }
+.separate{
+    padding-bottom:20px;
+}
+.function .separate div:first-child{
+    width: 110px;
+    border-radius: 50%;
+    height: 110px;
+    margin:10px auto;
+    cursor: pointer;
+}
+.classification-1{
+    background:url(../images/index/often-4.png) no-repeat center center;
+    background-color: #87B87F; 
+}
+.classification-2{
+    background:url(../images/index/often-3.png) no-repeat center center;
+    background-color: #6FB3E0; 
+}
+.classification-3{
+    background:url(../images/index/often-2.png) no-repeat center center;
+    background-color: #FFB752; 
+}
+.classification-4{
+    background:url(../images/index/often-1.png) no-repeat center center;
+    background-color: #D15B47; 
+}
+.classification-5{
+    background:url(../images/index/often-6.png) no-repeat center center;
+    background-color: #FFB752; 
+}
+.classification-6{
+    background:url(../images/index/often-7.png) no-repeat center center;
+    background-color: #D15B47; 
+}
+.classification-7{
+    background:url(../images/index/often-8.png) no-repeat center center;
+    background-color: #6FB3E0; 
+}
+.classification-8{
+    background:url(../images/index/often-5.png) no-repeat center center;
+    background-color: #87B87F; 
+}
+
+
+.remind{
+    width: 94%;
+    margin: 0 auto;
+}
+.matter{
+    background-color: #E6E6E6;
+    font-size:16px;
+    font-family: "Microsoft YaHei";
+    font-weight:400;
+    color:rgba(26,26,26,1);
+    line-height: 35px;
+    padding-left: 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.matter .number{
+    width: 35px;
+    line-height: 20px;
+    background:rgba(255,0,0,1);
+    border-radius:10px;
+    float: right;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.news .notice{
+    padding-left: 20px;
+    margin-top: 12px;
+}
+.bulletin  .notice .Message-content{
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.bulletin  .notice .Message-content .spot{
+    background-color: #E60012;
+    height:5px;
+    width:5px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    visibility:hidden !important;
+}
+.bulletin  .notice .Message-content .show{
+    visibility:visible !important;
+}
+.bulletin  .notice .date{
+    padding-left: 17px;
+    color: #999999;
+    margin-top: 3px;
+}
+.date button{
+    border-radius:4px;
+    background-color:transparent;
+    line-height: 14px !important;
+    margin-left: 3px;
+}
+.date .green{
+    border:1px solid #69D869;
+    color: #69D869;
+}
+
+.date .blue{
+    border:1px solid #69B0D8;
+    color: #69B0D8;
+}
+
+.date .red{
+    border:1px solid #D86969;
+    color: #D86969;
+}
 /* 首页媒体查询 */
+@media screen and (min-width: 1820px) {
+    .mouth .icos{
+        width:174px;
+        height:174px;
+        margin:40px auto 0 auto;
+        float:none;
+    }
+    .remind-z{
+        position: relative;
+        left:-7px;
+    }
+}
 @media screen and (max-width: 1600px) {
+  
     .mouth{
         width: 100%;
         padding-right: 0px !important; 
         padding-left: 0px !important; 
+    }
+    .function{
+        /* width:100% !important; */
     }
     .mouth .icos{
         background-size: 100% 100%;
@@ -193,5 +353,28 @@
         width:40px;
         height:40px;
     }
+    .separate{
+        width:30% !important;
+    }
 
+}
+@media screen and (max-width: 1460px) {
+    .separate{
+        width:50% !important;
+    }
+    
+}
+@media screen and (max-width: 560px) {
+    .online- .col-sm-4:nth-child(1){
+        width:50%;
+    }
+    .online- .col-sm-4:nth-child(2){
+        display:none;
+    }
+
+}
+@media screen and (max-width: 1250px) {
+    .col-xs-12{
+        width: 100% !important;
+    }
 }
