@@ -617,45 +617,88 @@
 		<!-- 編輯弹窗 -->
 		<div class="editor-alert">
 			<div class="editor">
+				<div class="editor-sidebar">
+					<div class="col-xs-4 col-sm-4 editor-sidebar-1">
+						<div class="col-xs-12 col-sm-12 pick" data-nun="ND5924E4061DD27544910">市场营销</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND591E867F26AA1102505">OA办公</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND59C9ECB79C930555799">CEO管理</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND591EB168472FE565255">行政人事</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND593794B520029535048">材料管理</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND5950B3C77067E555548">预算报价</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND5950B3E5DD7F2531001">财务管理</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND5950B3F8B266B569850">工程管理</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND59CB19E73321C555151">主材商城</div>
+						<div class="col-xs-12 col-sm-12" data-nun="ND59DF33F1E28C5491015">辅材商城</div>
+					</div>
+					<div class="col-xs-8 col-sm-8 editor-sidebar-2">
+						<div class="management">
+							<div class="col-xs-6 col-sm-6">业务登记<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">部门业务<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">我的业务<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">废单申请<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">市场业绩<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">废单池<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">废单审核<span>+</span></div>
+							<div class="col-xs-6 col-sm-6">已转部业务<span>+</span></div>
+						</div>
+					</div>
+				</div>
 				<div class="con_alert special_">
-					<div class="list_top index_font">+ 添加<span class="population index_font close-off">X</span></div>
+					<div class="list_top index_font"><span class="adds">+ 添加</span><span class="population index_font close-off">X</span></div>
 					<div class="line"></div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-1"></div>
+						<span data-del="1">X</span>
 						<div class="index_font2">业务登记</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-2"></div>
+						<span data-del="2">X</span>
 						<div class="index_font2">请假申请</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-3"></div>
+						<span data-del="3">X</span>
 						<div class="index_font2">我的签到</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-4"></div>
+						<span data-del="4">X</span>
 						<div class="index_font2">用车申请</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-5"></div>
+						<span data-del="5">X</span>
 						<div class="index_font2">材料采购</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-6"></div>
+						<span data-del="6">X</span>
 						<div class="index_font2">在建项目</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-7"></div>
+						<span data-del="7">X</span>
 						<div class="index_font2">资金账户管理</div>
 					</div>
 					<div class="col-xs-6 col-sm-3 separate">
 						<div class="classification-8"></div>
+						<span data-del="8">X</span>
 						<div class="index_font2">创建计划</div>
 					</div>
 
 				</div>
 			</div>
 		</div>
+		<script id="tpl" type="text/html">
+			{{each data as value i}}
+				<div class="{{value.menu_id}} add_editor-sidebar">
+					{{each value.menus as value2 j}}
+						<div class="col-xs-6 col-sm-6 management-pick"><i class="management">{{value2.menu_name}}</i><span>+</span></div>
+					{{/each}}
+				</div>
+			{{/each}}
+		</script>
 		
        <!-- basic scripts -->
 
@@ -694,7 +737,7 @@
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 		// 点击编辑
-			$(".population").click(function(){
+			$(".function .population").click(function(){
 				// 创建遮罩层
 				var full=document.createElement("div");
 				full.className="full";
@@ -713,11 +756,85 @@
 			Mask(".full");
 			Mask(".close-off");
 			
-
+			// 常用功能点击效果
 			$(".editor-alert .separate").click(function(){
 				$(".separate").css({"background":"transparent"});
+				$(".index_font2").css({"color":"rgba(26,26,26,1)"});
+				$(this).find(".index_font2").css({"color":"#fff"});
 				$(this).css({"background":"#D9D9D9"})
 
+			})
+
+			// 刪除常用功能
+			$(".separate span").click(function(){
+				var index=$(this).data("del");
+				$(this).parent().fadeOut();
+				$(".function .classification-"+index).parent().fadeOut();
+			})
+
+
+			// 编辑增删减请求
+			$.ajax({
+				type: "get",
+				dataType:"json",
+				url:"json/get.json",
+				success:function(data){
+					var obj={};
+					obj.data=data;
+					var html = template('tpl', obj);
+					 $('.editor-sidebar-2').html(html);
+					 $(".ND5924E4061DD27544910").show();
+
+				}
+			})
+			
+			// 编辑常用功能增删减tab栏切换
+			$("body").on("click",".editor-sidebar-1 div",function(){
+				$(".editor-sidebar-1 div").removeClass("pick");
+				$(this).addClass("pick");
+
+				var num=$(this).data(num);
+				$(".add_editor-sidebar").hide();
+				$("."+num.nun).show();
+			})
+			
+			
+			// 编辑常用功能开关
+			$(".adds").click(function(){
+				if($(this).html()=="+ 添加"){
+					$(".editor-sidebar").show();
+					$(this).html("- 关闭");
+				}else{
+					$(".editor-sidebar").hide();
+					$(this).html("+ 添加");
+				}
+				
+			})
+			
+			// 是否选择
+			setTimeout(function(){
+				var management=document.querySelectorAll(".add_editor-sidebar .management");
+				var separate=document.querySelectorAll(".con_alert .separate .index_font2")
+				for(var i=0; i<management.length;i++){
+					// console.log($(".add_editor-sidebar .management").eq(i).html());
+					for(var j=0; j<separate.length;j++){
+						
+						if($(".add_editor-sidebar .management").eq(i).html()==$(".separate .index_font2").eq(j).html()){
+							$(".add_editor-sidebar .management").eq(i).parent().find("span").css({"color":"#CCCCCC","border":"1px solid #CCCCCC"}).addClass("no");
+						}
+					}
+				}
+			},300);
+			
+
+			$("body").on("click",".add_editor-sidebar .management-pick",function(){
+				 var separate=document.querySelectorAll(".con_alert .separate");
+				 var no=document.querySelectorAll(".no");
+				 console.log(separate.length-no.length);
+				 if(!separate.length-no.length==8){
+					 $(".con_alert .separate").eq(separate.length-no.length-1).parent().find("span").html($(this).parent().find("i").html());
+					 console.log($(this).parent().find(".management").html())
+				 }
 			})
 		</script>
 		

@@ -51,14 +51,14 @@
             {
                 "menu_id": "ND5A0AB1B4AE952529710",
                 "pid": "ND5924E4061DD27544910",
-                "menu_name": "废单跟踪审核列表",
+                "menu_name": "废单审核",
                 "icon": "",
                 "url": "\/erp\/waste_single\/showwasteprojectapply"
             },
             {
                 "menu_id": "ND5A1634309681D485754",
                 "pid": "ND5924E4061DD27544910",
-                "menu_name": "我的已转部业务",
+                "menu_name": "已转部业务",
                 "icon": "",
                 "url": "\/erp\/transferred_project\/showmarketuserproject"
             }
@@ -74,7 +74,7 @@
             {
                 "menu_id": "ND59520B3E00307101484",
                 "pid": "ND591E867F26AA1102505",
-                "menu_name": "通知公告管理",
+                "menu_name": "公告管理",
                 "icon": "&#xe6f9;",
                 "url": "",
                 "menus": [
