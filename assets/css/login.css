@@ -283,9 +283,6 @@ html {
     margin-top: 35px;
     font-size: 14px;
 }
-
-
-
 @media screen and (max-width: 1200px) {
     .content .img {
         display: none;

@@ -768,12 +768,12 @@
 			// 刪除常用功能
 			$(".separate span").click(function(){
 				var index=$(this).data("del");
-				$(this).parent().fadeOut();
-				$(".function .classification-"+index).parent().fadeOut();
+				$(this).addClass("edit-pass").parent().fadeOut();
+				$(".function .classification-"+index).addClass("pass").parent().fadeOut();
 			})
 
 
-			// 编辑增删减请求
+			// 编辑内容请求
 			$.ajax({
 				type: "get",
 				dataType:"json",
@@ -812,29 +812,42 @@
 			})
 			
 			// 是否选择
-			setTimeout(function(){
+			function pick(){
 				var management=document.querySelectorAll(".add_editor-sidebar .management");
-				var separate=document.querySelectorAll(".con_alert .separate .index_font2")
+				var separate=document.querySelectorAll(".con_alert .separate .index_font2");
+				$(".add_editor-sidebar .management").parent().find("span").css({"color":"#45E3FF","border":"1px solid #45E3FF"}).removeClass("no-yes");
 				for(var i=0; i<management.length;i++){
 					// console.log($(".add_editor-sidebar .management").eq(i).html());
 					for(var j=0; j<separate.length;j++){
 						
 						if($(".add_editor-sidebar .management").eq(i).html()==$(".separate .index_font2").eq(j).html()){
-							$(".add_editor-sidebar .management").eq(i).parent().find("span").css({"color":"#CCCCCC","border":"1px solid #CCCCCC"}).addClass("no");
+							$(".add_editor-sidebar .management").eq(i).parent().find("span").css({"color":"#CCCCCC","border":"1px solid #CCCCCC"}).addClass("no-yes");
 						}
 					}
 				}
-			},300);
+			}
+			setTimeout(pick,300);
 			
-
+			// 常用功能增加
 			$("body").on("click",".add_editor-sidebar .management-pick",function(){
-				 var separate=document.querySelectorAll(".con_alert .separate");
-				 var no=document.querySelectorAll(".no");
-				 console.log(separate.length-no.length);
-				 if(!separate.length-no.length==8){
-					 $(".con_alert .separate").eq(separate.length-no.length-1).parent().find("span").html($(this).parent().find("i").html());
-					 console.log($(this).parent().find(".management").html())
+				if($(this).find("span").hasClass("no-yes")){
+					console.log("已经存在!");
+					// alert("已经存在!");
+					return false;
+				}
+				 var pass=document.querySelectorAll(".pass");
+				 var edit_pass=document.querySelectorAll(".edit-pass").length;
+				 if(!edit_pass==0){
+					$(this).next().find("i").html()
+					 console.log(edit_pass);
+					 $(".pass").eq(edit_pass-1).next().html($(this).find("i").html());
+					 $(".edit-pass").eq(edit_pass-1).next().html($(this).find("i").html())
+					 $(".pass").eq(edit_pass-1).parent().fadeIn().find(".pass").removeClass("pass");
+					 $(".edit-pass").eq(edit_pass-1).parent().fadeIn().find(".edit-pass").removeClass("edit-pass");
+				 }else{
+					 console.log("已满8个");
 				 }
+				 pick();
 			})
 		</script>
 		
