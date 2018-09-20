@@ -72,7 +72,7 @@ i{font-style:normal}
 }
 .con .line{
     width: 95%;
-    margin: 20px auto;
+    margin: 10px auto;
     background-color: #CCCCCC;
     height: 1px;
 }
@@ -180,6 +180,25 @@ i{font-style:normal}
     font-weight:400;
     color:#333333;
 }
+.online-all{
+    overflow: hidden;
+    height: 300px;
+}
+.online-page{
+    overflow: hidden;
+    *zoom: 1;
+    position: relative
+}
+.load-more{
+    width:48px;
+    height:24px;
+    background-size: 100% 100%;
+    background-image: url(../images/index/more-ico.jpg);
+    margin: 12px auto;
+    position: relative;
+    left: 5px;
+    cursor: pointer;
+}
 .con .serve_data p{
     width:100%;
     text-align: center;
@@ -188,7 +207,7 @@ i{font-style:normal}
     font-size: 18px;
 }
 .online- .index_font,.function .index_font{
-    margin-top: 6px;
+    margin-top: 3px;
 }
 .online- .index_font:first-child,.function .index_font:first-child{
     margin-right: 10px;
@@ -444,9 +463,12 @@ i{font-style:normal}
         position: relative;
         left:-7px;
     }
+  
 }
 @media screen and (max-width: 1600px) {
-  
+    .con{
+        width:100%;
+    }
     .mouth{
         width: 100%;
         padding-right: 0px !important; 
@@ -491,10 +513,36 @@ i{font-style:normal}
     .online- .col-sm-4:nth-child(2){
         display:none;
     }
+    .editor-sidebar{
+        width:90%;
+    }
 
 }
 @media screen and (max-width: 1250px) {
     .col-xs-12{
         width: 100% !important;
     }
+}
+@media screen and (max-width: 750px) {
+    .editor-alert{
+        position: absolute;
+    }
+    .editor-alert .editor{
+        width:90%;
+        height:auto;
+    }
+}
+@media screen and (max-width: 1620px) {
+    .editor-alert{
+        position: absolute;
+    }
+    .editor-alert .editor{
+        height:auto;
+    }
+}
+@media screen and (max-width: 470px) {
+    .management{
+        font-size: 14px;
+    }
+
 }
