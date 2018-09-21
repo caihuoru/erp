@@ -5,6 +5,10 @@ i{font-style:normal}
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
     padding-left: 5px;
 }
+.navbar-brand small{
+    position: relative;
+    top:6px;
+}
 .ace-nav>li{
     margin:5px !important;
 }
@@ -548,4 +552,86 @@ i{font-style:normal}
         font-size: 14px;
     }
 
+}
+
+/* 找回密码 */
+.retrieve{
+    padding-top: 30px;
+    width:1000px;
+    margin:60px auto;
+    text-align: center;
+}
+.retrieve .input-group{
+    position: relative;
+    width:80%;
+    margin: 5px auto;
+}
+.retrieve .num{
+    position: absolute;
+    left: -60px;
+    top:10px;
+}
+.retrieve .block{
+    width:60%;
+    margin: 0 auto;
+}
+.retrieve #phone,.retrieve #short{
+    height:42px;
+    line-height: 42px;
+    padding-left: 50px !important;
+    
+}
+.retrieve #short{
+    width: 54%;
+    
+}
+.retrieve .ico-phone{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    z-index: 99;
+    font-size: 20px;
+    width: 45px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #D5D5D5;
+    color: #fff;
+}
+.retrieve .retrieve-1{
+    font-size: 17px;
+}
+.retrieve .retrieve-2{
+    font-size: 14px;
+}
+.retrieve .retrieve-2,.retrieve .retrieve-1{
+    font-family: "Microsoft YaHei";
+    text-align: center;
+    margin-bottom: 20px
+
+}
+.retrieve .verification input,#btn_sms{
+    width: 250px;
+    height: 44px;
+    border: 1px solid #e57f12;
+    background: #ffffff;
+    color: #e57f12;
+    cursor: pointer;
+    text-align: center;
+}
+#btn_sms{
+    width:40%;
+    float: right;
+}
+.margin-top-25{
+    margin-top: 25px !important;
+}
+.retrieve .verification{
+    padding-top: 40px;
+    text-align: center;
+    width:100%;
+}
+.retrieve-head{
+    background-color: #fff;
+    margin-left: 0;
 }
