@@ -449,7 +449,7 @@
             
             
             // 分页
-            var index=1;
+            var index=0;
             $("#grid-pager-b i").click(function(){
                 console.log($(this).hasClass("first"));
                 if($(this).hasClass("first")){
@@ -467,6 +467,7 @@
                     var html="";
                     if(index>=100){
                         index=100;
+                        return false;
                     }
                 }else if($(this).hasClass("last")){
                     var html="";
