@@ -887,11 +887,14 @@
         	}
 
 			// 打开页面加载本地存储
-			var local=[];
-			for(var i=1;i<=8;i++){
-				local[i]=localStorage.getItem("classification-"+i);
-				$(".classification-"+i).parent().find(".index_font2").html(local[i]);	
+			if(localStorage.getItem("classification-1")){
+				var local=[];
+				for(var i=1;i<=8;i++){
+					local[i]=localStorage.getItem("classification-"+i);
+					$(".classification-"+i).parent().find(".index_font2").html(local[i]);	
+				}
 			}
+			
 			
 			
 			// 查看在线人员---滚动

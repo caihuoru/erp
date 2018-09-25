@@ -376,7 +376,7 @@
                 <div id="grid-pager-b">
                     <i class="first"></i>
                     <i class="late"></i>
-                   <label>第 <input type="text" value="1"/> /1</label>
+                   <label>第 <input type="text" value="1"/> /5</label>
                     <i class="next"></i>
                     <i class="last"></i>
                 </div>
@@ -434,24 +434,116 @@
 		<script src="../../assets/js/bootstrap-datepicker.min.js"></script>
 		<!-- <script src="../../assets/js/jquery.jqGrid.min.js"></script> -->
 		<script src="../../assets/js/grid.locale-en.js"></script>
-
+        <script src="../../assets/js/layer/layer.js"></script>
 		<!-- ace scripts -->
 		<script src="../../assets/js/erp-elements.min.js"></script>
         <script src="../../assets/js/erp.min.js"></script>
         <script src="../../assets/js/bunsiness.js"></script>
         <script type="text/javascript">
-        window.onload = function()
-            {
+            // 表格排序
+            window.onload = function() {
                 new TableSorter("data-table");
             }
+            
+            
+            // 分页
+            var index=1;
+            $("#grid-pager-b i").click(function(){
+                console.log($(this).hasClass("first"));
+                if($(this).hasClass("first")){
+                    index=1;
+                    var html="";
+                    for(var i=0;i<20;i++){
+                        html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
+                    }
+                    $(".gbox_grid-table table").html(html);
+                    $("#grid-pager-b input").val(Math.ceil(index/20))
+                }else if($(this).hasClass("late")){
+                    var html="";
+                    index-=20;
+                    if(index<=0){
+                        index=0;
+                    }
+                    for(var i=0;i<20;i++){
+                        html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
+                    }
+                    $(".gbox_grid-table table").html(html);
+                    $("#grid-pager-b input").val(Math.ceil(index/20))
+                }else if($(this).hasClass("next")){
+                    index+=20;
+                    var html="";
+                    if(index>=100){
+                        index=100;
+                    }
+                    for(var i=0;i<20;i++){
+                        html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
+                    }
+                    $(".gbox_grid-table table").html(html);
+                    $("#grid-pager-b input").val(Math.ceil(index/20))
+                }else if($(this).hasClass("last")){
+                    var html="";
+                    index=100;
+                    for(var i=0;i<20;i++){
+                        html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
+                    }
+                    $(".gbox_grid-table table").html(html);
+                    $("#grid-pager-b input").val(Math.ceil(index/20))
+                }else{
+                    layer.msg("错误!", {
+                    	icon: 2
+                	});
+                }
+            })
+            // $("#grid-pager-b .next").click(function(){
+               
+            // })
+
+            //初始化表格数据
             var html="";
             for(var i=0;i<20;i++){
                 html+= "<tr><td>"+i+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
             }
             $(".gbox_grid-table table").append(html);
            
+            
+            
+
+            // 编辑
+            $("#data-table td").click(function(){
+                    $("#data-table td").removeAttr("contenteditable");
+                    $("#data-table td").css({"border":"1px solid #DDDDDD"})
+
+                    $(this).attr("contenteditable",true);
+                    $(this).css({"border":"3px solid #DDDDDD"})
+                    $(this).focus();
+                    
+                   
+               
+                    
+                })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // 测试
 
             let navigatorDom = "", breadcrumbs = {}, level = 0
             // 初始加载menu

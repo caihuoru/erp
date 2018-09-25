@@ -694,6 +694,7 @@ i{font-style:normal}
 .gbox_grid-table table{
     width:100%;
     clear:both;
+    margin-left: -1px;
 }
 .gbox_grid-table .title{
     background-color: #438EB9;
