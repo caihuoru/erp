@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>部门业务</title>
+
+    <meta name="description" content="Common form elements and layouts" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/font-awesome/css/font-awesome.min.css"/>
+
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../../assets/css/jquery-ui.min.css" />
+		<link rel="stylesheet" href="../../assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ui.jqgrid.min.css" />
+
+		
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="../../assets/css/erp.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../../assets/css/erp-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="../../assets/css/erp-skins.min.css" />
+		<link rel="stylesheet" href="../../assets/css/erp-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="../../assets/css/erp-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="../../assets/js/erp-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="../../assets/js/html5shiv.min.js"></script>
+		<script src="../../assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="no-skin">
+    <div id="navbar" class="navbar navbar-default          ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                <span class="sr-only">
+                    <!-- Toggle sidebar--></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="navbar-header pull-left">
+                <a href="../index.html" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        7搜装企云管家
+                    </small>
+                </a>
+            </div>
+
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="grey dropdown-modal">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="ace-icon fa fa-tasks"></i>
+                            <span class="badge badge-grey">4</span>
+                        </a>
+
+                        <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-check"></i>
+                                4 项任务
+                            </li>
+
+                            <li class="dropdown-content">
+                                <ul class="dropdown-menu dropdown-navbar">
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">65%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:65%" class="progress-bar"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">35%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">15%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">90%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini progress-striped active">
+                                                <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-footer">
+                                <a href="#">
+                                    更多
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="purple dropdown-modal">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                            <span class="badge badge-important">8</span>
+                        </a>
+
+                        <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-exclamation-triangle"></i>
+                                通告
+                            </li>
+
+                            <li class="dropdown-content">
+                                <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+                                                    最新公司通告
+                                                </span>
+                                                <span class="pull-right badge badge-info">+12</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="btn btn-xs btn-primary fa fa-user"></i>
+                                            最新部门通告
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+                                                    最新奖惩通告
+                                                </span>
+                                                <span class="pull-right badge badge-success">+8</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+                                                    最新曝光台
+                                                </span>
+                                                <span class="pull-right badge badge-info">+11</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-footer">
+                                <a href="#">
+                                    更多
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="../../assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                            <span class="user-info">
+                                <small>欢迎,</small>
+                                何大
+                            </span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    设置
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.html">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    个人中心
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.navbar-container -->
+    </div>
+
+    <div class="main-container ace-save-state" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.loadState('main-container') } catch (e) { }
+        </script>
+
+        <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+            <script type="text/javascript">
+                try { ace.settings.loadState('sidebar') } catch (e) { }
+            </script>
+
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <button class="btn btn-success">
+                        <i class="ace-icon fa fa-signal"></i>
+                    </button>
+
+                    <button class="btn btn-info">
+                        <i class="ace-icon fa fa-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-warning">
+                        <i class="ace-icon fa fa-users"></i>
+                    </button>
+
+                    <button class="btn btn-danger">
+                        <i class="ace-icon fa fa-cogs"></i>
+                    </button>
+                </div>
+
+                <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+
+                    <span class="btn btn-info"></span>
+
+                    <span class="btn btn-warning"></span>
+
+                    <span class="btn btn-danger"></span>
+                </div>
+            </div><!-- /.sidebar-shortcuts -->
+
+            <ul class="nav nav-list"></ul>
+
+            <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left"
+                    data-icon2="ace-icon fa fa-angle-double-right"></i>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="ace-icon fa fa-home home-icon"></i>
+                            <a href="#">部门项目表</a>
+                        </li>
+
+                    </ul><!-- /.breadcrumb -->
+
+                    <div class="nav-search" id="nav-search">
+                        <form class="form-search">
+                            <span class="input-icon">
+                                <input type="text" placeholder="搜索 ..." class="nav-search-input" id="nav-search-input"
+                                    autocomplete="off" />
+                                <i class="ace-icon fa fa-search nav-search-icon"></i>
+                            </span>
+                        </form>
+                    </div><!-- /.nav-search -->
+                </div>
+                <div class="page-content row-button-top">
+                    
+                    
+
+                    <div class="row">
+
+                        <div class="row-button">
+                            <div class="btn-1"></div>
+                            <div class="btn-2"></div>
+                            <div class="btn-3"></div>
+                            <div class="btn-4"></div>
+                            <div class="btn-5"></div>
+                            <div class="btn-6"></div>
+                            <div class="btn-7"></div>
+                            <div class="btn-8"></div>
+                            <div class="btn-9"></div>
+                        </div>
+
+                    </div>
+                </div><!-- /.page-content -->
+                <div class="gbox_grid-table">
+                        <table id="data-table">
+                            <thead>
+                                <tr class="title">
+                                    <th width="3%">序号</th>
+                                    <th>项目名称</th>
+                                    <th id="jqgh_grid-table_area"><i></i>装修面积</th>
+                                    <th><i></i>工程预算</th>
+                                    <th><i></i>预计总工期</th>
+                                    <th><i></i>装修档次</th>
+                                    <th><i></i>装修风格</th>
+                                    <th><i></i>装修类型</th>
+                                    <th><i></i>色彩取向</th>
+                                    <th><i></i>审核状态</th>
+                                    <th><i></i>客户来源</th>
+                                    <th><i></i>项目要求</th>
+                                    <th><i></i>转部状态</th>
+                                    <th>转部说明</th>
+                                    <th><i></i>审核说明</th>
+                                </tr>
+                            </thead>
+                            <tr><td>6</td><td>紫藤设计</td><td aria-describedby="grid-table_area">126m</td><td>12000元</td><td>60天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄ss色</td><td>紫藤def设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>
+                            <tr><td>6</td><td>紫藤设计</td><td aria-describedby="grid-table_area">126m</td><td>12000元</td><td>60天</td><td>豪装三声</td><td>现代简约</td><td>全包</td><td>黄色s1</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>
+                        </table>
+                </div>
+                <div id="grid-pager-b">
+                    <i class="first"></i>
+                    <i class="late"></i>
+                   <label>第 <input type="text" value="1"/> /1</label>
+                    <i class="next"></i>
+                    <i class="last"></i>
+                </div>
+            </div>
+        </div><!-- /.main-content -->
+        </div>
+        <div class="footer">
+            <div class="footer-inner">
+                <div class="footer-content">
+                    <span class="bigger-120" contenteditable="true">
+                        当前版本 <span class="blue bolder">v2.0.0</span>
+                        ©7搜网络版权所有
+                    </span>
+
+                    &nbsp; &nbsp;
+                    <span class="action-buttons">
+                        <a href="#">
+                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
+    <!-- basic scripts -->
+
+  	<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="../../assets/js/jquery-2.1.4.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="../../assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="../../assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+		<!-- <script src="../../assets/js/jquery.jqGrid.min.js"></script> -->
+		<script src="../../assets/js/grid.locale-en.js"></script>
+
+		<!-- ace scripts -->
+		<script src="../../assets/js/erp-elements.min.js"></script>
+        <script src="../../assets/js/erp.min.js"></script>
+        <script src="../../assets/js/bunsiness.js"></script>
+        <script type="text/javascript">
+        window.onload = function()
+            {
+                new TableSorter("data-table");
+            }
+            var html="";
+            for(var i=0;i<20;i++){
+                html+= "<tr><td>"+i+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td>豪装</td><td>现代简约</td><td>全包</td><td>黄色</td><td>紫藤设计</td><td>紫藤设计</td><td>最多9个字</td><td>已转</td><td>最多9个字</td><td>这是说明</td></tr>";
+            }
+            $(".gbox_grid-table table").append(html);
+           
+
+
+
+            let navigatorDom = "", breadcrumbs = {}, level = 0
+            // 初始加载menu
+            $.getJSON('../json/get.json', function (nodes) {
+                console.log(nodes);
+                let dom = parseMenuNode(nodes)
+                $("ul.nav.nav-list").append(dom)
+            })
+
+            // getUserOnline()
+
+            // 递归处理多级导航
+            function parseMenuNode(nodes = {}) {
+                if (!nodes) return navigatorDom
+                $.each(nodes, function (index, node) {
+                    let hasChild = (node.menus && node.menus.length > 0) ? true : false
+                    navigatorDom += `
+                            <li class="">
+                                <a ` + (hasChild ? 'class="dropdown-toggle"' : '') + `  href=` + (node.url ? node.url : "javascript:void(0)") + `>
+                                    <i class="menu-icon fa ` + (node.pid != 0 ? "fa-caret-right" : "") + `" ` + (node.icon ? 'style="background:url(' + node.icon + ') no-repeat center center; height:100%;"' : '') + `></i>
+                                    <span class="menu-text"> ` + node.menu_name + ` </span>
+
+                                    <b class="arrow ` + (hasChild ? "fa fa-angle-down" : "") + `"></b>
+                                </a>
+
+                                <b class="arrow"></b>`
+                    if (hasChild) {
+                        navigatorDom += `<ul class="submenu">`
+                        parseMenuNode(node.menus)
+                        navigatorDom += '</ul>'
+                    } else {
+                        navigatorDom += '</li>'
+                    }
+                })
+                return navigatorDom;
+            }
+
+        </script>
+</body>
+
+</html>
