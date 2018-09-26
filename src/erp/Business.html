@@ -474,7 +474,7 @@
             }
             
             
-            // 分页
+            // 分页(測試)
             var index=0;
             var page=1;
             $("#grid-pager-b i").click(function(){
@@ -586,7 +586,7 @@
 
                 // 删除
                 $(".delete").click(function(){
-                    $(this).parent().parent().remove();
+                    $(this).parent().parent().fadeOut().remove();
                 })
 
                 // 下拉显示隐藏
@@ -597,6 +597,8 @@
                     }else{
                         $(this).parent().find(".drop-down").fadeOut();
                         $(this).addClass("hide-down");
+                        //展示所有
+                        // $(".gbox_grid-table table .tbody tr").show();
                         
                     }
                     return false;
