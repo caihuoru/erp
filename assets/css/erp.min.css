@@ -717,8 +717,40 @@ i{font-style:normal}
     font-weight:400 !important;
     font-size: 16px;
     cursor: pointer;
+    width: 121px;
+}
+.gbox_grid-table .title th .drop-down{
+    background-color: #fff !important;
+    position: absolute;
+    top:45px;
+    width: 100%;
+  
+}
+.gbox_grid-table .title th .drop-down div{
+    padding: 3px 0;
+    background-color: #438EB9;
+    margin-top: 1px;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    font-weight:400;
+}
+.gbox_grid-table .title th:first-child,.gbox_grid-table table td:first-child{
+    width:41px;
+}
+.gbox_grid-table .title .last,.gbox_grid-table table .last{
+    width:260px;
+}
+.gbox_grid-table table .last span{
+    cursor: pointer;
+    color: #000ECB;
+    margin-left: 2%;
+}
+.gbox_grid-table table .last{
+    display: none;
 }
 .gbox_grid-table table td{
+    width: 121px;
     text-align: center;
     padding: 10px 0px;
     border: 1px solid #DDDDDD;
@@ -730,6 +762,7 @@ i{font-style:normal}
     text-align: center;
     padding: 6px;
     background-color: #F2F2F2;
+    -moz-user-select:none;
 }
 #grid-pager-b i{
     display: inline-block;
@@ -738,6 +771,7 @@ i{font-style:normal}
     background-size: 100% 100% !important;
     cursor: pointer;
     margin-left: 8px;
+    -moz-user-select:none;
 }
 #grid-pager-b .first{
     background: url(../images/index/jiantou3.png);
@@ -763,4 +797,14 @@ i{font-style:normal}
     padding: 0;
     text-align: center;
     line-height: 20px;
+}
+.drop-down{
+    display: none;
+}
+.full-position{
+    position: absolute;
+    width: 100%;
+    height:45px;
+    cursor: pointer;
+    top:0;
 }
