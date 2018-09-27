@@ -23,6 +23,10 @@ i{font-style:normal}
     display: inline-block !important;
     vertical-align: middle !important;
 }
+.main-content-inner{
+    background-color: #EEEEEE;
+    padding-bottom: 10px;
+}
 .no-skin .sidebar {
     
     color: #FFF !important;
@@ -63,8 +67,8 @@ i{font-style:normal}
 .con{
     width: 96%;
     height: 448px;
-    background-color: #F2F2F2;
-    border-radius: 8px;
+    background-color: #fff;
+    /* border-radius: 8px; */
     padding:10px;
     margin-top:40px;
 }
@@ -807,4 +811,98 @@ i{font-style:normal}
     height:45px;
     cursor: pointer;
     top:0;
+}
+
+
+/* 首页倒计时 */
+#js-alert-box{
+    text-align: center;
+    position: relative;
+}
+#js-alert-box .alert-circle {
+   margin: 0 auto;
+   /* text-align: center; */
+}
+
+#js-alert-box .alert-sec-circle {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 735;
+    transition: stroke-dashoffset 1s linear
+}
+
+#js-alert-box .alert-sec-text {
+    position: absolute;
+    width:100%;
+    text-align:center;
+    font-size: 60px;
+    top:60px;
+    color:#32D6FF;
+}
+
+#js-alert-box .alert-sec-unit {
+    font-size: 25px;
+    color:#32D6FF !important;
+    fill: #32D6FF;
+}
+
+#js-alert-box .alert-body {
+    margin: 35px 0;
+}
+
+#js-alert-box  .alert-head {
+    color: #242424;
+    font-size: 28px;
+}
+
+#js-alert-box  .alert-concent {
+    margin: 25px 0 14px;
+    color: #7B7B7B;
+    font-size: 18px;
+}
+
+#js-alert-box .alert-concent p {
+    line-height: 27px;
+}
+
+#js-alert-box .alert-btn {
+    display: block;
+    border-radius: 10px;
+    background-color: #4AB0F7;
+    height: 55px;
+    line-height: 55px;
+    width: 286px;
+    color: #FFF;
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: 2px
+}
+
+#js-alert-box .alert-btn:hover {
+    background-color: #6BC2FF
+}
+
+#js-alert-box .alert-footer {
+    margin: 0 auto;
+    height: 42px;
+    width: 120px
+}
+
+#js-alert-box .alert-footer-icon {
+    float: left
+}
+
+#js-alert-box .alert-footer-text {
+    float: left;
+    border-left: 2px solid #EEE;
+    padding: 3px 0 0 5px;
+    height: 40px;
+    color: #0B85CC;
+    font-size: 12px;
+    text-align: left
+}
+
+#js-alert-box .alert-footer-text p {
+    color: #7A7A7A;
+    font-size: 22px;
+    line-height: 18px
 }

@@ -371,8 +371,17 @@
                                     <div class="list_top">服务期限</div>
 									<div class="line"></div>
 									
-									<div class="days">剩余天数</div>
-									<div class="Counting">90天</div>
+									<div id="js-alert-box" class="alert-box"> 
+											<svg class="alert-circle" width="234" height="234">
+												<circle cx="117" cy="117" r="108" fill="#FFF" stroke="#32D6FF" stroke-width="17"></circle>
+												<circle id="js-sec-circle" class="alert-sec-circle" cx="117" cy="117" r="108" fill="transparent" stroke="#f2f2f2"
+												 stroke-width="18" transform="rotate(-90 117 117)"></circle>
+												<text class="alert-sec-unit" x="95" y="172" fill="#BDBDBD">day</text>
+											</svg>
+											<div id="js-sec-text" class="alert-sec-text"></div>
+											<div class="alert-body"></div>
+											<!-- <div id="js-alert-head" class="alert-head"></div> -->
+									</div>
 									<div class="serve_data">
 										<p>服务开始时间：2018-10-10</p>
 										<p>服务结束时间：2019-10-10</p>
@@ -762,7 +771,7 @@
 			Mask(".close-off");
 			
 			// 常用功能点击效果
-			$("body").on("click",".separate",function(){
+			$("body").on("click",".editor-alert .separate",function(){
 				$(".separate").css({"background":"transparent"});
 				$(".index_font2").css({"color":"rgba(26,26,26,1)"});
 				$(this).find(".index_font2").css({"color":"#fff"});
@@ -774,9 +783,14 @@
 			// 刪除常用功能
 			$("body").on("click",".separate span",function(){
 				var index=$(this).data("del");
-				$(this).addClass("edit-pass").parent().fadeOut().remove();
-				$(".function .classification-"+index).addClass("pass").parent().fadeOut().remove();
-				already_delet.push(index)
+				$(this).addClass("edit-pass").parent().fadeOut(function(){
+					$(this).remove();
+				});
+				$(".function .classification-"+index).addClass("pass").parent().fadeOut(function(){
+					$(this).remove();
+				});
+				// 记录已经删除的
+				already_delet.push(index);
 			})
 
 
@@ -833,7 +847,7 @@
 					$(".editor-sidebar").hide(300);
 					$(this).html("+ 添加");
 				}
-				
+				pick();
 			})
 			
 			// 是否选择
@@ -875,7 +889,7 @@
 					//  $(".pass").eq(edit_pass-1).parent().fadeIn().find(".pass").removeClass("pass");
 					//  $(".edit-pass").eq(edit_pass-1).parent().fadeIn().find(".edit-pass").removeClass("edit-pass");
 				 }else{
-					 layer.msg("已满8个!", {
+					 layer.msg("不得超过8个!", {
                     	icon: 2
                 	});
 				 }
@@ -920,6 +934,35 @@
 				$(".online-page").animate({"top":-height*man_page},1000)
 				
 			})
+
+
+
+			// 首页服务期限倒计时
+			function alertSet(e) {
+				document.getElementById("js-alert-box").style.display = "block";
+
+				// 总服务期限
+				var t = 400,
+					n = document.getElementById("js-sec-circle");
+				document.getElementById("js-sec-text").innerHTML = t;
+				setInterval(function() {
+				if (0 == t) {
+					// 如果到期
+					layer.msg("已到期!请续费!", {
+                    	icon: 2
+                	});
+				} else {
+					// 已过去多少天
+					t -= 1;
+						
+					var e = t / 400 * 680;
+					console.log(e);
+					n.style.strokeDashoffset = e - 680;
+					document.getElementById("js-sec-text").innerHTML = t;
+				}
+				},1000);
+			}
+			alertSet();
 		</script>
 		
 </body>
