@@ -762,19 +762,21 @@
 			Mask(".close-off");
 			
 			// 常用功能点击效果
-			$(".editor-alert .separate").click(function(){
+			$("body").on("click",".separate",function(){
 				$(".separate").css({"background":"transparent"});
 				$(".index_font2").css({"color":"rgba(26,26,26,1)"});
 				$(this).find(".index_font2").css({"color":"#fff"});
 				$(this).css({"background":"#D9D9D9"})
 
 			})
+			var already_delet=[];
 
 			// 刪除常用功能
-			$(".separate span").click(function(){
+			$("body").on("click",".separate span",function(){
 				var index=$(this).data("del");
-				$(this).addClass("edit-pass").parent().fadeOut();
-				$(".function .classification-"+index).addClass("pass").parent().fadeOut();
+				$(this).addClass("edit-pass").parent().fadeOut().remove();
+				$(".function .classification-"+index).addClass("pass").parent().fadeOut().remove();
+				already_delet.push(index)
 			})
 
 
@@ -859,15 +861,19 @@
                 	});
 					return false;
 				}
-				 var pass=document.querySelectorAll(".pass");
-				 var edit_pass=document.querySelectorAll(".edit-pass").length;
-				 if(!edit_pass==0){
+				 var edit_pass=document.querySelectorAll(".editor-alert .special_ .separate").length;
+				 if(edit_pass<8){
 					$(this).next().find("i").html();
 					 console.log(edit_pass);
-					 $(".pass").eq(edit_pass-1).next().html($(this).find("i").html());
-					 $(".edit-pass").eq(edit_pass-1).next().html($(this).find("i").html());
-					 $(".pass").eq(edit_pass-1).parent().fadeIn().find(".pass").removeClass("pass");
-					 $(".edit-pass").eq(edit_pass-1).parent().fadeIn().find(".edit-pass").removeClass("edit-pass");
+					 var arr_first=already_delet.shift()
+					 var add_function='<div class="col-xs-6 col-sm-3 separate"><div class="classification-'+arr_first+'"></div><div class="index_font2">'+$(this).find("i").html()+'</div></div>';
+					 var add_alert='<div class="col-xs-6 col-sm-3 separate"><div class="classification-'+arr_first+'"></div><span data-del="'+arr_first+'">X</span><div class="index_font2">'+$(this).find("i").html()+'</div></div>';
+					 $(".editor-alert .special_").append(add_alert);
+					 $(".function .special_").append(add_function);
+					//  $(".pass").eq(edit_pass-1).next().html($(this).find("i").html());
+					//  $(".edit-pass").eq(edit_pass-1).next().html($(this).find("i").html());
+					//  $(".pass").eq(edit_pass-1).parent().fadeIn().find(".pass").removeClass("pass");
+					//  $(".edit-pass").eq(edit_pass-1).parent().fadeIn().find(".edit-pass").removeClass("edit-pass");
 				 }else{
 					 layer.msg("已满8个!", {
                     	icon: 2
@@ -891,6 +897,10 @@
 				var local=[];
 				for(var i=1;i<=8;i++){
 					local[i]=localStorage.getItem("classification-"+i);
+					if(local[i]=="undefined"){
+						break;
+					}
+					
 					$(".classification-"+i).parent().find(".index_font2").html(local[i]);	
 				}
 			}
