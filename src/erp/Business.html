@@ -481,6 +481,11 @@
                 console.log($(this).hasClass("first"));
                 // 第一页
                 if($(this).hasClass("first")){
+                    // $.ajax({
+                    // type: "get",
+                    // dataType:"json",
+                    // url:"json/get.json",
+                    // success:function(data){}
                     index=0;
                     page=1;
                     var html="";
@@ -514,7 +519,10 @@
                     	icon: 2
                 	});
                 }
+
+                // 测试点击效果
                 for(var i=1;i<=20;i++){
+                        // 测试（生成数据）
                         html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td class='show-more'>豪装</td><td class='show-more'>现代简约</td><td class='show-more'>全包</td><td class='show-more'>黄色</td><td class='show-more customer'>紫藤设计</td><td class='show-more'>紫藤设计</td><td class='examine-part'>最多9个字</td><td class='examine-part'>已转</td><td class='examine-part'>最多9个字</td><td class='examine-part'>这是说明</td><td class='last'><span class='see'>查看</span> <span class='Apply'>申请转部</span> <span class='Enclosure'>附件</span> <span class='delete'>删除</span> <span class='operation'>操作记录</span></td></tr>";
                 }
                 if(page>=5){
@@ -533,6 +541,7 @@
             //初始化表格数据
             var html="";
             for(var i=1;i<=20;i++){
+                // 生成20条数据
                 html+= "<tr><td>"+(i+index)+"</td><td>紫藤设计</td><td aria-describedby='grid-table_area'>"+(i+120)+"m</td><td>12000元</td><td>"+(60+i)+"天</td><td class='show-more'>豪装</td><td class='show-more'>现代简约</td><td class='show-more'>全包</td><td class='show-more'>黄色</td><td class='show-more customer'>紫藤设计</td><td class='show-more'>紫藤设计</td><td class='examine-part'>最多9个字</td><td class='examine-part'>已转</td><td class='examine-part'>最多9个字</td><td class='examine-part'>这是说明</td><td class='last'><span class='see'>查看</span> <span class='Apply'>申请转部</span> <span class='Enclosure'>附件</span> <span class='delete'>删除</span> <span class='operation'>操作记录</span></td></tr>";
             }
             $(".gbox_grid-table table .tbody").html(html);
@@ -540,7 +549,7 @@
             
             
 
-            // 编辑
+                // 编辑
                 $("body").on("dblclick","#data-table td", function(){  
                     if($(this).hasClass("last")){
                         console.log("操作");
@@ -555,7 +564,7 @@
                    
                 })
                 
-            // 编辑取消
+                // 编辑取消
                 $("body").on("blur","#data-table td", function(){
                     $("#data-table td").removeAttr("contenteditable");  
                     $("#data-table td").css({"border":"1px solid #DDDDDD"})

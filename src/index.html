@@ -370,13 +370,13 @@
                                 <div class="con">
                                     <div class="list_top">服务期限</div>
 									<div class="line"></div>
-									
+									<div class="days">剩余天数</div>
 									<div id="js-alert-box" class="alert-box"> 
-											<svg class="alert-circle" width="234" height="234">
-												<circle cx="117" cy="117" r="108" fill="#FFF" stroke="#32D6FF" stroke-width="17"></circle>
-												<circle id="js-sec-circle" class="alert-sec-circle" cx="117" cy="117" r="108" fill="transparent" stroke="#f2f2f2"
-												 stroke-width="18" transform="rotate(-90 117 117)"></circle>
-												<text class="alert-sec-unit" x="95" y="172" fill="#BDBDBD">day</text>
+											<svg class="alert-circle" width="193" height="193" style="overflow: visible;">
+												<circle cx="100" cy="117" r="96.5" fill="#FFF" stroke="#32D6FF" stroke-width="13"></circle>
+												<circle id="js-sec-circle" class="alert-sec-circle" cx="117" cy="100" r="96.5" fill="transparent" stroke="#f2f2f2"
+												 stroke-width="14" transform="rotate(-90 117 117)"></circle>
+												<text class="alert-sec-unit" x="80" y="172" fill="#BDBDBD">day</text>
 											</svg>
 											<div id="js-sec-text" class="alert-sec-text"></div>
 											<div class="alert-body"></div>
@@ -778,6 +778,8 @@
 				$(this).css({"background":"#D9D9D9"})
 
 			})
+
+			// 已删除
 			var already_delet=[];
 
 			// 刪除常用功能
@@ -804,6 +806,7 @@
 					obj.data=data;
 					var html = template('tpl', obj);
 					 $('.editor-sidebar-2').html(html);
+					 //编辑内容-默认展示  
 					 $(".ND5924E4061DD27544910").show();
 
 				}
@@ -865,6 +868,7 @@
 					}
 				}
 			}
+			// 默认异步触发一次
 			setTimeout(pick,300);
 			
 			// 常用功能增加
@@ -892,12 +896,13 @@
 					 layer.msg("不得超过8个!", {
                     	icon: 2
                 	});
+					return false;
 				 }
 				 pick();
 			})
 
 
-			//关闭页面触发事件  存储编辑内容
+			//关闭或刷新页面触发事件  存储编辑内容
 			 window.onbeforeunload=function windowOnBeforeUnload() {
 				for(var i=1;i<=8;i++){
 					localStorage.setItem("classification-"+i, $('.classification-'+i).next().html());
@@ -938,7 +943,7 @@
 
 
 			// 首页服务期限倒计时
-			function alertSet(e) {
+			function alertSet() {
 				document.getElementById("js-alert-box").style.display = "block";
 
 				// 总服务期限
@@ -954,10 +959,11 @@
 				} else {
 					// 已过去多少天
 					t -= 1;
-						
-					var e = t / 400 * 680;
+
+					//  e=t/服务总期限 * 605 
+					var e = t / 400 * 606;
 					console.log(e);
-					n.style.strokeDashoffset = e - 680;
+					n.style.strokeDashoffset = e - 606;
 					document.getElementById("js-sec-text").innerHTML = t;
 				}
 				},1000);
