@@ -630,6 +630,7 @@
 
                 // 下拉筛选
                 $(".show-more .drop-down div").click(function(event){
+                    $(".gbox_grid-table table .tbody .customer").parent().show();
                     // $(".tbody tr").show();
                     var length=document.querySelectorAll(".tbody tr td").length;
                     $(".gbox_grid-table table .tbody tr").show();
