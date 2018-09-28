@@ -59,9 +59,9 @@ i{font-style:normal}
     padding-left: 10px;
     padding-top: 4px;
 }
-.row{
-    margin-right: 40px;
-    margin-left: 30px;
+.no-skin .row{
+    margin-right: 40px !important;
+    margin-left: 30px !important;
 }
 
 .con{
