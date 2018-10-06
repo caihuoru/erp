@@ -1070,3 +1070,61 @@ i{font-style:normal}
     margin-left: 8px;
     background-color: #FF0808;
 }
+
+
+/* 请假申请页 */
+.leave-head{
+    text-align: center;
+    height: 46px;
+    line-height: 46px;
+    background-color: #438EB9;
+    font-size:24px;
+    font-family: "Microsoft YaHei";
+    font-weight:400;
+    color:rgba(255,255,255,1);
+}
+#leave-form{
+    width:1200px;
+    margin: 0 auto;
+}
+#leave-form font{
+    display: inline-block;
+    width:100px;
+}
+#leave-form .leave-part{
+    margin-top: 60px;
+    overflow:hidden; 
+    *zoom:1
+}
+.leave-part .leave-input{
+    width:300px;
+    height:40px;
+    line-height: 40px;
+}
+.leave-part textarea{
+    width:905px;
+    height:200px;
+    line-height: 40px;
+    font-family: "Microsoft YaHei";
+    resize: none;
+   
+}
+.leave-part #id-date-picker-1{
+    display: inline-block;
+}
+.leave-part .control-label{
+    position: relative;
+}
+.leave-part .input-group-addon{
+    width:20px;
+    height:20px;
+    padding:0;
+    position: absolute;
+    top: 19px;
+    right: 6px;
+    background-color: #fff;
+    border: none;
+}
+.leave-foot .reagain{
+    background: #FF0808;
+}

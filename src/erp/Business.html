@@ -693,17 +693,32 @@
                     $(".waste").fadeIn();
                 })
 
-                // 点击遮罩层
+                // 点击遮罩层或关闭
                 function Mask(is){
-                    $("body").on("click",is, function(){  
+                    if(is){
+                        $("body").on("click",is, function(){  
+                            $(".full").remove();
+                            $(".waste").fadeOut();
+                        })
+                    }else{
                         $(".full").remove();
                         $(".waste").fadeOut();
-                    })
+                    }
+                    
                 }
                 Mask(".full");
                 Mask(".waste .waste-head span");
+                Mask(".content-part-4 button:last-child");
 
-                // 关闭
+                
+                // 申请废单确定按钮
+                $(".content-part-4 button:first-child").click(function(){
+                    layer.msg("申请成功!", {
+                    	icon:1
+                    });
+                    Mask();
+                })
+
         
                
 
