@@ -45,15 +45,15 @@ jQuery(function($) {
     
     
     var parent_column = $(grid_selector).closest('[class*="col-"]');
-    //resize to fit page size
+    //调整大小以适应页面大小
     $(window).on('resize.jqGrid', function () {
         $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
     })
     
-    //resize on sidebar collapse/expand
+    //在侧边栏折叠/展开时调整大小
     $(document).on('settings.ace.jqGrid' , function(ev, event_name, collapsed) {
         if( event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed' ) {
-            //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+            //对WebKit来说，设定超时只是为了给随机变化留出时间，然后重新绘制！！！
             setTimeout(function() {
                 $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
             }, 20);

@@ -387,6 +387,7 @@
                                             <div>APP客户来源</div>
                                             <div>商家介绍</div>
                                             <div>主动上门</div>
+                                            <div>所有</div>
                                         </div>
                                     </th>
                                     <th class="show-more"><i></i>项目要求</th>
@@ -441,6 +442,39 @@
             <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
         </a>
     </div>
+
+    <!-- 申请废单 -->
+    <div class="waste">
+        <div class="order">
+            <div class="waste-head">
+                废单申请 <span>X</span>
+            </div>
+            <div class="order-content">
+                <div class="content-part-1">
+                    <div>项目名称：</div>
+                    <div class="project-name project-content">紫藤设计</div>
+                </div>
+                <div class="content-part-2">
+                    <div>废单类型：</div>
+                    <select class="project-content">
+                        <option value ="1">对手抢单</option>
+                        <option value ="2">客户原因</option>
+                        <option value ="3">其他原因</option>
+                    </select>
+                </div>
+                <div class="content-part-3">
+                    <div>废单说明：</div>
+                    <textarea class="project-content project-textarea">
+
+                    </textarea>
+                </div>
+                <div class="content-part-4">
+                    <button>确定</button>
+                    <button>取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- basic scripts -->
 
   	<!-- basic scripts -->
@@ -478,6 +512,8 @@
             var index=0;
             var page=1;
             $("#grid-pager-b i").click(function(){
+                $("#data-table .title th").show();
+                $("#data-table .title .last").hide();
                 console.log($(this).hasClass("first"));
                 // 第一页
                 if($(this).hasClass("first")){
@@ -489,7 +525,7 @@
                     index=0;
                     page=1;
                     var html="";
-                    layer.msg("首頁!", {
+                    layer.msg("首页!", {
                     	icon:6
                 	});
                 }else if($(this).hasClass("late")){
@@ -513,7 +549,7 @@
                     // 最后一页
                     page=5;
                     var html="";
-                    index=100;
+                    index=80;
                 }else{
                     layer.msg("错误!", {
                     	icon: 2
@@ -602,7 +638,7 @@
 
 
                 // 删除
-                $(".delete").click(function(){
+                $("body").on("click",".delete", function(){
                     $(this).parent().parent().fadeOut().remove();
                 })
 
@@ -630,7 +666,7 @@
 
                 // 下拉筛选
                 $(".show-more .drop-down div").click(function(event){
-                    $(".gbox_grid-table table .tbody .customer").parent().show();
+                    // $(".gbox_grid-table table .tbody .customer").parent().show();
                     // $(".tbody tr").show();
                     var length=document.querySelectorAll(".tbody tr td").length;
                     $(".gbox_grid-table table .tbody tr").show();
@@ -639,9 +675,44 @@
                             $(".gbox_grid-table table .tbody .customer").eq(i).parent().hide();
                         }
                     }
+                    if($(this).html()=="所有"){
+                        $(".gbox_grid-table table .tbody .customer").parent().show();
+                    }
                     return false;
                     
                 })
+
+
+
+
+                // 废单申请
+                $(".apply_btn").click(function(){
+                    var full=document.createElement("div");
+                    full.className="full";
+                    $("body").append(full);
+                    $(".waste").fadeIn();
+                })
+
+                // 点击遮罩层
+                function Mask(is){
+                    $("body").on("click",is, function(){  
+                        $(".full").remove();
+                        $(".waste").fadeOut();
+                    })
+                }
+                Mask(".full");
+                Mask(".waste .waste-head span");
+
+                // 关闭
+        
+               
+
+
+
+
+
+
+
 
 
 
