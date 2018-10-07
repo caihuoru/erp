@@ -384,7 +384,7 @@ i{font-style:normal}
     border:1px solid #D86969;
     background-color: #D86969;
 }
-.full{
+.full,.expire{
     position: fixed;
     width: 100%;
     height: 300%;
@@ -1101,6 +1101,9 @@ i{font-style:normal}
     height:40px;
     line-height: 40px;
 }
+.leave-part .leave-date{
+    display: inline-block;
+}
 .leave-part textarea{
     width:905px;
     height:200px;
@@ -1132,3 +1135,102 @@ i{font-style:normal}
 .leave-foot .reagain:hover{
     background-color: rgb(223, 55, 55) !important;
 }
+
+/* 已过期续费 */
+.renewal{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    height: 0;
+    display: none;
+}
+.renewal .renewal-content{
+    width: 720px;
+    height: 550px;
+    background-color: #fff;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+.renewal .renewal-content .renewal-title{
+    height: 60px;
+    width:100%;
+    background-color: #438EB9;
+    text-align: center;
+    line-height: 60px;
+    color:#fff;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    font-size: 24px;
+}
+.renewal .renewal-content .price-pick{
+    float: left;
+    width:230px;
+    margin-left: 7px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    border: 1px solid #438EB9;
+    font-weight: 400;
+    margin-top: 15px;
+    padding-top:5px;
+    cursor: pointer;
+}
+.renewal .renewal-content .price,.renewal .renewal-content .pay{
+    overflow: hidden;
+    *zoom: 1;
+    padding-top:8px;
+    padding-left: 1px;
+}
+.renewal .renewal-content .price-pick:hover{
+    border: 1px solid #f6644c;
+}
+.renewal .renewal-content .price-pick span{
+    color: #f6644c;
+    font-weight: bold;
+    font-size: 23px;
+}
+.renewal .renewal-content .pay-way{
+    width:680px;
+    margin: 30px auto;
+    font-size: 18px;
+}
+.renewal .renewal-content .price-pick .original{
+    /* text-decoration: line-through; */
+}
+.renewal .renewal-content .pay .pay-list{
+    width:130px;
+    background-color: #eeeff3;
+    height: 200px;
+    float: left;
+}
+.renewal .renewal-content .pay .pay_code{
+    width: 545px;
+    float: right;
+    height: 200px;
+}
+.renewal .renewal-content .pay .pay-list .weixin,.renewal .renewal-content .pay .pay-list .zhifubao{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #e7e7e7;
+    font-size: 15px;
+    cursor: pointer;
+}
+.renewal .renewal-content .pay{
+    margin: 0 auto;
+    width:680px;
+    font-size: 16px;
+}
+.renewal .renewal-content .pay .pay_code .code_img{
+    background-image: url(/img/login/erweima.png);
+    width: 130px;
+    height:130px;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.renewal .renewal-content .pay .pay_code .pay_money{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}       
