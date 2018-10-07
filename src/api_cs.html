@@ -19,21 +19,21 @@
 </head>
 <body>
     <div id="container" style="width:1000px;height: 600px;"></div>
-    <p class="x">经度:</p>
-    <p class="y">纬度:</p>
+    <p class="x">纬度:</p>
+    <p class="y">经度:</p>
 </body>
 <script>
     map = new qq.maps.Map(
         document.getElementById("container"),
         {
-            center: new qq.maps.LatLng(39.914850, 116.403765),
+            center: new qq.maps.LatLng(22.709,114.260),
             zoom: 18,
             draggable: true,
             scrollwheel: true,
             disableDoubleClickZoom: true
         }
     );
-    map.panTo(new qq.maps.LatLng(39.916527,116.397128));
+    map.panTo(new qq.maps.LatLng(22.709,114.260));
 
     // $.ajax({
     //     url:"https://apis.map.qq.com/ws/geocoder/v1/?key=MT3BZ-6R6KW-75ORO-O5GV7-JLAU7-OHFST",

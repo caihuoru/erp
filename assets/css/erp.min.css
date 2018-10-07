@@ -1126,5 +1126,9 @@ i{font-style:normal}
     border: none;
 }
 .leave-foot .reagain{
-    background: #FF0808;
+    background-color: #FF0808 !important;
+    border-color:#FF0808 !important;
+}
+.leave-foot .reagain:hover{
+    background-color: rgb(223, 55, 55) !important;
 }
