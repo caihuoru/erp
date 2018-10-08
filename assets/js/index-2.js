@@ -192,36 +192,40 @@ $(".load-more").click(function(){
 
 
 // 首页服务期限倒计时
-function alertSet() {
+// 总服务期限:t
+// 过去的天数:Past_times
+function alertSet(t,Past_times) {
     document.getElementById("js-alert-box").style.display = "block";
 
-    // 总服务期限
-    var t = 10,
+    
+    // var t = 10,
+    var Total=t;
         n = document.getElementById("js-sec-circle");
     document.getElementById("js-sec-text").innerHTML = t;
-    var time=setInterval(function() {
-    if (0 == t) {
+    // var time=setInterval(function() {
+    if (0 >= t) {
         // 如果到期
         layer.msg("已到期!请续费!", {
             icon: 2
         });
-        clearInterval(time);
+        // clearInterval(time);
 
         // 续费弹框
         var expire=document.createElement("div");
             expire.className="expire";
             $("body").append(expire);
             $(".renewal").show();
+            $("#js-sec-text").html("0");
     } else {
         // 已过去多少天
-        t -= 1;
+        t -= Past_times;
 
         //  e=t/服务总期限 * 606 
-        var e = t / 400 * 606;
+        var e = t / Total * 606;
         console.log(e);
         n.style.strokeDashoffset = e - 606;
         document.getElementById("js-sec-text").innerHTML = t;
     }
-    },1000);
+    // },1000);
 }
-alertSet();
+// alertSet(200,199);
