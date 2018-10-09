@@ -1144,6 +1144,7 @@ i{font-style:normal}
     top:0;
     background-color: #000;
     opacity: 0.7;
+    z-index: 2;
 }
 .renewal{
     position: fixed;
@@ -1152,6 +1153,7 @@ i{font-style:normal}
     z-index: 999;
     height: 0;
     display: none;
+    z-index: 3;
 }
 .renewal .renewal-content{
     width: 720px;
@@ -1193,6 +1195,10 @@ i{font-style:normal}
     margin-top: 15px;
     padding-top:5px;
     cursor: pointer;
+}
+.renewal .renewal-content .price-pick p{
+    margin: 0 0 10px;
+    line-height: 30px;
 }
 .renewal .renewal-content .price:after{
     content:"";
@@ -1250,6 +1256,9 @@ i{font-style:normal}
     margin: 0 auto;
     width:680px;
     font-size: 16px;
+}
+.renewal .renewal-content .pay .bg-color{
+    background-color: #fff;
 }
 .renewal .renewal-content .try{
     text-align: center;

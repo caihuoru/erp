@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>市场月绩</title>
+
+    <meta name="description" content="Common form elements and layouts" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/font-awesome/css/font-awesome.min.css"/>
+
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../../assets/css/jquery-ui.min.css" />
+		<link rel="stylesheet" href="../../assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="../../assets/css/ui.jqgrid.min.css" />
+
+		
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="../../assets/css/erp.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../../assets/css/erp-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="../../assets/css/erp-skins.min.css" />
+		<link rel="stylesheet" href="../../assets/css/erp-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="../../assets/css/erp-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="../../assets/js/erp-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="../../assets/js/html5shiv.min.js"></script>
+		<script src="../../assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="no-skin">
+    <div id="navbar" class="navbar navbar-default          ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                <span class="sr-only">
+                    <!-- Toggle sidebar--></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="navbar-header pull-left">
+                <a href="../index.html" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        7搜装企云管家
+                    </small>
+                </a>
+            </div>
+
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="grey dropdown-modal">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="ace-icon fa fa-tasks"></i>
+                            <span class="badge badge-grey">4</span>
+                        </a>
+
+                        <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-check"></i>
+                                4 项任务
+                            </li>
+
+                            <li class="dropdown-content">
+                                <ul class="dropdown-menu dropdown-navbar">
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">65%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:65%" class="progress-bar"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">35%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">15%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini">
+                                                <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">进度</span>
+                                                <span class="pull-right">90%</span>
+                                            </div>
+
+                                            <div class="progress progress-mini progress-striped active">
+                                                <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-footer">
+                                <a href="#">
+                                    更多
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="purple dropdown-modal">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                            <span class="badge badge-important">8</span>
+                        </a>
+
+                        <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-exclamation-triangle"></i>
+                                通告
+                            </li>
+
+                            <li class="dropdown-content">
+                                <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+                                                    最新公司通告
+                                                </span>
+                                                <span class="pull-right badge badge-info">+12</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="btn btn-xs btn-primary fa fa-user"></i>
+                                            最新部门通告
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+                                                    最新奖惩通告
+                                                </span>
+                                                <span class="pull-right badge badge-success">+8</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">
+                                                    <i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+                                                    最新曝光台
+                                                </span>
+                                                <span class="pull-right badge badge-info">+11</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-footer">
+                                <a href="#">
+                                    更多
+                                    <i class="ace-icon fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="../../assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                            <span class="user-info">
+                                <small>欢迎,</small>
+                                何大
+                            </span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                    设置
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.html">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    个人中心
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /.navbar-container -->
+    </div>
+
+    <div class="main-container ace-save-state" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.loadState('main-container') } catch (e) { }
+        </script>
+
+        <div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+            <script type="text/javascript">
+                try { ace.settings.loadState('sidebar') } catch (e) { }
+            </script>
+
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <button class="btn btn-success">
+                        <i class="ace-icon fa fa-signal"></i>
+                    </button>
+
+                    <button class="btn btn-info">
+                        <i class="ace-icon fa fa-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-warning">
+                        <i class="ace-icon fa fa-users"></i>
+                    </button>
+
+                    <button class="btn btn-danger">
+                        <i class="ace-icon fa fa-cogs"></i>
+                    </button>
+                </div>
+
+                <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+
+                    <span class="btn btn-info"></span>
+
+                    <span class="btn btn-warning"></span>
+
+                    <span class="btn btn-danger"></span>
+                </div>
+            </div><!-- /.sidebar-shortcuts -->
+
+            <ul class="nav nav-list"></ul>
+
+            <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left"
+                    data-icon2="ace-icon fa fa-angle-double-right"></i>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="ace-icon fa fa-home home-icon"></i>
+                            <a href="#">市场月绩表</a>
+                        </li>
+
+                    </ul><!-- /.breadcrumb -->
+
+                    <div class="nav-search" id="nav-search">
+                        <form class="form-search">
+                            <span class="input-icon">
+                                <input type="text" placeholder="搜索 ..." class="nav-search-input" id="nav-search-input"
+                                    autocomplete="off" />
+                                <i class="ace-icon fa fa-search nav-search-icon"></i>
+                            </span>
+                        </form>
+                    </div><!-- /.nav-search -->
+                </div>
+                <div class="page-content row-button-top">
+                    
+                    <button class="this-mouth">本月月绩</button>
+                    <button class="last-mouth">上月月绩</button>
+                    <div>
+                        <label>姓名: <input type="text" id="name" class="erp-name"/></label> 
+                        <button class="search-name">搜索</button>
+                        <button class="show-all">显示全部</button>
+                    </div>
+                </div><!-- /.page-content -->
+                <div>
+                   
+                </div>
+                <div class="gbox_grid-table">
+                        <table id="data-table">
+                            <thead>
+                                <tr class="title">
+                                    <th>序号</th>
+                                    <th>部门</th>
+                                    <th>姓名</th>
+                                    <th>总客户量</th>
+                                    <th>签单量</th>
+                                    <th>废单量</th>
+                                    <th>未完成</th>
+                                    <th>签单转化率</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                            </tbody>
+                        </table>
+                </div>
+                <div id="grid-pager-b" onselectstart="return false;">
+                    <i class="first"></i>
+                    <i class="late"></i>
+                   <label>第 <input type="text" value="1"/> /2</label>
+                    <i class="next"></i>
+                    <i class="last"></i>
+                </div>
+            </div>
+        </div><!-- /.main-content -->
+        </div>
+        <div class="footer">
+            <div class="footer-inner">
+                <div class="footer-content">
+                    <span class="bigger-120" contenteditable="true">
+                        当前版本 <span class="blue bolder">v2.0.0</span>
+                        ©7搜网络版权所有
+                    </span>
+
+                    &nbsp; &nbsp;
+                    <span class="action-buttons">
+                        <a href="#">
+                            <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
+
+    <!-- 申请废单 -->
+    <div class="waste">
+        <div class="order">
+            <div class="waste-head">
+                废单申请 <span>X</span>
+            </div>
+            <div class="order-content">
+                <div class="content-part-1">
+                    <div>项目名称：</div>
+                    <div class="project-name project-content">紫藤设计</div>
+                </div>
+                <div class="content-part-2">
+                    <div>废单类型：</div>
+                    <select class="project-content">
+                        <option value ="1">对手抢单</option>
+                        <option value ="2">客户原因</option>
+                        <option value ="3">其他原因</option>
+                    </select>
+                </div>
+                <div class="content-part-3">
+                    <div>废单说明：</div>
+                    <textarea class="project-content project-textarea"></textarea>
+                </div>
+                <div class="content-part-4">
+                    <button>确定</button>
+                    <button>取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- basic scripts -->
+
+  	<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="../../assets/js/jquery-2.1.4.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="../../assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="../../assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="../../assets/js/bootstrap-datepicker.min.js"></script>
+		<!-- <script src="../../assets/js/jquery.jqGrid.min.js"></script> -->
+		<script src="../../assets/js/grid.locale-en.js"></script>
+        <script src="../../assets/js/layer/layer.js"></script>
+		<!-- ace scripts -->
+		<script src="../../assets/js/erp-elements.min.js"></script>
+        <script src="../../assets/js/erp.min.js"></script>
+        <script src="../../assets/js/bunsiness.js"></script>
+        <script type="text/javascript">
+            // 表格排序
+            window.onload = function() {
+                new TableSorter("data-table");
+            }
+            
+            
+            // 分页(測試)
+            var index=0;
+            var page=1;
+            $("#grid-pager-b i").click(function(){
+                $("#data-table .title th").show();
+                $("#data-table .title .last").hide();
+                console.log($(this).hasClass("first"));
+                // 第一页
+                if($(this).hasClass("first")){
+                    // $.ajax({
+                    // type: "get",
+                    // dataType:"json",
+                    // url:"json/get.json",
+                    // success:function(data){}
+                    index=0;
+                    page=1;
+                    var html="";
+                    layer.msg("首页!", {
+                    	icon:6
+                	});
+                }else if($(this).hasClass("late")){
+                    // 上一页
+                    var html="";
+                    page--;
+                    index-=30;
+                    if(index<=0){
+                        index=0;
+                    }
+                }else if($(this).hasClass("next")){
+                    // 下一页
+                    page++;
+                    index+=30;
+                    var html="";
+                    if(index>=30){
+                        index=30;
+                        // return false;
+                    }
+                }else if($(this).hasClass("last")){
+                    // 最后一页
+                    page=2;
+                    var html="";
+                    index=30;
+                }else{
+                    layer.msg("错误!", {
+                    	icon: 2
+                	});
+                }
+
+                // 测试点击效果
+                for(var i=1;i<=30;i++){
+                        // 测试（生成数据）
+                        html+= "<tr><td>"+(i+index)+"</td><td>设计部</td><td class='name'>老王"+i+"</td><td>1560"+i+"</td><td>560"+i+"</td><td>60"+i+"</td><td>150"+i+"</td><td>"+(60+i)+"%</td></tr>";
+                }
+                if(page>=2){
+                    page=2;
+                }else if(page<=0){
+                    page=1;
+                }
+                $(".gbox_grid-table table .tbody").html(html);
+                $("#grid-pager-b input").val(Math.ceil(page));
+                new TableSorter("data-table");
+            })
+
+            //初始化表格数据
+            var html="";
+            for(var i=1;i<=30;i++){
+                // 生成20条数据
+                html+= "<tr><td>"+i+"</td><td>设计部</td><td class='name'>老王"+i+"</td><td>1560"+i+"</td><td>560"+i+"</td><td>60"+i+"</td><td>150"+i+"</td><td>"+(60+i)+"%</td></tr>";
+            }
+            $(".gbox_grid-table table .tbody").html(html);
+
+
+            // 按名字搜索
+            var arr_name=[];
+            $(".row-button-top .search-name").click(function(){
+                var name_search=document.querySelectorAll(".gbox_grid-table table .name");
+                $(".gbox_grid-table table .tbody .name").parent().hide();
+                for(var i=0;i<name_search.length;i++){
+                        arr_name.push($(".gbox_grid-table table .tbody .name").eq(i).html())
+                        
+                        if(!(arr_name[i].indexOf($("#name").val())==-1)){
+                            $(".gbox_grid-table table .tbody .name").eq(i).parent().show();
+                        }
+                    } 
+
+                if(!$("#name").val()){
+                    $(".gbox_grid-table table .tbody .name").parent().show();
+                }
+                arr_name=[];
+            });
+           
+            
+            
+
+
+            // 测试
+
+            let navigatorDom = "", breadcrumbs = {}, level = 0
+            // 初始加载menu
+            $.getJSON('../json/get.json', function (nodes) {
+                console.log(nodes);
+                let dom = parseMenuNode(nodes)
+                $("ul.nav.nav-list").append(dom)
+            })
+
+            // getUserOnline()
+
+            // 递归处理多级导航
+            function parseMenuNode(nodes = {}) {
+                if (!nodes) return navigatorDom
+                $.each(nodes, function (index, node) {
+                    let hasChild = (node.menus && node.menus.length > 0) ? true : false
+                    navigatorDom += `
+                            <li class="">
+                                <a ` + (hasChild ? 'class="dropdown-toggle"' : '') + `  href=` + (node.url ? node.url : "javascript:void(0)") + `>
+                                    <i class="menu-icon fa ` + (node.pid != 0 ? "fa-caret-right" : "") + `" ` + (node.icon ? 'style="background:url(' + node.icon + ') no-repeat center center; height:100%;"' : '') + `></i>
+                                    <span class="menu-text"> ` + node.menu_name + ` </span>
+
+                                    <b class="arrow ` + (hasChild ? "fa fa-angle-down" : "") + `"></b>
+                                </a>
+
+                                <b class="arrow"></b>`
+                    if (hasChild) {
+                        navigatorDom += `<ul class="submenu">`
+                        parseMenuNode(node.menus)
+                        navigatorDom += '</ul>'
+                    } else {
+                        navigatorDom += '</li>'
+                    }
+                })
+                return navigatorDom;
+            }
+
+        </script>
+</body>
+
+</html>

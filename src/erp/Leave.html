@@ -341,7 +341,7 @@
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;"> 请假人：</font>
                                 </font>
-                                <input type="text" placeholder="测试工程师" class="leave-input" required />
+                                <input type="text" value="测试工程师" class="leave-input" required disabled />
                             </label>
                         </div>
                         <div class="col-xs-12 col-sm-6">
@@ -350,9 +350,10 @@
                                     <font style="vertical-align: inherit;"> 请假类型：</font>
                                 </font>
                                 <select class="leave-input">
-                                    <option value ="1">1</option>
-                                    <option value ="2">2</option>
-                                    <option value ="3">3</option>
+                                    <option value ="1">病假</option>
+                                    <option value ="2">事假</option>
+									<option value ="3">婚假</option>
+									<option value ="4">产假</option>
                                 </select>
                             </label>
                         </div>
@@ -365,7 +366,7 @@
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;"> 公司：</font>
                                 </font>
-                                <input type="text" placeholder="紫藤设计" class="leave-input" required />
+                                <input type="text" value="紫藤设计" class="leave-input" required disabled />
                             </label>
                         </div>
                     
@@ -387,15 +388,11 @@
 
                     <div class="leave-part">
                         <div class="col-xs-12 col-sm-6">
-                            <label class="control-label no-padding-right" for="form-field-mask-1">
+							<label class="control-label no-padding-right" for="form-field-mask-1">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;"> 部门：</font>
                                 </font>
-                                <select class="leave-input" required>
-                                    <option value ="1">设计部</option>
-                                    <option value ="2">2</option>
-                                    <option value ="3">3</option>
-                                </select>
+                                <input type="text" value="设计部" class="leave-input" required  disabled/>
                             </label>
                         </div>
                         <div class="col-xs-12 col-sm-6">
@@ -419,7 +416,7 @@
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;"> 职位：</font>
                                 </font>
-                                <input type="text" placeholder="设计师" class="leave-input" required/>
+                                <input type="text" value="设计师" class="leave-input" required disabled/>
                             </label>
                         </div>
                     </div>
@@ -431,7 +428,7 @@
                                 <font style="vertical-align: top;padding-top: 85px;">
                                     <font style="vertical-align: inherit;"> 请假原因：</font>
                                 </font>
-                                <textarea required></textarea>
+                                <textarea required placeholder="请填写请假原因......"></textarea>
                             </label>
                         </div>
                     </div>

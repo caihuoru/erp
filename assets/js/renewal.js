@@ -112,7 +112,7 @@ $.ajax({
 
 
 
-// 充值选择
+// 充值套餐选择
 $("body").on("click",".price-pick",function(){
     $(".pay_code .pay_money span").html($(this).find("span").html()+"￥");
     $(".price-pick").removeClass("border-color-red");
@@ -124,4 +124,21 @@ $("body").on("click",".price-pick",function(){
 $("body").on("click",".renewal .renewal-title span",function(){
     $(".expire").remove();
     $(".renewal").remove();
+})
+
+// 支付方式选择
+$("body").on("click",".renewal-content .pay .pay-list div",function(){
+    $(".renewal-content .pay .pay-list div").removeClass("bg-color");
+    $(this).addClass("bg-color");
+
+    $.ajax({
+        type: "GET",
+        cache:false,
+        dataType:"json",
+        url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+        success:function(data){
+            console.log(data);
+            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.img_url+")"})
+        }
+    })
 })
