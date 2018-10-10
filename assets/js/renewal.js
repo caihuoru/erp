@@ -17,6 +17,7 @@ function popup(){
     var expire=document.createElement("div");
         expire.className="expire";
         $("body").append(expire);
+        var html=
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
@@ -132,13 +133,15 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     $(this).addClass("bg-color");
 
     $.ajax({
-        type: "GET",
+        type: "post",
         cache:false,
         dataType:"json",
-        url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+        // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+        url:"http://192.168.0.169:8090/api/meal.meal/getPayMealQrCode",
+        data:{"vhost_dir":"erp10080"},
         success:function(data){
             console.log(data);
-            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.img_url+")"})
+            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"})
         }
     })
 })
