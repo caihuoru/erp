@@ -514,7 +514,7 @@ i{font-style:normal}
 
 }
 @media screen and (max-width: 1460px) {
-    .separate{
+    .separate:first-child{
         width:50% !important;
     }
     

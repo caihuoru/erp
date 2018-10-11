@@ -56,10 +56,14 @@ function popup(){
         </div>
     </div>`)
     $(".renewal").show(300);
+
+    
+    
 }
 
 
-// 用户信息
+// 数据信息
+var product_data;
 $.ajax({
     type: "GET",
     cache:false,
@@ -81,6 +85,7 @@ $.ajax({
                     html+='<div class="price-pick"><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
                 }
                 $(".price").html(html);
+                moeny=parseInt($(".price-pick").eq(0).find("span").html());
             }
         })
 
@@ -95,6 +100,7 @@ $.ajax({
         timestamp = timestamp / 1000;
         //当前时间戳为：timestamp
         console.log(data);
+        product_data=data.data;
         var lasttime=Math.ceil((timestamp-(data.data.meal_expire_time-(data.data.term*86400)))/86400);
         // alertSet(总服务期限,过去的天数);
         alertSet(data.data.term,lasttime);
@@ -108,16 +114,56 @@ $.ajax({
             $(".renewal .renewal-title").append('<span title="关闭">x</span>');
             $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
         }
+
+    // 默认打开调用一次微信支付点击事件
+    setTimeout(function(){
+        pay();
+        $(".pay_code .pay_money span").html($(".price-pick").eq(0).find("span").html()+"￥");
+        $(".price-pick").eq(0).addClass("border-color-red");
+        $(".weixin").addClass("bg-color");
+    },300)
     }
 })
 
 
+// 支付
+var pay_type=1;
+var moeny;
+
+function pay(){
+    $.ajax({
+        type: "post",
+        cache:false,
+        dataType:"json",
+        // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+        url:"http://192.168.0.169:8090/api/meal.meal/PayMeal",
+        data:{
+            "pay_type":pay_type,
+            "client_id":product_data.client_id,
+            "body":"装企ERP-套餐购买",
+            "total_fee":(moeny*100),
+            "site_id":product_data.site_id,
+            // "guid":product_data.guid,     
+            "product_id":product_data.guid,
+            "detail":"详情"
+            // "sign_type":"MD5"
+        },
+        success:function(data){
+            console.log(moeny);
+            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"})
+        }
+    })
+}
 
 // 充值套餐选择
 $("body").on("click",".price-pick",function(){
+    // if($(this).hasClass)
     $(".pay_code .pay_money span").html($(this).find("span").html()+"￥");
     $(".price-pick").removeClass("border-color-red");
     $(this).addClass("border-color-red");
+    moeny=parseInt($(this).find("span").html());
+
+    pay();
 })
 
 
@@ -131,17 +177,16 @@ $("body").on("click",".renewal .renewal-title span",function(){
 $("body").on("click",".renewal-content .pay .pay-list div",function(){
     $(".renewal-content .pay .pay-list div").removeClass("bg-color");
     $(this).addClass("bg-color");
-
-    $.ajax({
-        type: "post",
-        cache:false,
-        dataType:"json",
-        // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
-        url:"http://192.168.0.169:8090/api/meal.meal/getPayMealQrCode",
-        data:{"vhost_dir":"erp10080"},
-        success:function(data){
-            console.log(data);
-            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"})
-        }
-    })
+    if($(this).hasClass("weixin") && pay_type==1){
+        return false;
+    }else if($(this).hasClass("zhifubao") && pay_type==2){
+        return false;
+    }
+    if($(this).hasClass("weixin")){
+        pay_type=1;
+    }else{
+        pay_type=2;
+    }
+    pay();
+    
 })
