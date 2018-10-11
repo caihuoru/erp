@@ -47,7 +47,7 @@ function popup(){
                     </div>
                 </div>
                 <div class="pay_code">
-                    <div class="code_img"></div>
+                    <div class="code_img" title='获取二维码'></div>
                     <div class="pay_money">支付金额:<span></span></div>
                     <!-- <div class="try">您目前处于试用期</div> -->
                 </div>
@@ -85,6 +85,7 @@ $.ajax({
                     html+='<div class="price-pick"><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
                 }
                 $(".price").html(html);
+                // 第一个套餐的金额
                 moeny=parseInt($(".price-pick").eq(0).find("span").html());
             }
         })
@@ -115,13 +116,13 @@ $.ajax({
             $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
         }
 
-    // 默认打开调用一次微信支付点击事件
-    setTimeout(function(){
-        pay();
-        $(".pay_code .pay_money span").html($(".price-pick").eq(0).find("span").html()+"￥");
-        $(".price-pick").eq(0).addClass("border-color-red");
-        $(".weixin").addClass("bg-color");
-    },300)
+        // 默认打开调用一次微信支付点击事件
+        setTimeout(function(){
+            // pay();
+            $(".pay_code .pay_money span").html($(".price-pick").eq(0).find("span").html()+"￥");
+            $(".price-pick").eq(0).addClass("border-color-red");
+            $(".weixin").addClass("bg-color");
+        },300)
     }
 })
 
@@ -157,13 +158,15 @@ function pay(){
 
 // 充值套餐选择
 $("body").on("click",".price-pick",function(){
-    // if($(this).hasClass)
+    if($(this).hasClass("border-color-red")){
+        return false;
+    }
     $(".pay_code .pay_money span").html($(this).find("span").html()+"￥");
     $(".price-pick").removeClass("border-color-red");
     $(this).addClass("border-color-red");
     moeny=parseInt($(this).find("span").html());
-
-    pay();
+    $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
+    // pay();
 })
 
 
@@ -184,9 +187,12 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     }
     if($(this).hasClass("weixin")){
         pay_type=1;
-    }else{
+    }else if($(this).hasClass("zhifubao")){
         pay_type=2;
     }
+    $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
+    // pay();
+})
+$("body").on("click",".pay_code .code_img",function(){
     pay();
-    
 })

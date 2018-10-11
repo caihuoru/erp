@@ -308,7 +308,7 @@
         </div>
 
         <div class="main-content">
-            <div class="main-content-inner">
+            <div class="main-content-inner market-table">
                 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
                     <ul class="breadcrumb">
                         <li>
@@ -328,18 +328,14 @@
                         </form>
                     </div><!-- /.nav-search -->
                 </div>
-                <div class="page-content row-button-top">
-                    
+                <div class="page-content row-button-top mark-page-content">
                     <button class="this-mouth">本月月绩</button>
                     <button class="last-mouth">上月月绩</button>
-                    <div>
-                        <label>姓名: <input type="text" id="name" class="erp-name"/></label> 
-                        <button class="search-name">搜索</button>
-                        <button class="show-all">显示全部</button>
-                    </div>
                 </div><!-- /.page-content -->
-                <div>
-                   
+                <div class="name_search_part">
+                    <label>姓名: <input type="text" id="name" class="erp-name"/></label> 
+                    <button class="search-name">搜索</button>
+                    <button class="show-all">显示全部</button>
                 </div>
                 <div class="gbox_grid-table">
                         <table id="data-table">
@@ -537,7 +533,7 @@
 
             // 按名字搜索
             var arr_name=[];
-            $(".row-button-top .search-name").click(function(){
+            $(".name_search_part .search-name").click(function(){
                 var name_search=document.querySelectorAll(".gbox_grid-table table .name");
                 $(".gbox_grid-table table .tbody .name").parent().hide();
                 for(var i=0;i<name_search.length;i++){

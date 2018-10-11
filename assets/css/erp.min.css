@@ -733,7 +733,7 @@ i{font-style:normal}
     font-weight:400;
 }
 
-/* 部门项目表 */
+/* 部门项目表和市场月绩表 */
 .row-button-top{
     padding-bottom: 8px;
     background-color: #E6E6E6;
@@ -904,7 +904,52 @@ i{font-style:normal}
     cursor: pointer;
     top:0;
 }
-
+.market-table{
+    background-color: #fff;
+}
+.name_search_part{
+    background-color: #E6E6E6;
+    font-size:16px;
+    font-family:"Microsoft YaHei";
+    padding-left: 20px;
+}
+.mark-page-content{
+    background-color: #F1F1F1;
+}
+.mark-page-content button:first-child{
+    margin-left: 0px;
+}
+.mark-page-content button,.name_search_part button{
+    margin-left: 10px;
+}
+.name_search_part #name{
+    border: 1px solid #438EB9;
+    margin-top: 5px;
+    font-size:16px;
+    font-family:"Microsoft YaHei";
+}
+.name_search_part .search-name{
+    font-size:16px;
+    font-family:"Microsoft YaHei";
+    font-weight:400;
+    color:rgba(18,39,51,1);
+    background-color: #6FB3E0;
+    border: 0;
+    width: 52px;
+    height:34px;
+    line-height: 18px;
+}
+.name_search_part .show-all{
+    font-size:16px;
+    font-family:"Microsoft YaHei";
+    font-weight:400;
+    color:rgba(18,39,51,1);
+    background-color: #FFB752;
+    border: 0;
+    width: 84px;
+    height:34px;
+    line-height: 18px;
+}
 
 /* 首页倒计时 */
 #js-alert-box{
@@ -1268,11 +1313,12 @@ i{font-style:normal}
     color:#f6644c;
 }
 .renewal .renewal-content .pay .pay_code .code_img{
-    background-image: url(/img/login/erweima.png);
+    background-image: url(../images/index/buy_code.png);
     width: 130px;
     height:130px;
     background-size: 100% 100%;
     margin: 0 auto;
+    cursor: pointer;
 }
 .renewal .renewal-content .pay .pay_code .pay_money{
     padding-top: 20px;
