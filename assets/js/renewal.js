@@ -61,7 +61,6 @@ function popup(){
     
 }
 
-
 // 数据信息
 var product_data;
 $.ajax({
@@ -71,7 +70,6 @@ $.ajax({
     url:"http://192.168.0.169:8090/api/meal.meal/getclientexpired",
     data:{"vhost_dir":"erp10080"},
     success:function(data){
-
         // 费用信息渲染
         $.ajax({
             type: "GET",
