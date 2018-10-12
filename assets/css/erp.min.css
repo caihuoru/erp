@@ -1325,4 +1325,7 @@ i{font-style:normal}
     text-align: center;
     font-size: 20px;
     font-family: "Microsoft YaHei";
-}       
+}    
+.renewal .renewal-content .pay .pay_code .pay_money .moeny-num{
+    color: #f6644c;
+}   
