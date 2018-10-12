@@ -1157,6 +1157,9 @@ i{font-style:normal}
     resize: none;
    
 }
+.leave-part .date-margin{
+    margin: 0 100px;
+}
 .leave-part #id-date-picker-1{
     display: inline-block;
 }

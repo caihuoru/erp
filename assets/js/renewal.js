@@ -63,9 +63,11 @@ function popup(){
 
 // 数据信息
 var product_data;
+var period_id;
 $.ajax({
     type: "GET",
     cache:false,
+    
     dataType:"json",
     url:"http://192.168.0.169:8090/api/meal.meal/getclientexpired",
     data:{"vhost_dir":"erp10080"},
@@ -77,6 +79,9 @@ $.ajax({
             dataType:"json",
             url:"http://192.168.0.169:8090/api/meal.meal/getmeallists",
             success:function(data){
+                // 获取试用期id
+                period_id=data.data[0].guid;
+                console.log(period_id)
                 var html='';
                 // 充值价格选择
                 for(var i=1; i<data.data.length;i++){
@@ -108,7 +113,7 @@ $.ajax({
             popup();
         }
         // 如果是试用期
-        else if(data.data.packageName=="试用期（普通）" && data.data.is_expired==false){
+        else if(data.data.guid=="QT5BADC60549A46535257" && data.data.is_expired==false){
             popup();
             $(".renewal .renewal-title").append('<span title="关闭">x</span>');
             $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
@@ -128,7 +133,7 @@ $.ajax({
 // 支付
 var pay_type=1;
 var moeny;
-
+// 微信
 function pay(){
     $.ajax({
         type: "post",
@@ -191,6 +196,8 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
     // pay();
 })
+
+// 点击获取支付码
 $("body").on("click",".pay_code .code_img",function(){
     pay();
 })
