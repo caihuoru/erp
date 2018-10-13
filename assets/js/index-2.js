@@ -196,7 +196,7 @@ $(".load-more").click(function(){
 // 过去的天数:Past_times
 function alertSet(t,Past_times) {
     document.getElementById("js-alert-box").style.display = "block";
-
+    t+=1;
     
     // var t = 10,
     var Total=t;
@@ -211,9 +211,9 @@ function alertSet(t,Past_times) {
         // clearInterval(time);
 
         // 续费弹框
-        var expire=document.createElement("div");
-            expire.className="expire";
-            $("body").append(expire);
+        // var expire=document.createElement("div");
+        //     expire.className="expire";
+        //     $("body").append(expire);
             $(".renewal").show();
             $("#js-sec-text").html("0");
     } else {

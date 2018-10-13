@@ -1,14 +1,17 @@
 //续费js
 
 //时间戳转换
-function timestampToTime(timestamp) {
+function timestampToTime(timestamp,hour) {
     var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     var Y = date.getFullYear() + '-';
     var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
     var D = date.getDate() + ' ';
-    var h = date.getHours() + ':';
-    var m = date.getMinutes() + ':';
+    var h = date.getHours() + '时';
+    var m = date.getMinutes() + '分';
     var s = date.getSeconds();
+    if(hour){
+        return h+m;
+    }
     return Y+M+D;
 }
 
@@ -23,16 +26,16 @@ function popup(){
             <div class="renewal-title">7搜装企erp系统充值</div>
             <div class="price">
                 <div class="price-pick">
-                    <span>178￥</span>/12个月
-                    <p class="original">250￥</p>
+                    <span</span>/
+                    <p class="original"></p>
                 </div>
                 <div class="price-pick">
-                    <span>45￥</span>/3个月
-                    <p class="original">58￥</p>
+                    <span></span>/
+                    <p class="original"></p>
                 </div>
                 <div class="price-pick">
-                    <span>6￥</span>/1个月
-                    <p class="original">19.8￥</p>
+                    <span></span>/
+                    <p class="original"></p>
                 </div>
             </div>
             <div class="pay-way">支付方式：扫码</div>
@@ -60,40 +63,20 @@ function popup(){
     
     
 }
-
+// var domain="http://wechat.yzferp.com";
+var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
 var period_id;
+var product_name;
 $.ajax({
     type: "GET",
     cache:false,
     
     dataType:"json",
-    url:"http://192.168.0.169:8090/api/meal.meal/getclientexpired",
+    url:domain+"/api/meal.meal/getclientexpired",
     data:{"vhost_dir":"erp10080"},
     success:function(data){
-        // 费用信息渲染
-        $.ajax({
-            type: "GET",
-            cache:false,
-            dataType:"json",
-            url:"http://192.168.0.169:8090/api/meal.meal/getmeallists",
-            success:function(data){
-                // 获取试用期id
-                period_id=data.data[0].guid;
-                console.log(period_id)
-                var html='';
-                // 充值价格选择
-                for(var i=1; i<data.data.length;i++){
-                    html+='<div class="price-pick"><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
-                }
-                $(".price").html(html);
-                // 第一个套餐的金额
-                moeny=parseInt($(".price-pick").eq(0).find("span").html());
-            }
-        })
-
-
         // 服务时间
         $(".serve .serve_data p:first-child").html("服务开始时间："+timestampToTime(data.data.meal_expire_time-(data.data.term*86400)));
         $(".serve .serve_data p:last-child").html("服务结束时间："+timestampToTime(data.data.meal_expire_time));
@@ -113,19 +96,46 @@ $.ajax({
             popup();
         }
         // 如果是试用期
-        else if(data.data.guid=="QT5BADC60549A46535257" && data.data.is_expired==false){
+        else if(data.data.guid==period_id && data.data.is_expired==false){
             popup();
             $(".renewal .renewal-title").append('<span title="关闭">x</span>');
-            $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
+            if(data.data.remain_day<=0){
+               
+                $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+ timestampToTime(data.data.meal_expire_time-timestamp,"hour")+'</div>');
+            }else{
+                $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
+            }
+            // timestampToTime()
         }
 
-        // 默认打开调用一次微信支付点击事件
-        setTimeout(function(){
-            // pay();
-            $(".pay_code .pay_money .moeny-num").html($(".price-pick").eq(0).find("span").html());
-            $(".price-pick").eq(0).addClass("border-color-red");
-            $(".weixin").addClass("bg-color");
-        },300)
+
+        // 费用信息渲染
+        $.ajax({
+            type: "GET",
+            cache:false,
+            dataType:"json",
+            url:domain+"/api/meal.meal/getmeallists",
+            success:function(data){
+                var html='';
+                // 充值价格选择
+                for(var i=1; i<data.data.length;i++){
+                    html+='<div class="price-pick" data-packageName='+data.data[i].packageName+'><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
+                }
+                $(".price").html(html);
+                // 第一个套餐的金额
+                moeny=parseInt($(".price-pick").eq(0).find("span").html());
+                product_name=$(".price-pick").eq(0).data("packagename");
+                // 默认打开
+                setTimeout(function(){
+                    // pay();
+                    $(".pay_code .pay_money .moeny-num").html($(".price-pick").eq(0).find("span").html());
+                    $(".price-pick").eq(0).addClass("border-color-red");
+                    $(".weixin").addClass("bg-color");
+                },300)
+            }
+        })
+
+
     }
 })
 
@@ -133,30 +143,48 @@ $.ajax({
 // 支付
 var pay_type=1;
 var moeny;
-// 微信
+var amount=1;
 function pay(){
-    $.ajax({
-        type: "post",
-        cache:false,
-        dataType:"json",
-        // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
-        url:"http://192.168.0.169:8090/api/meal.meal/PayMeal",
-        data:{
-            "pay_type":pay_type,
-            "client_id":product_data.client_id,
-            "body":"装企ERP-套餐购买",
-            "total_fee":(moeny*100),
-            "site_id":product_data.site_id,
-            // "guid":product_data.guid,     
-            "product_id":product_data.guid,
-            "detail":"详情"
-            // "sign_type":"MD5"
-        },
-        success:function(data){
+    switch (pay_type){
+        // 微信支付
+        case 1:
+            $.ajax({
+                type: "post",
+                dataType:"json",
+                cache:false,
+                // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+                url:domain+"/api/meal.meal/PayMeal",
+                data:{
+                    "pay_type":pay_type,
+                    "client_id":product_data.client_id,
+                    "body":"装企ERP-套餐购买-"+product_name,
+                    "total_fee":(moeny*100),
+                    "site_id":product_data.site_id,
+                    // "guid":product_data.guid,     
+                    "product_id":product_data.guid,
+                    "detail":"详情",
+                    "amount":amount
+                    // "sign_type":"MD5"
+                },
+                success:function(data){
+                    console.log(product_data.client_id);
+                    console.log(moeny);
+                    console.log(product_name);
+                    $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
+                }
+            })
+            break;
+        // 支付宝
+        case 2:
+            layer.msg("支付宝!", {
+                icon: 1
+            });
+            console.log(product_data.client_id);
             console.log(moeny);
-            $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
-        }
-    })
+            console.log(product_name);
+            break;
+    }
+    
 }
 
 // 充值套餐选择
@@ -168,6 +196,7 @@ $("body").on("click",".price-pick",function(){
     $(".price-pick").removeClass("border-color-red");
     $(this).addClass("border-color-red");
     moeny=parseInt($(this).find("span").html());
+    product_name=$(this).data("packagename");
     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"});
     // pay();
 })
@@ -201,3 +230,16 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
 $("body").on("click",".pay_code .code_img",function(){
     pay();
 })
+
+    // 获取试用期id
+    $.ajax({
+        type: "GET",
+        async:false,
+        cache:false,
+        dataType:"json",
+        url:domain+"/api/meal.meal/getmeallists",
+        success:function(data){
+            
+            period_id=data.data[0].guid;
+        }
+    })
