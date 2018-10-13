@@ -20,7 +20,7 @@ function popup(){
     var expire=document.createElement("div");
         expire.className="expire";
         $("body").append(expire);
-        var html=
+        // var html=""
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
@@ -134,14 +134,12 @@ $.ajax({
                 },300)
             }
         })
-
-
     }
 })
 
 
 // 支付
-var pay_type=1;
+var pay_type=1;//默认微信支付
 var moeny;
 var amount=1;
 function pay(){
@@ -184,7 +182,6 @@ function pay(){
             console.log(product_name);
             break;
     }
-    
 }
 
 // 充值套餐选择
