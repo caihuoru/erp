@@ -63,8 +63,8 @@ function popup(){
     
     
 }
-// var domain="http://wechat.yzferp.com";
-var domain="http://192.168.0.169:8090";
+var domain="http://wechat.yzferp.com";
+// var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
 var period_id;
@@ -91,7 +91,7 @@ $.ajax({
         var lasttime=Math.ceil((timestamp-(data.data.meal_expire_time-(data.data.term*86400)))/86400);
         // alertSet(总服务期限,过去的天数);
         alertSet(data.data.term,lasttime);
-        if(timestamp>=data.data.meal_expire_time || data.data.is_expired==true){
+        if(timestamp<=data.data.meal_expire_time || data.data.is_expired==true){
             // 如果已经到期
             popup();
         }
@@ -171,6 +171,9 @@ function pay(){
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
                 }
             })
+            // layer.msg("微信!", {
+            //     icon: 1
+            // });
             break;
         // 支付宝
         case 2:

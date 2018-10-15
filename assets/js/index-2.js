@@ -196,27 +196,35 @@ $(".load-more").click(function(){
 // 过去的天数:Past_times
 function alertSet(t,Past_times) {
     document.getElementById("js-alert-box").style.display = "block";
-    t+=1;
+    // t=0;
     
-    // var t = 10,
+    // var t = 0,
     var Total=t;
         n = document.getElementById("js-sec-circle");
     document.getElementById("js-sec-text").innerHTML = t;
     // var time=setInterval(function() {
-    if (0 >= t) {
+    if (0 == t) {
         // 如果到期
-        layer.msg("已到期!请续费!", {
-            icon: 2
-        });
+        
         // clearInterval(time);
 
         // 续费弹框
         // var expire=document.createElement("div");
         //     expire.className="expire";
         //     $("body").append(expire);
-            $(".renewal").show();
-            $("#js-sec-text").html("0");
-    } else {
+            // $(".renewal").show();
+            $("#js-sec-text").html("不足1天");
+            $("#js-sec-text").css({"font-size":"40px","left":"4px","top":"90px"})
+            $(".alert-sec-unit").hide();
+    }else if(0>t){
+        layer.msg("已到期!请续费!", {
+            icon: 2
+        });
+        $("#js-sec-text").html("已过期");
+        $("#js-sec-text").css({"font-size":"35px","left":"4px","top":"90px"})
+        $(".alert-sec-unit").hide();
+    }
+     else {
         // 已过去多少天
         t -= Past_times;
 
