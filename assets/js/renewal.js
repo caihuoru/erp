@@ -24,6 +24,7 @@ function popup(){
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
+            <div class="banben"><div>
             <div class="price">
                 <div class="price-pick">
                     <span</span>/
@@ -59,15 +60,39 @@ function popup(){
         </div>
     </div>`)
     $(".renewal").show(300);
-
-    
-    
+    // 费用信息渲染
+    $.ajax({
+        type: "GET",
+        cache:false,
+        dataType:"json",
+        url:domain+"/api/meal.meal/getmeallists",
+        success:function(data){
+            console.log(data)
+            var html='';
+            // 充值价格选择
+            for(var i=1; i<data.data.length;i++){
+                html+='<div class="price-pick" data-packageName='+data.data[i].packageName+' data-id='+data.data[i].guid+'><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
+            }
+            $(".price").html(html);
+            // 第一个套餐
+            moeny=parseInt($(".price-pick").eq(0).find("span").html());
+            product_name=$(".price-pick").eq(0).data("packagename");
+            product_id=$(".price-pick").eq(0).data("id")
+            // 默认打开
+            setTimeout(function(){
+                // pay();
+                $(".pay_code .pay_money .moeny-num").html($(".price-pick").eq(0).find("span").html());
+                $(".price-pick").eq(0).addClass("border-color-red");
+                $(".weixin").addClass("bg-color");
+            },300)
+        }
+    })
 }
 var domain="http://wechat.yzferp.com";
 // var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
-var period_id;
+var product_id=[];
 var product_name;
 $.ajax({
     type: "GET",
@@ -91,7 +116,7 @@ $.ajax({
         var lasttime=Math.ceil((timestamp-(data.data.meal_expire_time-(data.data.term*86400)))/86400);
         // alertSet(总服务期限,过去的天数);
         alertSet(data.data.term,lasttime);
-        if(timestamp<=data.data.meal_expire_time || data.data.is_expired==true){
+        if(timestamp>=data.data.meal_expire_time || data.data.is_expired==true){
             // 如果已经到期
             popup();
         }
@@ -109,31 +134,7 @@ $.ajax({
         }
 
 
-        // 费用信息渲染
-        $.ajax({
-            type: "GET",
-            cache:false,
-            dataType:"json",
-            url:domain+"/api/meal.meal/getmeallists",
-            success:function(data){
-                var html='';
-                // 充值价格选择
-                for(var i=1; i<data.data.length;i++){
-                    html+='<div class="price-pick" data-packageName='+data.data[i].packageName+'><span>'+data.data[i].price+'</span>/'+data.data[i].packageName+'<p class="original">'+data.data[i].term+'天</p></div>';
-                }
-                $(".price").html(html);
-                // 第一个套餐的金额
-                moeny=parseInt($(".price-pick").eq(0).find("span").html());
-                product_name=$(".price-pick").eq(0).data("packagename");
-                // 默认打开
-                setTimeout(function(){
-                    // pay();
-                    $(".pay_code .pay_money .moeny-num").html($(".price-pick").eq(0).find("span").html());
-                    $(".price-pick").eq(0).addClass("border-color-red");
-                    $(".weixin").addClass("bg-color");
-                },300)
-            }
-        })
+        
     }
 })
 
@@ -159,15 +160,20 @@ function pay(){
                     "total_fee":(moeny*100),
                     "site_id":product_data.site_id,
                     // "guid":product_data.guid,     
-                    "product_id":product_data.guid,
+                    "product_id":product_id,
                     "detail":"详情",
                     "amount":amount
                     // "sign_type":"MD5"
                 },
                 success:function(data){
+                    // console.log(pay_type);
+                    console.log(product_name);
                     console.log(product_data.client_id);
                     console.log(moeny);
-                    console.log(product_name);
+                    console.log(product_data.site_id)
+                    console.log(product_id)
+                    
+                   
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
                 }
             })
@@ -180,9 +186,12 @@ function pay(){
             layer.msg("支付宝!", {
                 icon: 1
             });
-            console.log(product_data.client_id);
-            console.log(moeny);
-            console.log(product_name);
+                console.log(pay_type);
+                console.log(product_data.client_id);
+                console.log(product_name);
+                console.log(moeny);
+                console.log(product_data.site_id)
+                console.log(product_id)
             break;
     }
 }
@@ -197,6 +206,7 @@ $("body").on("click",".price-pick",function(){
     $(this).addClass("border-color-red");
     moeny=parseInt($(this).find("span").html());
     product_name=$(this).data("packagename");
+    product_id=$(this).data("id")
     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"});
     // pay();
 })
@@ -226,9 +236,25 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     // pay();
 })
 
-// 点击获取支付码
+// 点击获取支付码 并开始轮询
 $("body").on("click",".pay_code .code_img",function(){
     pay();
+    var server_back=setInterval(function(){
+        $.ajax({
+            type: "GET",
+            cache:false,
+            
+            dataType:"json",
+            url:domain+"/api/meal.meal/getclientexpired",
+            data:{"vhost_dir":"erp10080"},
+            success:function(data){
+                if(data.data.term!=product_data.term){
+                    window.location.href="/src/index.html"
+                    clearInterval(server_back);
+                }
+            }
+        })
+    },500)
 })
 
     // 获取试用期id
@@ -239,7 +265,8 @@ $("body").on("click",".pay_code .code_img",function(){
         dataType:"json",
         url:domain+"/api/meal.meal/getmeallists",
         success:function(data){
-            
             period_id=data.data[0].guid;
         }
     })
+
+    
