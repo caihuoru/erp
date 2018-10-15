@@ -24,7 +24,7 @@ function popup(){
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
-            <div class="banben"><div>
+            <div class="banben"> <div class="Tab"></div> <div class="Tab"></div></div>
             <div class="price">
                 <div class="price-pick">
                     <span</span>/
@@ -77,7 +77,7 @@ function popup(){
             // 第一个套餐
             moeny=parseInt($(".price-pick").eq(0).find("span").html());
             product_name=$(".price-pick").eq(0).data("packagename");
-            product_id=$(".price-pick").eq(0).data("id")
+            product_id=$(".price-pick").eq(0).data("id");
             // 默认打开
             setTimeout(function(){
                 // pay();
@@ -97,7 +97,6 @@ var product_name;
 $.ajax({
     type: "GET",
     cache:false,
-    
     dataType:"json",
     url:domain+"/api/meal.meal/getclientexpired",
     data:{"vhost_dir":"erp10080"},
@@ -116,8 +115,8 @@ $.ajax({
         var lasttime=Math.ceil((timestamp-(data.data.meal_expire_time-(data.data.term*86400)))/86400);
         // alertSet(总服务期限,过去的天数);
         alertSet(data.data.term,lasttime);
-        if(timestamp>=data.data.meal_expire_time || data.data.is_expired==true){
-            // 如果已经到期
+        // 如果已经到期
+        if(timestamp<=data.data.meal_expire_time || data.data.is_expired==true){
             popup();
         }
         // 如果是试用期
@@ -177,18 +176,15 @@ function pay(){
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
                 }
             })
-            // layer.msg("微信!", {
-            //     icon: 1
-            // });
             break;
-        // 支付宝
+        // 支付宝支付
         case 2:
             layer.msg("支付宝!", {
                 icon: 1
             });
-                console.log(pay_type);
-                console.log(product_data.client_id);
+                // console.log(pay_type);
                 console.log(product_name);
+                console.log(product_data.client_id);
                 console.log(moeny);
                 console.log(product_data.site_id)
                 console.log(product_id)
@@ -235,11 +231,12 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
     // pay();
 })
-
+var server_back
 // 点击获取支付码 并开始轮询
 $("body").on("click",".pay_code .code_img",function(){
     pay();
-    var server_back=setInterval(function(){
+    clearInterval(server_back);
+    server_back=setInterval(function(){
         $.ajax({
             type: "GET",
             cache:false,
@@ -252,9 +249,10 @@ $("body").on("click",".pay_code .code_img",function(){
                     window.location.href="/src/index.html"
                     clearInterval(server_back);
                 }
+                console.log(1);
             }
         })
-    },500)
+    },1000)
 })
 
     // 获取试用期id
