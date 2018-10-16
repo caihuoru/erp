@@ -1268,7 +1268,11 @@ i{font-style:normal}
 }
 .renewal .renewal-content .price-pick:hover{
     border: 1px solid #f6644c;
-    box-shadow: 0px 0px 20px #438EB9
+    box-shadow: 0px 0px 20px #438EB9;
+    transition: 1s;
+    -moz-transition: 1s; /* Firefox 4 */
+    -webkit-transition: 1s; /* Safari 和 Chrome */
+    -o-transition: 1s; /* Opera */
 }
 .renewal .renewal-content .price-pick span{
     color: #f6644c;
@@ -1282,20 +1286,28 @@ i{font-style:normal}
 }
 .renewal .renewal-content .border-color-red{
     border:1px solid #f6644c !important;
-    box-shadow: 0px 0px 20px #f6644c
+    box-shadow: 0px 0px 20px #f6644c;
+    transition: 1s;
+    -moz-transition: 1s; /* Firefox 4 */
+    -webkit-transition: 1s; /* Safari 和 Chrome */
+    -o-transition: 1s; /* Opera */
 }
-.renewal .renewal-content .pay .pay-list{
+.renewal .renewal-content .pay .pay-list,
+.renewal .renewal-content .pay .pay-list2{
     width:130px;
     background-color: #eeeff3;
     height: 200px;
     float: left;
 }
 .renewal .renewal-content .pay .pay_code{
-    width: 545px;
-    float: right;
+    width: 415px;
+    float: left;
     height: 200px;
 }
-.renewal .renewal-content .pay .pay-list .weixin,.renewal .renewal-content .pay .pay-list .zhifubao{
+.renewal .renewal-content .pay .pay-list .weixin,
+.renewal .renewal-content .pay .pay-list .zhifubao,
+.renewal .renewal-content .pay .pay-list2 .company,
+.renewal .renewal-content .pay .pay-list2 .group{
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -1350,14 +1362,14 @@ i{font-style:normal}
     height: 60px;
     width: 300px;
     text-align: center;
-    line-height: 60px;
+    line-height: 55px;
     font-size: 24px;
     font-family: "Microsoft YaHei";
     font-weight: 400;
     border: 1px solid #438EB9;
     float: left;
     margin-left: 40px;
-    margin-top: 30px;
+    margin-top: 10px;
     cursor: pointer;
     /* box-shadow: 0 0 20px #f6644c; */
 }

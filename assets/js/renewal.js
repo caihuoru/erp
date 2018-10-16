@@ -24,7 +24,6 @@ function popup(){
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
-            <div class="edition"> <div class="company edition-part">公司版</div> <div class="group edition-part">集团版</div></div>
             <div class="price">
                 <div class="price-pick">
                     <span</span>/
@@ -55,6 +54,14 @@ function popup(){
                     <div class="pay_money">支付金额:<span class="moeny-num"></span><span>￥</span></div>
                     <!-- <div class="try">您目前处于试用期</div> -->
                 </div>
+                <div class="pay-list2">
+                    <div class="company">
+                        公司版
+                    </div>
+                    <div class="group">
+                        集团版
+                    </div>
+                </div>
             </div>
             
         </div>
@@ -84,6 +91,7 @@ function popup(){
                 $(".pay_code .pay_money .moeny-num").html($(".price-pick").eq(0).find("span").html());
                 $(".price-pick").eq(0).addClass("border-color-red");
                 $(".weixin").addClass("bg-color");
+                $(".company").addClass("bg-color");
             },300)
         }
     })
@@ -249,6 +257,12 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
     }
     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
     // pay();
+})
+
+// 版本
+$("body").on("click",".renewal-content .pay .pay-list2 div",function(){
+    $(".renewal-content .pay .pay-list div").removeClass("bg-color");
+    $(this).addClass("bg-color");
 })
 var server_back
 // 点击获取支付码 并开始轮询
