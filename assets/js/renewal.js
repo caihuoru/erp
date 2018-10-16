@@ -144,6 +144,36 @@ var moeny;
 var amount=1;
 function pay(){
     switch (pay_type){
+        
+        // 支付宝支付
+        case 0:
+            layer.msg("支付宝!", {
+                icon: 1
+            });
+            $.ajax({
+                type: "post",
+                dataType:"json",
+                cache:false,
+                // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
+                url:domain+"/api/meal.meal/PayMeal",
+                data:{
+                    "app_id":"app_id",
+                    "merchant_private_key":"merchant_private_key",
+                    "return_url":"return_url",
+                    "charset":"UTF-8",
+                    "sign_type":"sign_type",
+                    // "guid":product_data.guid,     
+                    "getewayUrl":"getewayUrl",
+                    "detail":"详情",
+                    "alipay_public_key":"alipay_public_key",
+                    
+                    // "sign_type":"MD5"
+                },
+                success:function(data){
+                    // console.log(pay_type);
+                }
+            })
+            break;
         // 微信支付
         case 1:
             $.ajax({
@@ -175,35 +205,6 @@ function pay(){
                     
                    
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
-                }
-            })
-            break;
-        // 支付宝支付
-        case 0:
-            layer.msg("支付宝!", {
-                icon: 1
-            });
-            $.ajax({
-                type: "post",
-                dataType:"json",
-                cache:false,
-                // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
-                url:domain+"/api/meal.meal/PayMeal",
-                data:{
-                    "app_id":"app_id",
-                    "merchant_private_key":"merchant_private_key",
-                    "return_url":"return_url",
-                    "charset":"UTF-8",
-                    "sign_type":"sign_type",
-                    // "guid":product_data.guid,     
-                    "getewayUrl":"getewayUrl",
-                    "detail":"详情",
-                    "alipay_public_key":"alipay_public_key",
-                    
-                    // "sign_type":"MD5"
-                },
-                success:function(data){
-                    // console.log(pay_type);
                 }
             })
             break;
@@ -286,6 +287,7 @@ $("body").on("click",".pay_code .code_img",function(){
         url:domain+"/api/meal.meal/getmeallists",
         success:function(data){
             period_id=data.data[0].guid;
+            console.log(data.data)
         }
     })
 

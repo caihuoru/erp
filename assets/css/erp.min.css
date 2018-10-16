@@ -1243,7 +1243,7 @@ i{font-style:normal}
     margin-top: 15px;
     padding-top:5px;
     cursor: pointer;
-    box-shadow: 0px 0px 20px #438EB9
+    /* box-shadow: 0px 0px 20px #438EB9 */
 }
 .renewal .renewal-content .price-pick p{
     margin: 0 0 10px;
@@ -1268,7 +1268,7 @@ i{font-style:normal}
 }
 .renewal .renewal-content .price-pick:hover{
     border: 1px solid #f6644c;
-    box-shadow: 0px 0px 20px #f6644c
+    box-shadow: 0px 0px 20px #438EB9
 }
 .renewal .renewal-content .price-pick span{
     color: #f6644c;
@@ -1359,4 +1359,5 @@ i{font-style:normal}
     margin-left: 40px;
     margin-top: 30px;
     cursor: pointer;
+    /* box-shadow: 0 0 20px #f6644c; */
 }
