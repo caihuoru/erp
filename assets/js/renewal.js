@@ -24,7 +24,7 @@ function popup(){
         $("body").append(`<div class="renewal" onselectstart="return false;">
         <div class="renewal-content">
             <div class="renewal-title">7搜装企erp系统充值</div>
-            <div class="banben"> <div class="Tab"></div> <div class="Tab"></div></div>
+            <div class="edition"> <div class="company edition-part">公司版</div> <div class="group edition-part">集团版</div></div>
             <div class="price">
                 <div class="price-pick">
                     <span</span>/
@@ -88,8 +88,8 @@ function popup(){
         }
     })
 }
-// var domain="http://wechat.yzferp.com";
-var domain="http://192.168.0.169:8090";
+var domain="http://wechat.yzferp.com";
+// var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
 var product_id=[];
@@ -156,7 +156,7 @@ function pay(){
                     "pay_type":pay_type,
                     "client_id":product_data.client_id,
                     "body":"装企ERP-套餐购买-"+product_name,
-                    "total_fee":(moeny*100),
+                    "total_fee": 1,//(moeny*100),
                     "site_id":product_data.site_id,
                     // "guid":product_data.guid,     
                     "product_id":product_id,

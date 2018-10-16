@@ -1243,6 +1243,7 @@ i{font-style:normal}
     margin-top: 15px;
     padding-top:5px;
     cursor: pointer;
+    box-shadow: 0px 0px 20px #438EB9
 }
 .renewal .renewal-content .price-pick p{
     margin: 0 0 10px;
@@ -1267,6 +1268,7 @@ i{font-style:normal}
 }
 .renewal .renewal-content .price-pick:hover{
     border: 1px solid #f6644c;
+    box-shadow: 0px 0px 20px #f6644c
 }
 .renewal .renewal-content .price-pick span{
     color: #f6644c;
@@ -1280,6 +1282,7 @@ i{font-style:normal}
 }
 .renewal .renewal-content .border-color-red{
     border:1px solid #f6644c !important;
+    box-shadow: 0px 0px 20px #f6644c
 }
 .renewal .renewal-content .pay .pay-list{
     width:130px;
@@ -1331,7 +1334,29 @@ i{font-style:normal}
 }    
 .renewal .renewal-content .pay .pay_code .pay_money .moeny-num{
     color: #f6644c;
+}
+.renewal .renewal-content .edition{
+
 }  
-.renewal .renewal-content .banben{
-    
+.renewal .renewal-content .edition::after{
+    content:"";
+    height:0;
+    line-height:0;
+    display:block;
+    visibility:hidden;
+    clear:both;
 } 
+.renewal .renewal-content .edition .edition-part{
+    height: 60px;
+    width: 300px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    border: 1px solid #438EB9;
+    float: left;
+    margin-left: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+}
