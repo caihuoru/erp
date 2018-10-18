@@ -96,8 +96,8 @@ function popup(){
         }
     })
 }
-// var domain="http://wechat.yzferp.com";
-var domain="http://192.168.0.169:8090";
+var domain="http://wechat.yzferp.com";
+// var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
 var product_id=[];
@@ -107,7 +107,7 @@ $.ajax({
     cache:false,
     dataType:"json",
     url:domain+"/api/meal.meal/getclientexpired",
-    data:{"vhost_dir":"erp10080"},
+    data:{"vhost_dir":"erp10079"},
     success:function(data){
         // 服务时间
         $(".serve .serve_data p:first-child").html("服务开始时间："+timestampToTime(data.data.meal_expire_time-(data.data.term*86400)));
@@ -124,7 +124,7 @@ $.ajax({
         // alertSet(总服务期限,过去的天数);
         alertSet(data.data.term,lasttime);
         // 如果已经到期
-        if(timestamp<=data.data.meal_expire_time || data.data.is_expired==true){
+        if(timestamp>=data.data.meal_expire_time || data.data.is_expired==true){
             popup();
         }
         // 如果是试用期
@@ -138,10 +138,7 @@ $.ajax({
                 $(".renewal .renewal-content .pay .pay_code").append('<div class="try">您目前处于试用期 剩余:'+data.data.remain_day+'天</div>');
             }
             // timestampToTime()
-        }
-
-
-        
+        }        
     }
 })
 
@@ -155,9 +152,6 @@ function pay(){
         
         // 支付宝支付
         case 0:
-            layer.msg("支付宝!", {
-                icon: 1
-            });
             $.ajax({
                 type: "post",
                 dataType:"json",
@@ -165,19 +159,10 @@ function pay(){
                 // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
                 url:domain+"/api/meal.meal/PayMeal",
                 data:{
-                    // "app_id":"app_id",
-                    // "merchant_private_key":"merchant_private_key",
-                    // "return_url":"return_url",
-                    // "charset":"UTF-8",
-                    // "sign_type":"sign_type",
-                    // // "guid":product_data.guid,     
-                    // "getewayUrl":"getewayUrl",
-                    // "detail":"详情",
-                    // "alipay_public_key":"alipay_public_key",
                     "pay_type":pay_type,
                     "client_id":product_data.client_id,
                     "body":"装企ERP-套餐购买-"+product_name,
-                    "total_fee": moeny,
+                    "total_fee": 0.01,
                     "site_id":product_data.site_id,
                     // "guid":product_data.guid,     
                     "product_id":product_id,
@@ -187,7 +172,7 @@ function pay(){
                     // "sign_type":"MD5"
                 },
                 success:function(data){
-                    console.log(data);
+                    console.log(moeny);
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
                 }
             })
@@ -300,7 +285,7 @@ $("body").on("click",".pay_code .code_img",function(){
                 }
             }
         })
-    },1000)
+    },10000)
 })
 
     // 获取试用期id(待优化)
