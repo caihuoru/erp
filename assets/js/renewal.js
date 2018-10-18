@@ -50,7 +50,7 @@ function popup(){
                     </div>
                 </div>
                 <div class="pay_code">
-                    <div class="code_img" title='获取二维码'></div>
+                    <div class="code_img" title='点击刷新'></div>
                     <div class="pay_money">支付金额:<span class="moeny-num"></span><span>￥</span></div>
                     <!-- <div class="try">您目前处于试用期</div> -->
                 </div>
@@ -96,8 +96,8 @@ function popup(){
         }
     })
 }
-var domain="http://wechat.yzferp.com";
-// var domain="http://192.168.0.169:8090";
+// var domain="http://wechat.yzferp.com";
+var domain="http://192.168.0.169:8090";
 // 数据信息
 var product_data;
 var product_id=[];
@@ -165,20 +165,30 @@ function pay(){
                 // url:"http://192.168.0.169:8090/api/meal.meal/getProductQrCode",
                 url:domain+"/api/meal.meal/PayMeal",
                 data:{
-                    "app_id":"app_id",
-                    "merchant_private_key":"merchant_private_key",
-                    "return_url":"return_url",
-                    "charset":"UTF-8",
-                    "sign_type":"sign_type",
+                    // "app_id":"app_id",
+                    // "merchant_private_key":"merchant_private_key",
+                    // "return_url":"return_url",
+                    // "charset":"UTF-8",
+                    // "sign_type":"sign_type",
+                    // // "guid":product_data.guid,     
+                    // "getewayUrl":"getewayUrl",
+                    // "detail":"详情",
+                    // "alipay_public_key":"alipay_public_key",
+                    "pay_type":pay_type,
+                    "client_id":product_data.client_id,
+                    "body":"装企ERP-套餐购买-"+product_name,
+                    "total_fee": moeny,
+                    "site_id":product_data.site_id,
                     // "guid":product_data.guid,     
-                    "getewayUrl":"getewayUrl",
+                    "product_id":product_id,
                     "detail":"详情",
-                    "alipay_public_key":"alipay_public_key",
+                    "amount":amount,
                     
                     // "sign_type":"MD5"
                 },
                 success:function(data){
-                    // console.log(pay_type);
+                    console.log(data);
+                    $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url("+data.data.qr_code_url+")"});
                 }
             })
             break;
@@ -194,7 +204,7 @@ function pay(){
                     "pay_type":pay_type,
                     "client_id":product_data.client_id,
                     "body":"装企ERP-套餐购买-"+product_name,
-                    "total_fee": 1,//(moeny*100),
+                    "total_fee":(moeny*100),
                     "site_id":product_data.site_id,
                     // "guid":product_data.guid,     
                     "product_id":product_id,
@@ -204,6 +214,7 @@ function pay(){
                     // "sign_type":"MD5"
                 },
                 success:function(data){
+                    console.log(data)
                     // console.log(pay_type);
                     console.log(product_name);
                     console.log(product_data.client_id);
@@ -261,7 +272,7 @@ $("body").on("click",".renewal-content .pay .pay-list div",function(){
 
 // 版本
 $("body").on("click",".renewal-content .pay .pay-list2 div",function(){
-    $(".renewal-content .pay .pay-list div").removeClass("bg-color");
+    $(".renewal-content .pay .pay-list2 div").removeClass("bg-color");
     $(this).addClass("bg-color");
 })
 var server_back
@@ -282,7 +293,7 @@ $("body").on("click",".pay_code .code_img",function(){
                     window.location.href="/src/index.html"
                     clearInterval(server_back);
                 }
-                console.log(1);
+                // console.log();
                 // 二维码过期
                 if(!data.data){
                     $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image":"url(../assets/images/index/buy_code.png)"})
@@ -292,7 +303,7 @@ $("body").on("click",".pay_code .code_img",function(){
     },1000)
 })
 
-    // 获取试用期id
+    // 获取试用期id(待优化)
     $.ajax({
         type: "GET",
         async:false,
