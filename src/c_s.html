@@ -1,10 +1,12 @@
-<html lang="zh-cn"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>站点提示消息框</title>
-  <style>
-    /* 已过期续费 */
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>站点提示消息框</title>
+    <style>
+        /* 已过期续费 */
 .expire {
 position: fixed;
 width: 100%;
@@ -23,6 +25,8 @@ margin: 20px auto;
 border-radius: 10px;
 box-shadow: 0 0 20px #438EB9;
 padding-bottom: 20px;
+overflow: hidden;
+
 }
 
 .renewal-content .renewal-title {
@@ -53,17 +57,18 @@ cursor: pointer;
 color: #fff;
 }
 .renewal-content .price-pick:first-child{
-margin-left: 0px;
-display: none;
+/* margin-left: 0px; */
+/* display: none; */
 }
 .renewal-content .price-pick:nth-child(2){
-margin-left: 0px;
+/* margin-left: 0px; */
 }
 .renewal-content .price-pick {
+text-align: center;
 display: inline-block;
 width: 230px;
-margin-left: 5px;
-text-align: center;
+margin-left: 6px;
+/* text-align: center; */
 font-size: 20px;
 font-family: "Microsoft YaHei";
 border: 1px solid #dfdede;
@@ -118,7 +123,6 @@ clear: both;
 .renewal-content .price {
 /* 为了兼容IE */
 zoom: 1;
-text-align: center;
 overflow: auto;
 }
 
@@ -316,41 +320,215 @@ top: -10px;
 border-bottom: 3px solid #d6c096;
 color: #000;
 }
+.box{
+	position: relative;
+	display: inline-block;
+}
+#roll{
+	width: 400% !important;
+}
+.box .click_btn{
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #dfdede;
+    background: -webkit-linear-gradient(#e7e7e7, #fff);
+    background: -o-linear-gradient(#e7e7e7, #fff);
+    background: -moz-linear-gradient(#e7e7e7, #fff);
+    background: linear-gradient(#e7e7e7, #fff);
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 90;
+    color: #438EB9;
+}
+.box .prev{
+    
+    bottom: -20%;
+    left: 200px;
+        /* top: 0px; */}
+.box .next{
+    bottom: -20%;
+    left: 500px;
+}
 </style>
 </head>
-<body>
-<script src="http://wechat.yzferp.com/static/erp/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="http://wechat.yzferp.com/static/erp/js/jquery.easyui.min.js"></script>
-<div id="meal_container" class="renewal">
-      <div class="renewal-content">
-      <div class="renewal-title">7搜装企erp系统充值</div>
-      <div class="pay-list2">
-        <div class="company species">
-        公司版
-        </div>
-        <div class="group">
-        集团版
-        </div>
-        <div class="line"></div>
-        </div>
-      <div class="price"><div class="price-pick border-color-red" data-options="{&quot;id&quot;:1,&quot;guid&quot;:&quot;QT5BADC60549A46535257&quot;,&quot;package_name&quot;:&quot;试用期（普通）&quot;,&quot;term&quot;:30,&quot;price&quot;:&quot;0.01&quot;,&quot;status&quot;:1}"><span>0.01</span>/试用期（普通）<p class="original">30天</p></div><div class="price-pick" data-options="{&quot;id&quot;:2,&quot;guid&quot;:&quot;QT5BADC755B42D5539852&quot;,&quot;package_name&quot;:&quot;1年VIP&quot;,&quot;term&quot;:365,&quot;price&quot;:&quot;999.00&quot;,&quot;status&quot;:1}"><span>999.00</span>/1年VIP<p class="original">365天</p></div><div class="price-pick" data-options="{&quot;id&quot;:3,&quot;guid&quot;:&quot;QT5BADC7905900D485357&quot;,&quot;package_name&quot;:&quot;2年VIP&quot;,&quot;term&quot;:730,&quot;price&quot;:&quot;1999.00&quot;,&quot;status&quot;:1}"><span>1999.00</span>/2年VIP<p class="original">730天</p></div><div class="price-pick" data-options="{&quot;id&quot;:4,&quot;guid&quot;:&quot;QT5BADC7D6A6895549754&quot;,&quot;package_name&quot;:&quot;3年VIP&quot;,&quot;term&quot;:1095,&quot;price&quot;:&quot;2999.00&quot;,&quot;status&quot;:1}"><span>2999.00</span>/3年VIP<p class="original">1095天</p></div></div>
-      <div class="pay-way">支付方式：扫码</div>
-      <div class="pay">
 
-          <div class="pay-list">
-              <div class="weixin bg-color" data-paytype="1">
-                  微信支付
-              </div>
-              <div class="zhifubao" data-paytype="2">
-                  支付宝支付
-              </div>
-          </div>
-          <div class="pay_code">
-              <div class="code_img" title="点击刷新" style="background-image: url(&quot;/static/assets/images/pay/buy_code.png&quot;);"></div>
-              <div class="pay_money">支付金额:<span class="moeny-num">0.01</span><span>￥</span></div>
-              <!-- <div class="try">您目前处于试用期</div> -->
-          </div>
-          <!-- <div class="pay-list2">
+<body>
+    <script src="http://wechat.yzferp.com/static/erp/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://wechat.yzferp.com/static/erp/js/jquery.easyui.min.js"></script>
+    <script>
+       (function ($){
+	$.fn.superSlider = function (options){
+		var _this = $(this);//模块最外层盒子
+		//默认参数
+		var defaults = {
+						prevBtn: 	 ".prevBtn",//上一页按钮
+						nextBtn: 	 ".nextBtn",//下一页按钮
+						listCont: 	 ".content",//滚动列表外层
+						delayTime: 	 3000,//自动轮播时间间隔,默认1秒
+						speed: 		 3000,//滚动速度,默认1秒/次
+						amount: 	 1,//单次滚动数量,默认1个
+						showNum: 	 3,//默认显示个数,默认4个
+						autoPlay: 	 false,///是否自动自动轮播,默认否，若要自动轮播请设置成true
+						scrollWhere: "prev"//自动滚动方向，默然是上，下的参数为 next
+					};
+		var opts = $.extend(defaults, options);
+		//缓存后续常用全局变量
+		var gb = {
+					cont: 	 	  _this.find(opts.listCont),//轮播内容区域
+					prevBtn: 	  _this.find(opts.prevBtn),//上一页按钮
+					nextBtn: 	  _this.find(opts.nextBtn),//下一页按钮
+					time: 	 	  opts.delayTime,//延迟时间
+					speed: 	 	  opts.speed,//自动轮播速度
+					oneContWidth: _this.find(opts.listCont).children().eq(0).outerWidth(true),//单个内容宽度
+					n: opts.amount,//单次滚动数量
+					len: 		  _this.find(opts.listCont).children().length,//轮播子元素数量
+					contWidth: 	  _this.find(opts.listCont).children().length*_this.find(opts.listCont).children().eq(0).outerWidth(true),//元素总宽
+					showNum: 	  opts.showNum//显示个数
+				};
+		//动画对象
+		var slider = {
+				scrollLNext: function (){
+                    var gb = {
+					cont: 	 	  _this.find(opts.listCont),//轮播内容区域
+					prevBtn: 	  _this.find(opts.prevBtn),//上一页按钮
+					nextBtn: 	  _this.find(opts.nextBtn),//下一页按钮
+					time: 	 	  opts.delayTime,//延迟时间
+					speed: 	 	  opts.speed,//自动轮播速度
+					oneContWidth: _this.find(opts.listCont).children().eq(0).outerWidth(true),//单个内容宽度
+					n: opts.amount,//单次滚动数量
+					len: 		  _this.find(opts.listCont).children().length,//轮播子元素数量
+					contWidth: 	  _this.find(opts.listCont).children().length*_this.find(opts.listCont).children().eq(0).outerWidth(true),//元素总宽
+					showNum: 	  opts.showNum//显示个数
+				};
+					if(!gb.cont.is(":animated")){
+                        gb.cont.children().slice(0,gb.n).clone().appendTo(gb.cont);
+                        SenSirClass.curMeal($(".price"))
+						gb.cont.width(gb.cont.children().length*gb.oneContWidth+'px');//设置轮播内容的宽度
+						gb.cont.animate({
+							"margin-left": "-"+gb.oneContWidth*gb.n+"px"
+							}, gb.speed, function() {
+							$(this).children().slice(0,gb.n).remove();
+							$(this).css('margin-left', '0px');
+						});
+					}else{
+						//cont.stop(true,true);
+					}
+				},
+				scrollPrev: function (){
+                    var gb = {
+					cont: 	 	  _this.find(opts.listCont),//轮播内容区域
+					prevBtn: 	  _this.find(opts.prevBtn),//上一页按钮
+					nextBtn: 	  _this.find(opts.nextBtn),//下一页按钮
+					time: 	 	  opts.delayTime,//延迟时间
+					speed: 	 	  opts.speed,//自动轮播速度
+					oneContWidth: _this.find(opts.listCont).children().eq(0).outerWidth(true),//单个内容宽度
+					n: opts.amount,//单次滚动数量
+					len: 		  _this.find(opts.listCont).children().length,//轮播子元素数量
+					contWidth: 	  _this.find(opts.listCont).children().length*_this.find(opts.listCont).children().eq(0).outerWidth(true),//元素总宽
+					showNum: 	  opts.showNum//显示个数
+				};
+					if(!gb.cont.is(":animated")){
+                        gb.cont.children().slice(gb.len-gb.n,gb.len).clone().prependTo(gb.cont);
+                        SenSirClass.curMeal($(".price"))
+						gb.cont.css({
+						"margin-left": "-"+gb.oneContWidth*gb.n+"px",
+						"width": gb.cont.children().length*gb.oneContWidth+"px"
+						});
+						gb.cont.animate({
+							"margin-left": "0px"
+							}, gb.speed, function() {
+								$(this).children().slice((gb.cont.children().length - gb.n),gb.cont.children().length).remove();
+						});
+					}
+				},
+				init: function (){
+					//一点点样式的初始化，为了增加插件的易用性
+					gb.cont.parent().css({
+					"overflow": "hidden",
+					"width": gb.showNum*gb.oneContWidth
+					});//为父级设置超出隐藏
+					gb.cont.width(gb.contWidth+'px');//设置轮播内容的宽度
+					//判断如果多出显示个数则加滚屏效果
+					if(gb.cont.children().length <= gb.showNum){
+						gb.prevBtn.hide();
+						gb.nextBtn.hide();
+					}
+					else{
+						gb.prevBtn.show();
+						gb.nextBtn.show();
+						gb.prevBtn.off().on('click',this.scrollPrev);
+						gb.nextBtn.off().on('click',this.scrollLNext);
+					}
+					if(opts.autoPlay === true){
+						if(opts.scrollWhere === "prev"){
+							var fn = this.scrollPrev;
+						} else{
+							var fn = this.scrollLNext;
+						}
+						var t = opts.delayTime + opts.speed;
+						var timer = setInterval(fn, t);
+						$(opts.listCont+","+opts.prevBtn+","+opts.nextBtn).hover(function() {
+							clearInterval(timer);
+						}, function() {
+							timer = setInterval(fn, t);
+						});
+
+					}
+				}
+		}
+		slider.init();
+	}
+})(jQuery);
+
+    </script>
+    <div id="meal_container" class="renewal">
+        <div class="renewal-content">
+            <div class="renewal-title">7搜装企erp系统充值</div>
+            <div class="pay-list2">
+                <div class="company species">
+                    公司版
+                </div>
+                <div class="group">
+                    集团版
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="box">
+                    <span class="next click_btn">下一个</span>
+                    <div>
+                    <dl id="roll" class="price">
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                        <dd></dd>
+                    </dl>
+                    </div>
+                    <span class="prev click_btn">上一个</span>
+                </div>	
+            <div class="pay-way">支付方式：扫码</div>
+            <div class="pay">
+
+                <div class="pay-list">
+                    <div class="weixin bg-color" data-paytype="1">
+                        微信支付
+                    </div>
+                    <div class="zhifubao" data-paytype="2">
+                        支付宝支付
+                    </div>
+                </div>
+                <div class="pay_code">
+                    <div class="code_img" title="点击刷新" style="background-image: url(&quot;/static/assets/images/pay/buy_code.png&quot;);"></div>
+                    <div class="pay_money">支付金额:<span class="moeny-num">0.01</span><span>￥</span></div>
+                    <!-- <div class="try">您目前处于试用期</div> -->
+                </div>
+                <!-- <div class="pay-list2">
               <div class="company bg-color">
                   公司版
               </div>
@@ -358,150 +536,193 @@ color: #000;
                   集团版
               </div>
           </div> -->
-      </div>
-  </div>
-  <script>
-      $(function () {
-          SenSirClass.init()
-      })
+            </div>
+        </div>
+        <script>
+            $(function () {
+                SenSirClass.init();
+                $(".box").superSlider({
+                    prevBtn: ".prev",//左按钮
+                    nextBtn: ".next",//右按钮
+                    listCont: "#roll",//滚动列表外层
+                    scrollWhere: "prev",//自动滚动方向next
+                    delayTime: 3000,//自动轮播时间间隔
+                    speed: 400,//滚动速度
+                    amount: 1,//单次滚动数量
+                    showNum: 6,//显示数量
+                    // autoPlay: 	 true//自动播放
+                });
+            })
 
-      let SenSirClass = {
-          selectedMeal: {
-              guid: "",
-              package_name: "",
-              price: 0.00,
-              term: 0
-          },
-          allMeals: [],
-          sendOptions: {
-              pay_type: 1,
-              client_id: 'QT59F183EA57636975352',
-              site_id: 'QT59F30F8042129485253',
-              product_id: 'QT5BADC60549A46535257',
-              body: '',
-              total_fee: '',
-              detail: '',
-              amount: 1,
-          },
-          init: function () {
-              this.mealLists()
-              this.__extractContents()
-          },
-          mealLists: function () {
-              if (this.allMeals.length === 0) {
-                  $.ajax({
-                      type: "GET",
-                      cache: false,
-                      dataType: "json",
-                      url: 'http://wechat.yzferp.com/api/meal.meal/getmeallists',
-                      success: function (data) {
-                          if (data.code === 1001) {
-                              SenSirClass.allMeals = data.data
-                              SenSirClass.parseMealLists()
-                          } else {
-                              console.error(data.msg)
-                              return false
-                          }
-                      }
-                  })
-              }
-          },
-          parseMealLists: function() {
-              var html = '';
-              // 充值价格选择
-              $.each(SenSirClass.allMeals, (i, m) => {
-                  delete m.create_time
-                  delete m.update_time
-                  html += '<div class="price-pick" data-options=' + JSON.stringify(m) + '><span>' + m.price + '</span>/' + m.package_name + '<p class="original">' + m.term + '天</p></div>';
-              })
+            let SenSirClass = {
+                selectedMeal: {
+                    guid: "",
+                    package_name: "",
+                    price: 0.00,
+                    term: 0
+                },
+                allMeals: [],
+                sendOptions: {
+                    pay_type: 1,
+                    client_id: 'QT59F183EA57636975352',
+                    site_id: 'QT59F30F8042129485253',
+                    product_id: 'QT5BADC60549A46535257',
+                    body: '',
+                    total_fee: '',
+                    detail: '',
+                    amount: 1,
+                },
+                init: function () {
+                    this.mealLists()
+                    this.__extractContents()
+                },
+                mealLists: function () {
+                    if (this.allMeals.length === 0) {
+                        $.ajax({
+                            type: "GET",
+                            cache: false,
+                            dataType: "json",
+                            url: 'http://wechat.yzferp.com/api/meal.meal/getmeallists',
+                            success: function (data) {
+                                if (data.code === 1001) {
+                                    SenSirClass.allMeals = data.data
+                                    SenSirClass.parseMealLists()
+                                } else {
+                                    console.error(data.msg)
+                                    return false
+                                }
+                            }
+                        })
+                    }
+                },
+                parseMealLists: function () {
+                    var html = '';
+                    // 充值价格选择
+                    $.each(SenSirClass.allMeals, (i, m) => {
+                        delete m.create_time
+                        delete m.update_time
+                        html += '<dd class="price-pick" data-options=' + JSON.stringify(m) + '><span>' + m.price + '</span>/' + m.package_name + '<p class="original">' + m.term + '天</p></dd>';
+                    })
 
-              $(".price").html(html);
+                    $(".price").html(html);
 
-              // 第一个套餐
-              SenSirClass.curMeal($(".price"))
-          },
-          curMeal: function (dom) {
-              dom.children().each((i, d) => {
-                  if(i === 0) {
-                      SenSirClass.selectedMeal = $(d).data('options')
-                      SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
-                      SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
-                      SenSirClass.__constructDisplay(d)
-                  }
+                    // 第一个套餐
+                    SenSirClass.curMeal($(".price"))
+                },
+                curMeal: function (dom) {
+                    dom.children().each((i, d) => {
+                        if (i === 0) {
+                            SenSirClass.selectedMeal = $(d).data('options')
+                            SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
+                            SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
+                            SenSirClass.__constructDisplay(d)
+                        }
 
-                  $(d).on('click', function (e) {
-                      SenSirClass.selectedMeal = $(d).data('options')
-                      SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
-                      SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
-                      SenSirClass.__constructDisplay(d)
-                  })
-              })
-          },
-          __constructDisplay: function (mealDom) {
-              if (mealDom) {
-                  setTimeout(function () {
-                      $('.price-pick').removeClass('border-color-red')
-                      $(mealDom).addClass("border-color-red");
-                  }, 300)
-              }
+                        $(d).on('click', function (e) {
+                            SenSirClass.selectedMeal = $(d).data('options')
+                            SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
+                            SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
+                            SenSirClass.__constructDisplay(d)
+                        })
+                    })
+                },
+                __constructDisplay: function (mealDom) {
+                    if (mealDom) {
+                        setTimeout(function () {
+                            $('.price-pick').removeClass('border-color-red')
+                            $(mealDom).addClass("border-color-red");
+                        }, 300)
+                    }
 
-              $('.pay-list').children().removeClass('bg-color')
-              var payDom = SenSirClass.sendOptions.pay_type === 1 ? $('.weixin') : $('.zhifubao')
-              payDom.addClass('bg-color')
-              $(".company").addClass("bg-color");
+                    $('.pay-list').children().removeClass('bg-color')
+                    var payDom = SenSirClass.sendOptions.pay_type === 1 ? $('.weixin') : $('.zhifubao')
+                    payDom.addClass('bg-color')
+                    $(".company").addClass("bg-color");
 
-              // 支付金额
-              $('.pay .pay_code .code_img').css({'background-image': 'url("/static/assets/images/pay/buy_code.png")'})
-              $('.pay .pay_code .pay_money .moeny-num').text(SenSirClass.sendOptions.total_fee)
-          },
-          __extractContents: function () {
-              var weixin = $('.weixin'), alipay = $('.zhifubao'), payImg = $('.pay_code .code_img')
-              weixin.on('click', () => {
-                  SenSirClass.sendOptions.pay_type = weixin.data('paytype');
-                  SenSirClass.__constructDisplay()
-              })
-              alipay.on('click', () => {
-                  SenSirClass.sendOptions.pay_type = alipay.data('paytype');
-                  SenSirClass.__constructDisplay()
-              })
-              payImg.on('click', () => {
-                  this.__sendPayMeal()
-              })
-          },
-          __filterOptions: function () {
-              var params = $.extend(true, {}, this.sendOptions)
-              //if (params.pay_type === 1) params.total_fee *= 100
-              return params
-          },
-          __sendPayMeal: function () {
-              $.ajax({
-                  type: "post",
-                  dataType: "json",
-                  cache: false,
-                  url: 'http://wechat.yzferp.com/api/meal.meal/paymeal',
-                  data: SenSirClass.__filterOptions(),
-                  success: function (res) {
-                      res.code === 1001 && $(".pay .pay_code .code_img").css({"background-image": "url(" + res.data.qr_code_url + ")"});
-                      if(res.code !== 1001) {console.log(res); console.error(res.msg); return false}
-                  }
-              })
-          },
-          __dateFormat: function (timestamp, hour) {
-              let date = new Date(timestamp * 1000), //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-                  Y = date.getFullYear() + '-',
-                  M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-',
-                  D = date.getDate() + ' ',
-                  h = date.getHours() + '时',
-                  m = date.getMinutes() + '分',
-                  s = date.getSeconds()
-              if (hour) {
-                  return h + m;
-              }
-              return Y + M + D;
-          }
-      }
-  </script>
-  </div>
+                    // 支付金额
+                    $('.pay .pay_code .code_img').css({ 'background-image': 'url("/static/assets/images/pay/buy_code.png")' })
+                    $('.pay .pay_code .pay_money .moeny-num').text(SenSirClass.sendOptions.total_fee)
+                },
+                __extractContents: function () {
+                    var weixin = $('.weixin'), alipay = $('.zhifubao'), payImg = $('.pay_code .code_img')
+                    weixin.on('click', () => {
+                        SenSirClass.sendOptions.pay_type = weixin.data('paytype');
+                        SenSirClass.__constructDisplay()
+                    })
+                    alipay.on('click', () => {
+                        SenSirClass.sendOptions.pay_type = alipay.data('paytype');
+                        SenSirClass.__constructDisplay()
+                    })
+                    payImg.on('click', () => {
+                        this.__sendPayMeal()
+                    })
+                },
+                __filterOptions: function () {
+                    var params = $.extend(true, {}, this.sendOptions)
+                    //if (params.pay_type === 1) params.total_fee *= 100
+                    return params
+                },
+                __sendPayMeal: function () {
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        cache: false,
+                        url: 'http://wechat.yzferp.com/api/meal.meal/paymeal',
+                        data: SenSirClass.__filterOptions(),
+                        success: function (res) {
+                            // if ("WebSocket" in window){
+                            //         console.log("您的浏览器支持 WebSocket!");
+                                
+                            //     // 打开一个 web socket
+                            //     var ws = new WebSocket("ws://192.168.0.169:9502");
+                                    
+                            //     ws.onopen = function()
+                            //     {
+                            //         // Web Socket 已连接上，使用 send() 方法发送数据
+                            //         ws.send("发送数据");
+                            //         console.log("数据发送中...");
+                            //     };
+                                    
+                            //     ws.onmessage = function (evt) 
+                            //     { 
+                            //         var received_msg = evt.data;
+                            //         console.log("数据已接收...");
+                            //         console.log(evt)
+                            //     };
+                                    
+                            //     ws.onclose = function()
+                            //     { 
+                            //         // 关闭 websocket
+                            //         console.log("连接已关闭..."); 
+                            //     };
+                            // }
+                                
+                            //     else
+                            //     {
+                            //     // 浏览器不支持 WebSocket
+                            //     console.log("您的浏览器不支持 WebSocket!");
+                            //     }
+                            res.code === 1001 && $(".pay .pay_code .code_img").css({ "background-image": "url(" + res.data.qr_code_url + ")" });
+                            if (res.code !== 1001) { console.log(res); console.error(res.msg); return false }
+                        }
+                    })
+                },
+                __dateFormat: function (timestamp, hour) {
+                    let date = new Date(timestamp * 1000), //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+                        Y = date.getFullYear() + '-',
+                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-',
+                        D = date.getDate() + ' ',
+                        h = date.getHours() + '时',
+                        m = date.getMinutes() + '分',
+                        s = date.getSeconds()
+                    if (hour) {
+                        return h + m;
+                    }
+                    return Y + M + D;
+                }
+            }
+        </script>
+    </div>
 
 
 
@@ -510,4 +731,6 @@ color: #000;
 
 
 
-</body></html>
+</body>
+
+</html>
