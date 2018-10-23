@@ -4,214 +4,319 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>站点提示消息框</title>
   <style>
-      /* 已过期续费 */
-      .expire {
-          position: fixed;
-          width: 100%;
-          height: 300%;
-          top: 0;
-          background-color: #000;
-          opacity: 0.7;
-          z-index: 2;
-      }
+    /* 已过期续费 */
+.expire {
+position: fixed;
+width: 100%;
+height: 300%;
+top: 0;
+background-color: #000;
+opacity: 0.7;
+z-index: 2;
+}
 
-      .renewal-content {
-          width: 720px;
-          height: 550px;
-          background-color: #fff;
-          margin: 100px auto;
-          border-radius: 10px;
-      }
+.renewal-content {
+width: 720px;
+height: auto;
+background-color: #fff;
+margin: 20px auto;
+border-radius: 10px;
+box-shadow: 0 0 20px #438EB9;
+padding-bottom: 20px;
+}
 
-      .renewal-content .renewal-title {
-          height: 60px;
-          width: 100%;
-          background-color: #438EB9;
-          text-align: center;
-          line-height: 60px;
-          color: #fff;
-          font-family: "Microsoft YaHei";
-          font-weight: 400;
-          font-size: 24px;
-      }
+.renewal-content .renewal-title {
+height: 60px;
+width: 100%;
+background-color: #438EB9;
+text-align: center;
+line-height: 60px;
+color: #fff;
+font-family: "Microsoft YaHei";
+font-weight: 400;
+font-size: 24px;
+background: -webkit-linear-gradient(#e7e7e7, #438EB9); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(#e7e7e7, #438EB9); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(#e7e7e7, #438EB9); /* Firefox 3.6 - 15 */
+background: linear-gradient(#e7e7e7, #438EB9); /* 标准的语法 */
+}
 
-      .renewal-content .renewal-title span {
-          float: right;
-          color: #EEEEEE;
-          font-size: 25px;
-          margin-right: 20px;
-          cursor: pointer;
-      }
+.renewal-content .renewal-title span {
+float: right;
+color: #EEEEEE;
+font-size: 25px;
+margin-right: 20px;
+cursor: pointer;
+}
 
-      .renewal-content .renewal-title span:hover {
-          color: #fff;
-      }
+.renewal-content .renewal-title span:hover {
+color: #fff;
+}
+.renewal-content .price-pick:first-child{
+margin-left: 0px;
+display: none;
+}
+.renewal-content .price-pick:nth-child(2){
+margin-left: 0px;
+}
+.renewal-content .price-pick {
+display: inline-block;
+width: 230px;
+margin-left: 5px;
+text-align: center;
+font-size: 20px;
+font-family: "Microsoft YaHei";
+border: 1px solid #dfdede;
+font-weight: 400;
+margin-top: 15px;
+padding-top: 5px;
+cursor: pointer;
+transition: 1s;
+-moz-transition: 1s;
+-webkit-transition: 1s; 
+-o-transition: 1s;
+}
+.moeny-num{
+display: inline-block;
+transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+-moz-transform: rotateY(0deg);
+-webkit-transform: rotateY(0deg);
+-o-transform: rotateY(0deg);
+transition: 3s;
+-moz-transition: 3s; /* Firefox 4 */
+-webkit-transition: 3s; /* Safari 和 Chrome */
+-o-transition: 3s; /* Opera */
+}
+.moeny-num:hover{
+transform: rotateY(360deg);
+-ms-transform: rotateY(360deg);
+-moz-transform: rotateY(360deg);
+-webkit-transform: rotateY(360deg);
+-o-transform: rotateY(360deg);
+transition: 3s;
+-moz-transition: 3s; /* Firefox 4 */
+-webkit-transition: 3s; /* Safari 和 Chrome */
+-o-transition: 3s; /* Opera */
+}
+.renewal-content .price-pick p {
+margin: 0 0 10px;
+line-height: 30px;
+}
+.renewal-content .price:after,
+.renewal-content .pay:after,
+.renewal-content .pay .pay-list::after,
+.renewal-content .pay .pay-list2::after,
+.renewal-content .pay .pay:after {
+content: "";
+height: 0;
+line-height: 0;
+display: block;
+visibility: hidden;
+clear: both;
+}
+.renewal-content .price {
+/* 为了兼容IE */
+zoom: 1;
+text-align: center;
+overflow: auto;
+}
 
-      .renewal-content .price-pick {
-          float: left;
-          width: 230px;
-          margin-left: 7px;
-          text-align: center;
-          font-size: 20px;
-          font-family: "Microsoft YaHei";
-          border: 1px solid #438EB9;
-          font-weight: 400;
-          margin-top: 15px;
-          padding-top: 5px;
-          cursor: pointer;
-          /* box-shadow: 0px 0px 20px #438EB9 */
-      }
+.renewal-content .price{
+/* padding-top: 8px; */
+padding-left: 1px;
+}
+.renewal .renewal-content .pay{
+border: 1px solid #f0f0f0;
+padding-left: 1px;
+background: -webkit-linear-gradient(#e7e7e7, #fff); 
+background: -o-linear-gradient(#e7e7e7, #fff); 
+background: -moz-linear-gradient(#e7e7e7, #fff); 
+background: linear-gradient(#e7e7e7, #fff); 
 
-      .renewal-content .price-pick p {
-          margin: 0 0 10px;
-          line-height: 30px;
-      }
+}
 
-      .renewal-content .price:after {
-          content: "";
-          height: 0;
-          line-height: 0;
-          display: block;
-          visibility: hidden;
-          clear: both;
-      }
+.renewal-content .price-pick:hover {
+border: 1px solid #f6644c;
+box-shadow: 0px 0px 20px #438EB9;
+transition: 1s;
+-moz-transition: 1s; /* Firefox 4 */
+-webkit-transition: 1s; /* Safari 和 Chrome */
+-o-transition: 1s; /* Opera */
+ 
+}
+.renewal-content .price-pick:hover span{
+color: #438EB9;
+transition: 3s;
+-moz-transition: 3s; 
+-webkit-transition: 3s; 
+-o-transition: 3s;
+}
+.renewal-content .price-pick span{
 
-      .renewal-content .price {
-          /* 为了兼容IE */
-          zoom: 1;
-      }
+transition: 1s;
+-moz-transition: 1s; 
+-webkit-transition: 1s; 
+-o-transition: 1s; 
+}
+.renewal-content .price-pick span {
+color: #f6644c;
+font-weight: bold;
+font-size: 23px;
+}
 
-      .renewal-content .price, .renewal .renewal-content .pay {
-          padding-top: 8px;
-          padding-left: 1px;
-      }
+.renewal-content .pay-way {
+width: 680px;
+margin: 20px auto;
+font-size: 18px;
+}
 
-      .renewal-content .price-pick:hover {
-          border: 1px solid #f6644c;
-          box-shadow: 0px 0px 20px #438EB9;
-          transition: 1s;
-          -moz-transition: 1s; /* Firefox 4 */
-          -webkit-transition: 1s; /* Safari 和 Chrome */
-          -o-transition: 1s; /* Opera */
-      }
+.renewal-content .border-color-red {
+border: 1px solid #f6644c !important;
+box-shadow: 0px 0px 20px #f6644c;
+transition: 1s;
+-moz-transition: 1s; /* Firefox 4 */
+-webkit-transition: 1s; /* Safari 和 Chrome */
+-o-transition: 1s; /* Opera */
+}
 
-      .renewal-content .price-pick span {
-          color: #f6644c;
-          font-weight: bold;
-          font-size: 23px;
-      }
+.renewal-content .pay .pay-list,
+.renewal-content .pay .pay-list2 {
+width: 130px;
+height: 200px;
+float: left;
+}
+.renewal-content .pay .pay-list2{
+display: none;
+}
 
-      .renewal-content .pay-way {
-          width: 680px;
-          margin: 20px auto;
-          font-size: 18px;
-      }
+.renewal-content .pay .pay_code {
+/* width: 415px; */
+width: 550px;
+float: left;
+/* height: 200px; */
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.pay-list>.weixin{
+border-bottom: none !important;
+}
 
-      .renewal-content .border-color-red {
-          border: 1px solid #f6644c !important;
-          box-shadow: 0px 0px 20px #f6644c;
-          transition: 1s;
-          -moz-transition: 1s; /* Firefox 4 */
-          -webkit-transition: 1s; /* Safari 和 Chrome */
-          -o-transition: 1s; /* Opera */
-      }
+.renewal-content .pay .pay-list .weixin,
+.renewal-content .pay .pay-list .zhifubao{
+height: 60px;
+line-height: 60px;
+text-align: center;
+border: 1px solid #dfdede;
+background: -webkit-linear-gradient(#e7e7e7, #fff); 
+background: -o-linear-gradient(#e7e7e7, #fff); 
+background: -moz-linear-gradient(#e7e7e7, #fff); 
+background: linear-gradient(#e7e7e7, #fff); 
+font-size: 15px;
+cursor: pointer;
+}
 
-      .renewal-content .pay .pay-list,
-      .renewal-content .pay .pay-list2 {
-          width: 130px;
-          background-color: #eeeff3;
-          height: 200px;
-          float: left;
-      }
-      .renewal-content .pay .pay-list2{
-        display: none;
-      }
+.renewal-content .pay {
+margin: 0 auto;
+width: 680px;
+font-size: 16px;
+}
 
-      .renewal-content .pay .pay_code {
-          width: 415px;
-          float: left;
-          height: 200px;
-      }
+.renewal-content .pay .bg-color {
+background: -webkit-linear-gradient(#fff, #e7e7e7) !important; 
+background: -o-linear-gradient(#fff, #e7e7e7) !important; 
+background: -moz-linear-gradient(#fff, #e7e7e7) !important; 
+background: linear-gradient(#fff, #e7e7e7) !important; 
+color: #438EB9;
+}
 
-      .renewal-content .pay .pay-list .weixin,
-      .renewal-content .pay .pay-list .zhifubao,
-      .renewal-content .pay .pay-list2 .company,
-      .renewal-content .pay .pay-list2 .group {
-          height: 60px;
-          line-height: 60px;
-          text-align: center;
-          border: 1px solid #e7e7e7;
-          font-size: 15px;
-          cursor: pointer;
-      }
+.renewal-content .try {
+text-align: center;
+font-size: 19px;
+font-family: "Microsoft YaHei";
+margin-top: 20px;
+color: #f6644c;
+}
 
-      .renewal-content .pay {
-          margin: 0 auto;
-          width: 680px;
-          font-size: 16px;
-      }
+.renewal-content .pay .pay_code .code_img {
+background-image: url('/static/assets/images/pay/buy_code.png');
+width: 130px;
+height: 130px;
+background-size: 100% 100%;
+margin: 0 auto;
+cursor: pointer;
+}
 
-      .renewal-content .pay .bg-color {
-          background-color: #fff;
-      }
+.renewal-content .pay .pay_code .pay_money {
+padding-top: 20px;
+text-align: center;
+font-size: 20px;
+font-family: "Microsoft YaHei";
+}
 
-      .renewal-content .try {
-          text-align: center;
-          font-size: 19px;
-          font-family: "Microsoft YaHei";
-          margin-top: 20px;
-          color: #f6644c;
-      }
+.renewal-content .pay .pay_code .pay_money .moeny-num {
+color: #f6644c;
+}
 
-      .renewal-content .pay .pay_code .code_img {
-          background-image: url('/static/assets/images/pay/buy_code.png');
-          width: 130px;
-          height: 130px;
-          background-size: 100% 100%;
-          margin: 0 auto;
-          cursor: pointer;
-      }
+.renewal-content .edition {
 
-      .renewal-content .pay .pay_code .pay_money {
-          padding-top: 20px;
-          text-align: center;
-          font-size: 20px;
-          font-family: "Microsoft YaHei";
-      }
+}
 
-      .renewal-content .pay .pay_code .pay_money .moeny-num {
-          color: #f6644c;
-      }
+.renewal-content .edition::after {
+content: "";
+height: 0;
+line-height: 0;
+display: block;
+visibility: hidden;
+clear: both;
+}
 
-      .renewal-content .edition {
-
-      }
-
-      .renewal-content .edition::after {
-          content: "";
-          height: 0;
-          line-height: 0;
-          display: block;
-          visibility: hidden;
-          clear: both;
-      }
-
-      .renewal-content .edition .edition-part {
-          height: 60px;
-          width: 300px;
-          text-align: center;
-          line-height: 55px;
-          font-size: 24px;
-          font-family: "Microsoft YaHei";
-          font-weight: 400;
-          border: 1px solid #438EB9;
-          float: left;
-          margin-left: 40px;
-          margin-top: 10px;
-          cursor: pointer;
-          /* box-shadow: 0 0 20px #f6644c; */
-      }
-  </style>
+.renewal-content .edition .edition-part {
+height: 60px;
+width: 300px;
+text-align: center;
+line-height: 55px;
+font-size: 24px;
+font-family: "Microsoft YaHei";
+font-weight: 400;
+border: 1px solid #438EB9;
+float: left;
+margin-left: 40px;
+margin-top: 10px;
+cursor: pointer;
+/* box-shadow: 0 0 20px #f6644c; */
+}
+.renewal .pay-list2{
+/* text-align: center; */
+padding-top: 10px;
+font-size: 20px;
+color: #999;
+}
+.renewal .pay-list2 .company,.renewal .pay-list2 .group{
+display: inline-block;
+width: 40%;
+cursor: pointer;
+height: 40px;
+text-align: center;
+line-height: 40px;
+margin-left: 50px;
+}
+.renewal .pay-list2 .group{
+  visibility: hidden;
+}
+.renewal .pay-list2 .line{
+height: 1px;
+width: 100%;
+margin: 10px auto 0 auto;
+background-color: #f0f0f0;
+position: relative;
+top: -10px;
+}
+.renewal .pay-list2 .species{
+border-bottom: 3px solid #d6c096;
+color: #000;
+}
+</style>
 </head>
 <body>
 <script src="http://wechat.yzferp.com/static/erp/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -219,7 +324,16 @@
 <div id="meal_container" class="renewal">
       <div class="renewal-content">
       <div class="renewal-title">7搜装企erp系统充值</div>
-      <div class="price"><div class="price-pick" data-options="{&quot;id&quot;:2,&quot;guid&quot;:&quot;QT5BADC755B42D5539852&quot;,&quot;packageName&quot;:&quot;1年VIP&quot;,&quot;term&quot;:365,&quot;price&quot;:&quot;999.00&quot;,&quot;status&quot;:1}"><span>999.00</span>/1年VIP<p class="original">365天</p></div><div class="price-pick border-color-red" data-options="{&quot;id&quot;:3,&quot;guid&quot;:&quot;QT5BADC7905900D485357&quot;,&quot;packageName&quot;:&quot;2年VIP&quot;,&quot;term&quot;:730,&quot;price&quot;:&quot;1999.00&quot;,&quot;status&quot;:1}"><span>1999.00</span>/2年VIP<p class="original">730天</p></div><div class="price-pick" data-options="{&quot;id&quot;:4,&quot;guid&quot;:&quot;QT5BADC7D6A6895549754&quot;,&quot;packageName&quot;:&quot;3年VIP&quot;,&quot;term&quot;:1095,&quot;price&quot;:&quot;2999.00&quot;,&quot;status&quot;:1}"><span>2999.00</span>/3年VIP<p class="original">1095天</p></div></div>
+      <div class="pay-list2">
+        <div class="company species">
+        公司版
+        </div>
+        <div class="group">
+        集团版
+        </div>
+        <div class="line"></div>
+        </div>
+      <div class="price"><div class="price-pick border-color-red" data-options="{&quot;id&quot;:1,&quot;guid&quot;:&quot;QT5BADC60549A46535257&quot;,&quot;package_name&quot;:&quot;试用期（普通）&quot;,&quot;term&quot;:30,&quot;price&quot;:&quot;0.01&quot;,&quot;status&quot;:1}"><span>0.01</span>/试用期（普通）<p class="original">30天</p></div><div class="price-pick" data-options="{&quot;id&quot;:2,&quot;guid&quot;:&quot;QT5BADC755B42D5539852&quot;,&quot;package_name&quot;:&quot;1年VIP&quot;,&quot;term&quot;:365,&quot;price&quot;:&quot;999.00&quot;,&quot;status&quot;:1}"><span>999.00</span>/1年VIP<p class="original">365天</p></div><div class="price-pick" data-options="{&quot;id&quot;:3,&quot;guid&quot;:&quot;QT5BADC7905900D485357&quot;,&quot;package_name&quot;:&quot;2年VIP&quot;,&quot;term&quot;:730,&quot;price&quot;:&quot;1999.00&quot;,&quot;status&quot;:1}"><span>1999.00</span>/2年VIP<p class="original">730天</p></div><div class="price-pick" data-options="{&quot;id&quot;:4,&quot;guid&quot;:&quot;QT5BADC7D6A6895549754&quot;,&quot;package_name&quot;:&quot;3年VIP&quot;,&quot;term&quot;:1095,&quot;price&quot;:&quot;2999.00&quot;,&quot;status&quot;:1}"><span>2999.00</span>/3年VIP<p class="original">1095天</p></div></div>
       <div class="pay-way">支付方式：扫码</div>
       <div class="pay">
 
@@ -232,18 +346,18 @@
               </div>
           </div>
           <div class="pay_code">
-              <div class="code_img" title="点击刷新" style="background-image: url(&quot;http://wechat.yzferp.com/api/meal.meal/payqrcode?ticket=ozzHL0kap/qXVWP886XHzJTSIsehQtxziGa/ysaSnwPlm7L8cfWcB8rUNOkZtbz+H0rKOWv08cxTkFT0JEt7Zj2KeWyVwLNsraKjqyM4RyHZp1ybkZ8qDCl+OJOZaSwM9PET2VKBxUQhr2CCEUVHyEWsSixPqP3dLoojoBx/B43HAaajm9YzXeyBm6wphz5/GlLQ1cfu9ZJamH7CAQJ/P4CyMx5aSZYz5q7OmaG36KhPqkiRhy4yFA4ehoM9TkKgyovbJHBlfFU1gLw0I0q1i8sbht0e8Mjxv+Ig2rbRM67FoYgXZ34W85zYLnpJwk43h2LLsEQul8KJ4ZrksygoOA==&quot;);"></div>
-              <div class="pay_money">支付金额:<span class="moeny-num"></span><span>￥</span></div>
+              <div class="code_img" title="点击刷新" style="background-image: url(&quot;/static/assets/images/pay/buy_code.png&quot;);"></div>
+              <div class="pay_money">支付金额:<span class="moeny-num">0.01</span><span>￥</span></div>
               <!-- <div class="try">您目前处于试用期</div> -->
           </div>
-          <div class="pay-list2">
+          <!-- <div class="pay-list2">
               <div class="company bg-color">
                   公司版
               </div>
               <div class="group">
                   集团版
               </div>
-          </div>
+          </div> -->
       </div>
   </div>
   <script>
@@ -253,60 +367,78 @@
 
       let SenSirClass = {
           selectedMeal: {
-              "guid": "",
-              "packageName": "",
-              "price": 0.00,
-              "term": 0
+              guid: "",
+              package_name: "",
+              price: 0.00,
+              term: 0
           },
           allMeals: [],
           sendOptions: {
-              "pay_type": 1,
-              "client_id": 'QT59F183EA57636975352',
-              "site_id": 'QT59F30F8042129485253',
-              "product_id": 'QT5BADC60549A46535257',
-              "body": '',
-              "total_fee": '',
-              "detail": '',
-              "amount": 1,
+              pay_type: 1,
+              client_id: 'QT59F183EA57636975352',
+              site_id: 'QT59F30F8042129485253',
+              product_id: 'QT5BADC60549A46535257',
+              body: '',
+              total_fee: '',
+              detail: '',
+              amount: 1,
           },
-          init: function (domain) {
+          init: function () {
               this.mealLists()
               this.__extractContents()
           },
           mealLists: function () {
-              $.ajax({
-                  type: "GET",
-                  cache: false,
-                  dataType: "json",
-                  url: 'http://wechat.yzferp.com/api/meal.meal/getmeallists',
-                  success: function (data) {
-                      var html = '';
-                      SenSirClass.allMeals = data.data
-                      // 充值价格选择
-                      for (var i = 1; i < data.data.length; i++) {
-                          delete data.data[i].create_time
-                          delete data.data[i].update_time
-                          html += '<div class="price-pick" data-options=' + JSON.stringify(data.data[i]) + '><span>' + data.data[i].price + '</span>/' + data.data[i].packageName + '<p class="original">' + data.data[i].term + '天</p></div>';
+              if (this.allMeals.length === 0) {
+                  $.ajax({
+                      type: "GET",
+                      cache: false,
+                      dataType: "json",
+                      url: 'http://wechat.yzferp.com/api/meal.meal/getmeallists',
+                      success: function (data) {
+                          if (data.code === 1001) {
+                              SenSirClass.allMeals = data.data
+                              SenSirClass.parseMealLists()
+                          } else {
+                              console.error(data.msg)
+                              return false
+                          }
                       }
-                      $(".price").html(html);
-
-                      // 第一个套餐
-                      SenSirClass.curMeal($(".price"))
-                  }
+                  })
+              }
+          },
+          parseMealLists: function() {
+              var html = '';
+              // 充值价格选择
+              $.each(SenSirClass.allMeals, (i, m) => {
+                  delete m.create_time
+                  delete m.update_time
+                  html += '<div class="price-pick" data-options=' + JSON.stringify(m) + '><span>' + m.price + '</span>/' + m.package_name + '<p class="original">' + m.term + '天</p></div>';
               })
+
+              $(".price").html(html);
+
+              // 第一个套餐
+              SenSirClass.curMeal($(".price"))
           },
           curMeal: function (dom) {
               dom.children().each((i, d) => {
+                  if(i === 0) {
+                      SenSirClass.selectedMeal = $(d).data('options')
+                      SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
+                      SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
+                      SenSirClass.__constructDisplay(d)
+                  }
+
                   $(d).on('click', function (e) {
                       SenSirClass.selectedMeal = $(d).data('options')
-                      SenSirClass.sendOptions.body = SenSirClass.selectedMeal.packageName
+                      SenSirClass.sendOptions.body = SenSirClass.selectedMeal.package_name
                       SenSirClass.sendOptions.total_fee = SenSirClass.selectedMeal.price * SenSirClass.sendOptions.amount
                       SenSirClass.__constructDisplay(d)
                   })
               })
           },
           __constructDisplay: function (mealDom) {
-              if(mealDom){
+              if (mealDom) {
                   setTimeout(function () {
                       $('.price-pick').removeClass('border-color-red')
                       $(mealDom).addClass("border-color-red");
@@ -317,30 +449,40 @@
               var payDom = SenSirClass.sendOptions.pay_type === 1 ? $('.weixin') : $('.zhifubao')
               payDom.addClass('bg-color')
               $(".company").addClass("bg-color");
+
+              // 支付金额
+              $('.pay .pay_code .code_img').css({'background-image': 'url("/static/assets/images/pay/buy_code.png")'})
+              $('.pay .pay_code .pay_money .moeny-num').text(SenSirClass.sendOptions.total_fee)
           },
           __extractContents: function () {
               var weixin = $('.weixin'), alipay = $('.zhifubao'), payImg = $('.pay_code .code_img')
-              weixin.on('click', () => {SenSirClass.sendOptions.pay_type = weixin.data('paytype'); SenSirClass.__constructDisplay()})
-              alipay.on('click', () => {SenSirClass.sendOptions.pay_type = alipay.data('paytype'); SenSirClass.__constructDisplay()})
-              payImg.on('click', () => this.__sendPayMeal())
+              weixin.on('click', () => {
+                  SenSirClass.sendOptions.pay_type = weixin.data('paytype');
+                  SenSirClass.__constructDisplay()
+              })
+              alipay.on('click', () => {
+                  SenSirClass.sendOptions.pay_type = alipay.data('paytype');
+                  SenSirClass.__constructDisplay()
+              })
+              payImg.on('click', () => {
+                  this.__sendPayMeal()
+              })
           },
           __filterOptions: function () {
-              if (this.sendOptions.pay_type === 1) {
-                  this.sendOptions.total_fee *= 100
-              } else {
-                  this.sendOptions.total_fee /= 100
-              }
+              var params = $.extend(true, {}, this.sendOptions)
+              //if (params.pay_type === 1) params.total_fee *= 100
+              return params
           },
           __sendPayMeal: function () {
-              this.__filterOptions()
               $.ajax({
                   type: "post",
                   dataType: "json",
                   cache: false,
                   url: 'http://wechat.yzferp.com/api/meal.meal/paymeal',
-                  data: SenSirClass.sendOptions,
+                  data: SenSirClass.__filterOptions(),
                   success: function (res) {
-                      res.code === 1001 && $(".renewal .renewal-content .pay .pay_code .code_img").css({"background-image": "url(" + res.data.qr_code_url + ")"});
+                      res.code === 1001 && $(".pay .pay_code .code_img").css({"background-image": "url(" + res.data.qr_code_url + ")"});
+                      if(res.code !== 1001) {console.log(res); console.error(res.msg); return false}
                   }
               })
           },
